@@ -1,0 +1,67 @@
+---
+- name: Create the logical volume
+  hosts: all
+  become: true
+  tasks:
+    - name: Create the partition 
+      parted:
+        device: /dev/sdc
+        number: 1
+        state: present     
+        flags: [ lvm ]
+
+    - name: check the exsitance of research
+      shell: vgdisplay | grep research
+      ignore_errors: true
+      register: volume
+      tags: vg
+
+    - name: debug message
+      debug:
+        msg: "Volume group does not exist"
+      when: volume.rc != 0   
+      tags: vg
+
+    - name: Create the volume group
+      block:
+        - name: Create research volume group      
+          lvg:
+            vg: research
+            pvs: /dev/sdc1
+
+      rescue:
+        - name: Display a fail message
+          debug:
+            msg: "Volume group does not exist"
+
+    - name: Create the logical volume
+      block:
+        - name: Create a logical volume of 1500MiB
+          lvol:
+            vg: research
+            lv: /dev/research/lv_research
+            size: 1500
+
+      rescue:
+        - name: Display a fail message
+          debug:
+            msg: "Could not create logical volume of that size"
+
+        - name: Create a logical volume of 800MiB 
+          lvol:
+            vg: research
+            lv: /dev/research/lv_research
+            size: 800
+             
+    - name: Create the file system
+      filesystem:
+        fstype: ext4
+        dev: /dev/research/lv_research
+        
+    - name: Mount the file system
+      mount:
+        path: /data
+        src: /dev/research/lv_research
+        fstype: ext4
+        state: mounted
+      when: inventory_hostname in groups['proxy']    

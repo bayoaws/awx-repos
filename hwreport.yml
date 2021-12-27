@@ -1,0 +1,15 @@
+---
+- name: Generate a hardware report
+  hosts: all
+  become: true
+
+  tasks:
+          #- name: Download a link
+          # get_url:
+          # url: http://rhgls.labx.example.com/materials 
+          #dest: /root/hwreport.txt
+
+    - name: Generate the file    
+      template:
+        src: report.j2
+        dest: /root/hwreport.txt

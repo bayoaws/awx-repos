@@ -1,0 +1,21 @@
+---
+- name: Create a customised configuration files
+  hosts: all
+  become: true
+  
+  tasks:
+    - name: Create /etc/server_list.txt file
+      template:
+        src: server_list.j2 
+        dest: /etc/server_list.txt 
+        mode: 0600
+        owner: automation
+      when: inventory_hostname in groups['database']  
+
+    - name: set selinux context
+      sefcontext:
+        target: '/etc/server_list.txt'
+        setype: net_conf_t
+        state: present
+      when: inventory_hostname in groups['database']  
+   
