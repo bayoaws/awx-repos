@@ -1,0 +1,7 @@
+---
+- name: Install and configure httpd 
+  hosts: all
+  become: true
+
+  roles:
+    - apache

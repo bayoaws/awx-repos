@@ -1,0 +1,14 @@
+---
+- name: list the users
+  hosts: all
+
+  tasks:
+    - name: print the users
+      debug:
+        msg: "{{ item }}"
+      loop:
+        - user1
+        - user2
+        - user3
+        - user4
+        - user5

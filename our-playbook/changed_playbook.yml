@@ -1,0 +1,13 @@
+---
+- name: Print the date command out
+  hosts: node1
+
+  tasks: 
+    - name: Check local time
+      command: date
+      changed_when: false
+      register: command_result
+
+    - name: Print local time
+      debug:
+        var: command_result['stdout']

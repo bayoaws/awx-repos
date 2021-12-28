@@ -1,0 +1,29 @@
+---
+- name: modify the contents of the /etc/motd file
+  hosts: all
+  become: true
+  tasks:
+  - name: Add content into /etc/motd
+    copy:
+      content: "This server is managed by Ansible.\n"
+      dest: /etc/motd
+      owner: ansible
+      group: ansible
+      mode: 0644
+
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: latest
+
+  - name: Start and enable httpd
+    systemd:
+      name: httpd
+      enabled: true
+      state: started
+
+  - name: Open up httpd port on firewall
+    firewalld:
+      service: http
+      state: enabled
+      permanent: true

@@ -1,0 +1,11 @@
+users:
+  - name: paul
+    password: online1
+    groups:
+      - wheel
+
+  - name: john
+    password: online1
+    groups:
+      - wheel
+      - devops

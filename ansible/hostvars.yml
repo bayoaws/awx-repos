@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+  - debug:
+      var: hostvars

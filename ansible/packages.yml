@@ -1,0 +1,18 @@
+---
+- hosts: test prod
+  user: admin
+  become: yes
+  tasks:
+  - name: Install php and mariadb
+    yum: 
+      name: ['php', 'mariadb']
+      state: installed
+- hosts: dev
+  user: admin
+  become: yes
+  tasks:
+  - name: Install php mariadb and development tools
+    yum:
+      name: ['php', 'mariadb', '@Development tools']
+      state: latest
+...

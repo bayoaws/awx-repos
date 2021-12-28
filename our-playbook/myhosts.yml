@@ -1,0 +1,15 @@
+---
+- name: configure Message of the day
+  hosts: all
+  remote_user: ansible
+  become: true
+
+  tasks:
+    - name: configure /etc/mynewhosts
+      template:
+        src: templates/hosts.j2
+        dest: /etc/mynewhosts2
+        owner: root
+        group: root
+        mode: 0644
+      when: inventory_hostname == "node5" 

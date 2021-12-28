@@ -1,0 +1,30 @@
+---
+- name: Install and configure httpd
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: latest
+
+    - name: start and enable httpd
+      systemd:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Edit httpd file to listen on port 8080
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^Listen '
+        insertafter: '^#Listen '
+        line: Listen 8080
+      notify: restart httpd  
+
+  handlers:  
+    - name: restart httpd
+      systemd:
+        name: httpd
+        state: restarted

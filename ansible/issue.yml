@@ -1,0 +1,39 @@
+---
+- hosts: all
+#  remote_user: root
+#  vars_prompt:
+#  - name: "ansible_ssh_password"
+#    prompt: "root password"
+#    private: yes
+  user: admin
+  become: yes
+  tasks:
+  - name: Override the /etc/issue file
+    replace: 
+      path: /etc/issue
+      regexp: '^(.+)$'
+      backup: yes
+  - name: Add Development on /etc/issue in dev host group
+    copy:
+      dest: /etc/issue
+      content: 'Development'
+    when: inventory_hostname in groups['dev']
+   
+  - name: Add Test on /etc/issue in test host group
+    copy:
+      dest: /etc/issue
+      content: 'Test'
+    when: inventory_hostname in groups['test']
+
+  - name: Add Quality-ansurance on /etc/issue in test qa group
+    copy:
+      dest: /etc/issue
+      content: 'Quality Insurance'
+    when: inventory_hostname in groups['qa']
+
+  - name: Add Production on  /etc/issue in prod host group
+    copy:
+      dest: /etc/issue
+      content: 'Production'
+    when: inventory_hostname in groups['prod']
+...

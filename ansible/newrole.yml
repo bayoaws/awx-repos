@@ -1,0 +1,10 @@
+---
+- name: Configure a web server
+  hosts: webservers
+  user: admin
+  become: yes
+  roles:
+    - /home/admin/ansible/roles/apache
+  post_tasks:
+    - name: restart httpd
+      service: name=httpd state=restarted

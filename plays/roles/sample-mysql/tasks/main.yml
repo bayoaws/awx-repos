@@ -1,0 +1,79 @@
+---
+# tasks file for roles/sample-mysql
+
+- name: create the 1st partition from /dev/sdd
+  parted:
+    device: /dev/sdd
+    number: 1
+    flags: [ lvm ]
+    state: present
+    part_end: 800MB
+
+- name: Create the volume group
+  lvg: 
+    vg: vg_database  
+    pvs: /dev/sdd1
+ 
+- name: Create the logical volume
+  lvol:
+    vg: vg_database
+    lv: lv_mysql 
+    size: 512m
+
+- name: Create xfs filesystem
+  filesystem:
+    fstype: xfs
+    dev: /dev/vg_database/lv_mysql
+
+- name: Create the mount point
+  file:
+    path: /mnt/mysql_backups
+    state: directory    
+
+- name: Mount the filesystem
+  mount:
+    path: /mnt/mysql_backups
+    src: /dev/vg_database/lv_mysql
+    fstype: xfs
+    state: present
+
+- name: Install mariadb and firewalld
+  yum:
+    name: 
+      - firewalld
+      - mariadb
+      - mariadb-server
+      - python3-PyMySQL
+    state: latest     
+
+- name: Start and enable firewalld
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop:
+    - mariadb
+    - firewalld  
+
+- name: Configure firewall 
+  firewalld:
+    port: 3306/tcp
+    permanent: true
+    immediate: true
+    state: enabled
+
+- name: Set mysql root user password
+  mysql_user:
+    name: root
+    host_all: true
+    password: "{{ database_password }}"
+    login_user: root
+    login_password: "{{ database_password }}"
+
+- name: Generate the mysql configuration file
+  template:
+    src: my.cnf.j2 
+    dest: /etc/my.cnf.d/mariadb-server.cnf  
+  notify: restart mariadb   
+
+  

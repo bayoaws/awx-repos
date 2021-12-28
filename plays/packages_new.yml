@@ -1,0 +1,23 @@
+---
+- name: Install mariadb and php packages
+  hosts: test, webservers
+  become: true
+  tasks:
+    - name: Install packages
+      yum:
+        name: 
+          - mariadb
+          - php
+        state: latest
+
+- name: Install Development Tools packages
+  hosts: test
+  become: true
+  tasks:
+    - name: Install Dev Tool
+      yum:
+        name: "{{ item }}" 
+        state: latest 
+      loop:
+        - '@Development tools'
+        - '*'   

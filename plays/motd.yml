@@ -1,0 +1,31 @@
+---
+- name: Add content to /etc/motd file
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Add content to proxy host group
+      copy:
+        content: “Welcome to HAProxy server”
+        dest: /etc/motd
+      when: inventory_hostname in groups['proxy']
+
+    - name: Add content to webserver host group
+      copy:
+        content: “Welcome to Apache server”
+        dest: /etc/motd
+      when: inventory_hostname in groups['webservers']
+
+    - name: Add content to database host group
+      copy:
+        content: “Welcome to database server”
+        dest: /etc/motd
+      when: inventory_hostname in groups['database']
+
+    - name: Add content to test host group
+      copy:
+        content: “Welcome to test server”
+        dest: /etc/motd
+      when: inventory_hostname in groups['test']
+  
+

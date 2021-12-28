@@ -1,0 +1,11 @@
+---
+- name: Sending public key to manage nodes
+  hosts: all
+
+  tasks:
+  - name: send the key
+    authorized_key:
+      user: ansible
+      state: present
+      key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
+

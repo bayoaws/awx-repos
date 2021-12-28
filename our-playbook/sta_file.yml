@@ -1,0 +1,24 @@
+---
+- name: Delete files
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: find the .txt file
+      find:
+        paths: dir1/
+        patterns: '*.txt'
+      register: output  
+      
+    - name: print the output of register
+      debug:
+        msg: "{{ output.files | map(attribute='path') }}"
+
+    - name: Delete the .txt files
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - "{{ output.files[0].path }}"
+        - "{{ output.files[1].path }}"
+        - "{{ output.files[2].path }}"

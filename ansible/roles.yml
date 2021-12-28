@@ -1,0 +1,15 @@
+---
+- name: Configure load balancer web server
+  hosts: balancer
+  user: admin
+  become: yes
+
+  vars:
+    haproxy_backend_servers:
+      - name: sfagboho4c.mylabserver.com 
+        address: 172.31.107.3:80
+      - name: sfagboho5c.mylabserver.com 
+        address: 172.31.99.126:80
+  
+  roles:
+    - geerlingguy.haproxy

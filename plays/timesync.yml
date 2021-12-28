@@ -1,0 +1,13 @@
+---
+- name: Configure chrony from rhel-system-roles
+  hosts: all
+  become: true
+  vars:
+    timesync_ntp_servers:
+      - hostname: 2.centos.pool.ntp.org
+        iburst: yes
+    timesync_ntp_provider: chrony
+
+  roles:
+    - rhel-system-roles.timesync
+

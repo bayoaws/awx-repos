@@ -1,0 +1,11 @@
+---
+- name: generate a host file
+  hosts: all
+  user: admin
+  become: yes
+  tasks:
+  - name: generate the file in dev host group
+    template:
+      src: /home/admin/ansible/host.j2
+      dest: /etc/myhosts
+    when: inventory_hostname in groups['dev']

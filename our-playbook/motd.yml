@@ -1,0 +1,16 @@
+---
+- name: Configure the message of the day
+  hosts: all
+  become: true
+  vars: 
+    - system_owner: Adebayo
+  tasks:
+
+  - name: Deploy motd.j2 on the manage nodes
+    template:
+      src: motd.j2
+      dest: /etc/motd
+      owner: root
+      group: root
+      mode: 0644
+  

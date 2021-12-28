@@ -1,0 +1,1623 @@
+Jan 30 19:13:28 localhost polkitd[889]: Loading rules from directory /etc/polkit-1/rules.d
+Jan 30 19:13:28 localhost polkitd[889]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jan 30 19:13:28 localhost polkitd[889]: Finished loading, compiling and executing 10 rules
+Jan 30 19:13:28 localhost polkitd[889]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jan 30 19:13:34 localhost sshd[1075]: Server listening on 0.0.0.0 port 22.
+Jan 30 19:13:34 localhost sshd[1075]: Server listening on :: port 22.
+Jan 30 19:14:41 localhost useradd[5607]: new group: name=sfagbohoun, GID=1000
+Jan 30 19:14:41 localhost useradd[5607]: new user: name=sfagbohoun, UID=1000, GID=1000, home=/home/sfagbohoun, shell=/bin/bash
+Jan 30 19:14:41 localhost useradd[5607]: add 'sfagbohoun' to group 'wheel'
+Jan 30 19:14:41 localhost useradd[5607]: add 'sfagbohoun' to shadow group 'wheel'
+Jan 30 19:14:43 localhost chage[5620]: changed password expiry for sfagbohoun
+Jan 30 19:14:46 localhost systemd[5669]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jan 30 19:14:46 localhost gdm-launch-environment][5663]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jan 30 19:14:50 localhost polkitd[889]: Registered Authentication Agent for unix-session:c1 (system bus name :1.49 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jan 30 19:15:28 localhost systemd[6003]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jan 30 19:15:28 localhost gdm-password][5983]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Jan 30 19:15:33 localhost polkitd[889]: Registered Authentication Agent for unix-session:2 (system bus name :1.236 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jan 30 20:27:25 localhost gdm-password][7993]: gkr-pam: unlocked login keyring
+Jan 30 20:28:35 localhost sshd[8035]: Accepted password for sfagbohoun from 192.168.1.217 port 54001 ssh2
+Jan 30 20:28:35 localhost sshd[8035]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jan 30 20:30:19 localhost sshd[8118]: Accepted password for sfagbohoun from 192.168.1.217 port 54012 ssh2
+Jan 30 20:30:19 localhost sshd[8118]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jan 30 20:30:19 localhost sshd[8122]: Accepted password for sfagbohoun from 192.168.1.217 port 54013 ssh2
+Jan 30 20:30:19 localhost sshd[8122]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jan 30 20:41:07 localhost su[8338]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Jan 30 20:41:07 localhost su[8338]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Jan 30 21:31:57 localhost useradd[9105]: new group: name=jsmith, GID=1001
+Jan 30 21:31:57 localhost useradd[9105]: new user: name=jsmith, UID=1001, GID=1001, home=/home/jsmith, shell=/bin/bash
+Jan 30 21:38:57 localhost passwd[9210]: pam_unix(passwd:chauthtok): password changed for jsmith
+Jan 30 21:38:57 localhost passwd[9210]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jan 30 21:39:31 localhost su[8338]: pam_unix(su-l:session): session closed for user root
+Jan 30 21:42:02 localhost su[9253]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Jan 30 21:42:02 localhost su[9253]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Jan 30 21:44:00 localhost passwd[9316]: pam_unix(passwd:chauthtok): password changed for jsmith
+Jan 30 21:44:00 localhost passwd[9316]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jan 31 12:50:11 localhost sshd[8035]: pam_unix(sshd:session): session closed for user sfagbohoun
+Feb  4 21:39:46 localhost polkitd[869]: Loading rules from directory /etc/polkit-1/rules.d
+Feb  4 21:39:46 localhost polkitd[869]: Loading rules from directory /usr/share/polkit-1/rules.d
+Feb  4 21:39:46 localhost polkitd[869]: Finished loading, compiling and executing 10 rules
+Feb  4 21:39:46 localhost polkitd[869]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Feb  4 21:39:49 localhost sshd[987]: Server listening on 0.0.0.0 port 22.
+Feb  4 21:39:49 localhost sshd[987]: Server listening on :: port 22.
+Feb  4 21:39:55 localhost systemd[1287]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Feb  4 21:39:55 localhost gdm-launch-environment][1262]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Feb  4 21:40:07 localhost polkitd[869]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb  4 21:40:35 localhost systemd[2008]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Feb  4 21:40:36 localhost gdm-password][1997]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Feb  4 21:40:41 localhost polkitd[869]: Registered Authentication Agent for unix-session:2 (system bus name :1.222 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb  4 21:41:30 localhost su[2725]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb  4 21:41:30 localhost su[2725]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Feb  4 21:59:04 localhost gdm-password][3070]: gkr-pam: unlocked login keyring
+Feb  5 19:50:44 localhost polkitd[860]: Loading rules from directory /etc/polkit-1/rules.d
+Feb  5 19:50:44 localhost polkitd[860]: Loading rules from directory /usr/share/polkit-1/rules.d
+Feb  5 19:50:44 localhost polkitd[860]: Finished loading, compiling and executing 10 rules
+Feb  5 19:50:44 localhost polkitd[860]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Feb  5 19:50:48 localhost sshd[981]: Server listening on 0.0.0.0 port 22.
+Feb  5 19:50:48 localhost sshd[981]: Server listening on :: port 22.
+Feb  5 19:50:59 localhost systemd[1289]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Feb  5 19:50:59 localhost gdm-launch-environment][1262]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Feb  5 19:51:10 localhost polkitd[860]: Registered Authentication Agent for unix-session:c1 (system bus name :1.31 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb  7 14:45:46 localhost systemd[33569]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Feb  7 14:45:46 localhost gdm-password][33558]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Feb  7 14:45:50 localhost polkitd[860]: Registered Authentication Agent for unix-session:2 (system bus name :1.260 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb  7 14:46:18 localhost su[34262]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb  7 14:46:18 localhost su[34262]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Feb  7 15:04:30 localhost unix_chkpwd[34632]: password check failed for user (sfagbohoun)
+Feb  7 15:04:30 localhost gdm-password][34627]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=sfagbohoun
+Feb  7 15:04:31 localhost gdm-password][34627]: gkr-pam: the password for the login keyring was invalid.
+Feb  7 15:04:44 localhost gdm-password][34635]: gkr-pam: unlocked login keyring
+Feb  7 15:05:04 localhost su[34671]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb  7 15:05:04 localhost su[34671]: pam_unix(su-l:session): session opened for user jsmith by (uid=0)
+Feb  7 15:28:34 localhost gdm-password][35087]: gkr-pam: unlocked login keyring
+Feb  7 15:28:45 localhost su[35116]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb  7 15:28:45 localhost su[35116]: pam_unix(su-l:session): session opened for user root by (uid=1001)
+Feb  7 15:36:11 localhost gdm-password][35310]: gkr-pam: unlocked login keyring
+Feb  7 15:47:29 localhost gdm-password][35522]: gkr-pam: unlocked login keyring
+Feb 12 18:07:58 localhost polkitd[851]: Loading rules from directory /etc/polkit-1/rules.d
+Feb 12 18:07:58 localhost polkitd[851]: Loading rules from directory /usr/share/polkit-1/rules.d
+Feb 12 18:07:58 localhost polkitd[851]: Finished loading, compiling and executing 10 rules
+Feb 12 18:07:58 localhost polkitd[851]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Feb 12 18:08:02 localhost sshd[980]: Server listening on 0.0.0.0 port 22.
+Feb 12 18:08:02 localhost sshd[980]: Server listening on :: port 22.
+Feb 12 18:08:06 localhost systemd[1360]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Feb 12 18:08:07 localhost gdm-launch-environment][1252]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Feb 12 18:08:18 localhost polkitd[851]: Registered Authentication Agent for unix-session:c1 (system bus name :1.32 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb 12 19:20:53 localhost systemd[2920]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Feb 12 19:20:54 localhost gdm-password][2909]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Feb 12 19:20:59 localhost polkitd[851]: Registered Authentication Agent for unix-session:2 (system bus name :1.228 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb 12 19:23:49 localhost sshd[3676]: Accepted password for sfagbohoun from 192.168.1.217 port 50290 ssh2
+Feb 12 19:23:49 localhost sshd[3676]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Feb 12 19:23:49 localhost sshd[3680]: Accepted password for sfagbohoun from 192.168.1.217 port 50291 ssh2
+Feb 12 19:23:50 localhost sshd[3680]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Feb 12 20:39:29 localhost su[4910]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 20:39:29 localhost su[4910]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Feb 12 20:40:57 localhost useradd[4963]: new group: name=jasmine, GID=1002
+Feb 12 20:40:57 localhost useradd[4963]: new user: name=jasmine, UID=1002, GID=1002, home=/home/jasmine, shell=/bin/bash
+Feb 12 20:41:34 localhost passwd[4979]: pam_unix(passwd:chauthtok): password changed for jasmine
+Feb 12 20:41:34 localhost passwd[4979]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Feb 12 20:43:33 localhost useradd[5011]: new group: name=stan, GID=1003
+Feb 12 20:43:33 localhost useradd[5011]: new user: name=stan, UID=1003, GID=1003, home=/home/stan, shell=/bin/bash
+Feb 12 20:50:59 localhost su[5121]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 20:50:59 localhost su[5121]: pam_unix(su-l:session): session opened for user jasmine by sfagbohoun(uid=0)
+Feb 12 21:07:26 localhost su[5368]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:07:26 localhost su[5368]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1002)
+Feb 12 21:10:00 localhost su[5429]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:10:00 localhost su[5429]: pam_unix(su-l:session): session opened for user jasmine by sfagbohoun(uid=0)
+Feb 12 21:13:01 localhost su[5496]: pam_systemd(su:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:13:01 localhost su[5496]: pam_unix(su:session): session opened for user root by sfagbohoun(uid=1002)
+Feb 12 21:14:08 localhost su[5550]: pam_systemd(su:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:14:08 localhost su[5550]: pam_unix(su:session): session opened for user jasmine by sfagbohoun(uid=0)
+Feb 12 21:14:24 localhost su[5550]: pam_unix(su:session): session closed for user jasmine
+Feb 12 21:14:47 localhost su[5581]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:14:47 localhost su[5581]: pam_unix(su-l:session): session opened for user jasmine by sfagbohoun(uid=0)
+Feb 12 21:17:58 localhost su[5581]: pam_unix(su-l:session): session closed for user jasmine
+Feb 12 21:18:51 localhost su[5667]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:18:51 localhost su[5667]: pam_unix(su-l:session): session opened for user sfagbohoun by sfagbohoun(uid=0)
+Feb 12 21:46:30 localhost su[6109]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 12 21:46:30 localhost su[6109]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Feb 20 18:59:11 localhost polkitd[854]: Loading rules from directory /etc/polkit-1/rules.d
+Feb 20 18:59:11 localhost polkitd[854]: Loading rules from directory /usr/share/polkit-1/rules.d
+Feb 20 18:59:11 localhost polkitd[854]: Finished loading, compiling and executing 10 rules
+Feb 20 18:59:11 localhost polkitd[854]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Feb 20 18:59:15 localhost sshd[987]: Server listening on 0.0.0.0 port 22.
+Feb 20 18:59:15 localhost sshd[987]: Server listening on :: port 22.
+Feb 20 18:59:21 localhost systemd[1284]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Feb 20 18:59:22 localhost gdm-launch-environment][1257]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Feb 20 18:59:32 localhost polkitd[854]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb 20 19:00:08 localhost systemd[2017]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Feb 20 19:00:08 localhost gdm-password][1998]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Feb 20 19:00:12 localhost polkitd[854]: Registered Authentication Agent for unix-session:2 (system bus name :1.226 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb 20 19:00:54 localhost su[2727]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 20 19:00:54 localhost su[2727]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Feb 20 19:02:24 localhost sshd[2799]: Accepted password for sfagbohoun from 192.168.1.217 port 58569 ssh2
+Feb 20 19:02:25 localhost sshd[2799]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Feb 20 19:02:25 localhost sshd[2806]: Accepted password for sfagbohoun from 192.168.1.217 port 58570 ssh2
+Feb 20 19:02:25 localhost sshd[2806]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Feb 20 19:02:42 localhost su[2886]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 20 19:02:42 localhost su[2886]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Feb 20 19:24:50 localhost su[2886]: pam_unix(su-l:session): session closed for user root
+Feb 20 19:26:26 localhost su[3342]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 20 19:26:26 localhost su[3342]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Feb 26 19:00:19 localhost polkitd[847]: Loading rules from directory /etc/polkit-1/rules.d
+Feb 26 19:00:19 localhost polkitd[847]: Loading rules from directory /usr/share/polkit-1/rules.d
+Feb 26 19:00:19 localhost polkitd[847]: Finished loading, compiling and executing 10 rules
+Feb 26 19:00:19 localhost polkitd[847]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Feb 26 19:00:26 localhost sshd[991]: Server listening on 0.0.0.0 port 22.
+Feb 26 19:00:26 localhost sshd[991]: Server listening on :: port 22.
+Feb 26 19:00:35 localhost systemd[1321]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Feb 26 19:00:36 localhost gdm-launch-environment][1279]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Feb 26 19:00:50 localhost polkitd[847]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb 26 19:01:59 localhost systemd[2038]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Feb 26 19:01:59 localhost gdm-password][2026]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Feb 26 19:02:04 localhost polkitd[847]: Registered Authentication Agent for unix-session:2 (system bus name :1.226 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Feb 26 19:03:28 localhost unix_chkpwd[2774]: password check failed for user (root)
+Feb 26 19:03:28 localhost su[2767]: pam_unix(su-l:auth): authentication failure; logname= uid=1000 euid=0 tty=pts/0 ruser=sfagbohoun rhost=  user=root
+Feb 26 19:04:25 localhost sshd[2797]: Accepted password for sfagbohoun from 192.168.1.217 port 61819 ssh2
+Feb 26 19:04:25 localhost sshd[2797]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Feb 26 19:04:25 localhost sshd[2809]: Accepted password for sfagbohoun from 192.168.1.217 port 61820 ssh2
+Feb 26 19:04:25 localhost sshd[2809]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Feb 26 20:29:37 localhost su[4173]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 26 20:29:37 localhost su[4173]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Feb 26 20:32:23 localhost useradd[4242]: new group: name=jmary, GID=1004
+Feb 26 20:32:23 localhost useradd[4242]: new user: name=jmary, UID=1004, GID=1004, home=/home/jmary, shell=/bin/bash
+Feb 26 20:36:36 localhost passwd[4306]: pam_unix(passwd:chauthtok): password changed for jmary
+Feb 26 20:36:36 localhost passwd[4306]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Feb 26 20:46:46 localhost su[4466]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 26 20:46:46 localhost su[4466]: pam_unix(su-l:session): session opened for user jmary by sfagbohoun(uid=0)
+Feb 26 20:52:20 localhost su[4466]: pam_unix(su-l:session): session closed for user jmary
+Feb 26 20:57:11 localhost su[4640]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Feb 26 20:57:11 localhost su[4640]: pam_unix(su-l:session): session opened for user jmary by sfagbohoun(uid=0)
+Feb 26 20:59:56 localhost su[4640]: pam_unix(su-l:session): session closed for user jmary
+Mar 16 20:30:10 localhost polkitd[855]: Loading rules from directory /etc/polkit-1/rules.d
+Mar 16 20:30:10 localhost polkitd[855]: Loading rules from directory /usr/share/polkit-1/rules.d
+Mar 16 20:30:10 localhost polkitd[855]: Finished loading, compiling and executing 10 rules
+Mar 16 20:30:10 localhost polkitd[855]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Mar 16 20:30:16 localhost sshd[980]: Server listening on 0.0.0.0 port 22.
+Mar 16 20:30:16 localhost sshd[980]: Server listening on :: port 22.
+Mar 16 20:30:23 localhost systemd[1287]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Mar 16 20:30:24 localhost gdm-launch-environment][1261]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Mar 16 20:30:37 localhost polkitd[855]: Registered Authentication Agent for unix-session:c1 (system bus name :1.32 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 16 20:30:56 localhost systemd[2009]: pam_unix(systemd-user:session): session opened for user jmary by (uid=0)
+Mar 16 20:30:56 localhost gdm-password][1998]: pam_unix(gdm-password:session): session opened for user jmary by (uid=0)
+Mar 16 20:31:02 localhost polkitd[855]: Registered Authentication Agent for unix-session:2 (system bus name :1.237 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 16 20:31:50 localhost su[2847]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 16 20:31:50 localhost su[2847]: pam_unix(su-l:session): session opened for user root by (uid=1004)
+Mar 16 20:34:22 localhost useradd[2945]: failed adding user 'jasmine', exit code: 9
+Mar 16 20:35:07 localhost passwd[2949]: pam_unix(passwd:chauthtok): password changed for jasmine
+Mar 16 20:35:07 localhost passwd[2949]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Mar 16 20:36:09 localhost su[2970]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 16 20:36:09 localhost su[2970]: pam_unix(su-l:session): session opened for user jasmine by (uid=0)
+Mar 16 20:40:27 localhost unix_chkpwd[3085]: password check failed for user (root)
+Mar 16 20:40:27 localhost su[3078]: pam_unix(su-l:auth): authentication failure; logname= uid=1002 euid=0 tty=pts/0 ruser=jmary rhost=  user=root
+Mar 16 20:40:39 localhost su[3087]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 16 20:40:39 localhost su[3087]: pam_unix(su-l:session): session opened for user root by (uid=1002)
+Mar 16 20:42:57 localhost su[3162]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 16 20:42:57 localhost su[3162]: pam_unix(su-l:session): session opened for user jasmine by (uid=0)
+Mar 16 21:05:26 localhost su[3579]: pam_systemd(su:session): Cannot create session: Already running in a session or user slice
+Mar 16 21:05:26 localhost su[3579]: pam_unix(su:session): session opened for user root by (uid=1002)
+Mar 16 21:13:16 localhost polkitd[877]: Loading rules from directory /etc/polkit-1/rules.d
+Mar 16 21:13:16 localhost polkitd[877]: Loading rules from directory /usr/share/polkit-1/rules.d
+Mar 16 21:13:16 localhost polkitd[877]: Finished loading, compiling and executing 10 rules
+Mar 16 21:13:16 localhost polkitd[877]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Mar 16 21:13:21 localhost sshd[1001]: Server listening on 0.0.0.0 port 22.
+Mar 16 21:13:21 localhost sshd[1001]: Server listening on :: port 22.
+Mar 16 21:13:27 localhost systemd[1305]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Mar 16 21:13:27 localhost gdm-launch-environment][1281]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Mar 16 21:13:39 localhost polkitd[877]: Registered Authentication Agent for unix-session:c1 (system bus name :1.31 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 16 21:14:00 localhost systemd[2032]: pam_unix(systemd-user:session): session opened for user jmary by (uid=0)
+Mar 16 21:14:01 localhost gdm-password][2023]: pam_unix(gdm-password:session): session opened for user jmary by (uid=0)
+Mar 16 21:14:05 localhost polkitd[877]: Registered Authentication Agent for unix-session:2 (system bus name :1.225 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 16 21:17:11 localhost su[2854]: pam_systemd(su:session): Cannot create session: Already running in a session or user slice
+Mar 16 21:17:11 localhost su[2854]: pam_unix(su:session): session opened for user root by (uid=1004)
+Mar 16 21:33:47 localhost gdm-password][3267]: gkr-pam: unlocked login keyring
+Mar 19 20:37:47 localhost polkitd[848]: Loading rules from directory /etc/polkit-1/rules.d
+Mar 19 20:37:47 localhost polkitd[848]: Loading rules from directory /usr/share/polkit-1/rules.d
+Mar 19 20:37:47 localhost polkitd[848]: Finished loading, compiling and executing 10 rules
+Mar 19 20:37:47 localhost polkitd[848]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Mar 19 20:37:53 localhost sshd[981]: Server listening on 0.0.0.0 port 22.
+Mar 19 20:37:53 localhost sshd[981]: Server listening on :: port 22.
+Mar 19 20:38:00 localhost systemd[1282]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Mar 19 20:38:01 localhost gdm-launch-environment][1254]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Mar 19 20:38:13 localhost polkitd[848]: Registered Authentication Agent for unix-session:c1 (system bus name :1.34 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 19 20:40:14 localhost systemd[2039]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Mar 19 20:40:14 localhost gdm-password][1997]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Mar 19 20:40:19 localhost polkitd[848]: Registered Authentication Agent for unix-session:2 (system bus name :1.227 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 19 20:41:41 localhost unix_chkpwd[2773]: password check failed for user (root)
+Mar 19 20:41:41 localhost su[2768]: pam_unix(su-l:auth): authentication failure; logname= uid=1000 euid=0 tty=pts/0 ruser=sfagbohoun rhost=  user=root
+Mar 19 20:41:50 localhost su[2793]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 19 20:41:50 localhost su[2793]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Mar 19 21:32:58 localhost gdm-password][3694]: gkr-pam: unlocked login keyring
+Mar 19 21:36:37 localhost sshd[3769]: Accepted password for jsmith from 192.168.1.51 port 37954 ssh2
+Mar 19 21:36:37 localhost systemd[3775]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+Mar 19 21:36:38 localhost sshd[3769]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:42:07 localhost sshd[3810]: Received disconnect from 192.168.1.51 port 37954:11: disconnected by user
+Mar 19 21:42:07 localhost sshd[3810]: Disconnected from user jsmith 192.168.1.51 port 37954
+Mar 19 21:42:07 localhost sshd[3769]: pam_unix(sshd:session): session closed for user jsmith
+Mar 19 21:42:08 localhost systemd[3784]: pam_unix(systemd-user:session): session closed for user jsmith
+Mar 19 21:42:40 localhost sshd[4023]: Accepted password for root from 192.168.1.51 port 37956 ssh2
+Mar 19 21:42:41 localhost systemd[4028]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Mar 19 21:42:41 localhost sshd[4023]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mar 19 21:44:41 localhost sshd[4054]: Received disconnect from 192.168.1.51 port 37956:11: disconnected by user
+Mar 19 21:44:41 localhost sshd[4054]: Disconnected from user root 192.168.1.51 port 37956
+Mar 19 21:44:41 localhost sshd[4023]: pam_unix(sshd:session): session closed for user root
+Mar 19 21:44:55 localhost sshd[4160]: Invalid user jmith from 192.168.1.51 port 37980
+Mar 19 21:44:57 localhost sshd[4160]: pam_unix(sshd:auth): check pass; user unknown
+Mar 19 21:44:57 localhost sshd[4160]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.51
+Mar 19 21:44:59 localhost sshd[4160]: Failed password for invalid user jmith from 192.168.1.51 port 37980 ssh2
+Mar 19 21:45:06 localhost sshd[4160]: Connection closed by invalid user jmith 192.168.1.51 port 37980 [preauth]
+Mar 19 21:45:14 localhost sshd[4162]: Accepted password for jsmith from 192.168.1.51 port 37982 ssh2
+Mar 19 21:45:14 localhost systemd[4169]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+Mar 19 21:45:14 localhost sshd[4162]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:46:43 localhost sshd[4194]: Received disconnect from 192.168.1.51 port 37982:11: disconnected by user
+Mar 19 21:46:43 localhost sshd[4194]: Disconnected from user jsmith 192.168.1.51 port 37982
+Mar 19 21:46:43 localhost sshd[4162]: pam_unix(sshd:session): session closed for user jsmith
+Mar 19 21:46:43 localhost systemd[4176]: pam_unix(systemd-user:session): session closed for user jsmith
+Mar 19 21:47:29 localhost sshd[4331]: Accepted password for jsmith from 192.168.1.51 port 37984 ssh2
+Mar 19 21:47:30 localhost systemd[4337]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+Mar 19 21:47:30 localhost sshd[4331]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:47:31 localhost sshd[4362]: Received disconnect from 192.168.1.51 port 37984:11: disconnected by user
+Mar 19 21:47:31 localhost sshd[4362]: Disconnected from user jsmith 192.168.1.51 port 37984
+Mar 19 21:47:31 localhost sshd[4331]: pam_unix(sshd:session): session closed for user jsmith
+Mar 19 21:47:31 localhost systemd[4344]: pam_unix(systemd-user:session): session closed for user jsmith
+Mar 19 21:47:58 localhost gdm-password][4438]: gkr-pam: unlocked login keyring
+Mar 19 21:48:13 localhost sshd[4469]: Accepted password for jsmith from 192.168.1.51 port 37986 ssh2
+Mar 19 21:48:14 localhost systemd[4474]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+Mar 19 21:48:14 localhost sshd[4469]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:48:15 localhost sshd[4499]: Received disconnect from 192.168.1.51 port 37986:11: disconnected by user
+Mar 19 21:48:15 localhost sshd[4499]: Disconnected from user jsmith 192.168.1.51 port 37986
+Mar 19 21:48:15 localhost sshd[4469]: pam_unix(sshd:session): session closed for user jsmith
+Mar 19 21:48:15 localhost systemd[4481]: pam_unix(systemd-user:session): session closed for user jsmith
+Mar 19 21:50:21 localhost sshd[4587]: Accepted password for jsmith from 192.168.1.51 port 37988 ssh2
+Mar 19 21:50:22 localhost systemd[4594]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+Mar 19 21:50:22 localhost sshd[4587]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:50:34 localhost sshd[4619]: Received disconnect from 192.168.1.51 port 37988:11: disconnected by user
+Mar 19 21:50:34 localhost sshd[4619]: Disconnected from user jsmith 192.168.1.51 port 37988
+Mar 19 21:50:34 localhost sshd[4587]: pam_unix(sshd:session): session closed for user jsmith
+Mar 19 21:50:35 localhost systemd[4601]: pam_unix(systemd-user:session): session closed for user jsmith
+Mar 19 21:53:54 localhost sshd[4770]: Accepted password for jsmith from 192.168.1.51 port 37990 ssh2
+Mar 19 21:53:54 localhost systemd[4783]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+Mar 19 21:53:54 localhost sshd[4770]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:58:47 localhost sshd[4951]: Accepted password for jsmith from 192.168.1.51 port 37992 ssh2
+Mar 19 21:58:47 localhost sshd[4951]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+Mar 19 21:58:47 localhost sshd[4957]: Received disconnect from 192.168.1.51 port 37992:11: disconnected by user
+Mar 19 21:58:47 localhost sshd[4957]: Disconnected from user jsmith 192.168.1.51 port 37992
+Mar 19 21:58:47 localhost sshd[4951]: pam_unix(sshd:session): session closed for user jsmith
+Mar 26 18:47:57 localhost polkitd[859]: Loading rules from directory /etc/polkit-1/rules.d
+Mar 26 18:47:57 localhost polkitd[859]: Loading rules from directory /usr/share/polkit-1/rules.d
+Mar 26 18:47:57 localhost polkitd[859]: Finished loading, compiling and executing 10 rules
+Mar 26 18:47:57 localhost polkitd[859]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Mar 26 18:48:01 localhost sshd[983]: Server listening on 0.0.0.0 port 22.
+Mar 26 18:48:01 localhost sshd[983]: Server listening on :: port 22.
+Mar 26 18:48:07 localhost systemd[1277]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Mar 26 18:48:08 localhost gdm-launch-environment][1250]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Mar 26 18:48:21 localhost polkitd[859]: Registered Authentication Agent for unix-session:c1 (system bus name :1.34 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 26 19:22:14 localhost systemd[2467]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Mar 26 19:22:14 localhost gdm-password][2456]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Mar 26 19:22:20 localhost polkitd[859]: Registered Authentication Agent for unix-session:2 (system bus name :1.229 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 26 20:19:39 localhost polkitd[861]: Loading rules from directory /etc/polkit-1/rules.d
+Mar 26 20:19:39 localhost polkitd[861]: Loading rules from directory /usr/share/polkit-1/rules.d
+Mar 26 20:19:39 localhost polkitd[861]: Finished loading, compiling and executing 10 rules
+Mar 26 20:19:39 localhost polkitd[861]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Mar 26 20:19:44 localhost sshd[998]: Server listening on 0.0.0.0 port 22.
+Mar 26 20:19:44 localhost sshd[998]: Server listening on :: port 22.
+Mar 26 20:19:53 localhost systemd[1289]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Mar 26 20:19:54 localhost gdm-launch-environment][1259]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Mar 26 20:20:07 localhost polkitd[861]: Registered Authentication Agent for unix-session:c1 (system bus name :1.31 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 26 20:22:59 localhost systemd[2061]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Mar 26 20:22:59 localhost gdm-password][2049]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Mar 26 20:23:05 localhost polkitd[861]: Registered Authentication Agent for unix-session:2 (system bus name :1.230 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Mar 26 20:23:44 localhost su[2787]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 26 20:23:44 localhost su[2787]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Mar 26 20:24:22 localhost sshd[2831]: Accepted password for sfagbohoun from 192.168.1.217 port 54842 ssh2
+Mar 26 20:24:22 localhost sshd[2831]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Mar 26 20:24:23 localhost sshd[2842]: Accepted password for sfagbohoun from 192.168.1.217 port 54845 ssh2
+Mar 26 20:24:23 localhost sshd[2842]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Mar 26 20:24:52 localhost su[2929]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Mar 26 20:24:52 localhost su[2929]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Mar 26 21:31:02 localhost sshd[4866]: Accepted password for root from 192.168.1.43 port 53182 ssh2
+Mar 26 21:31:03 localhost systemd[4875]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Mar 26 21:31:03 localhost sshd[4866]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mar 26 21:33:07 localhost sshd[4905]: Received disconnect from 192.168.1.43 port 53182:11: disconnected by user
+Mar 26 21:33:07 localhost sshd[4905]: Disconnected from user root 192.168.1.43 port 53182
+Mar 26 21:33:07 localhost sshd[4866]: pam_unix(sshd:session): session closed for user root
+Mar 26 21:34:12 localhost sshd[5017]: Accepted password for root from 192.168.1.43 port 53184 ssh2
+Mar 26 21:34:13 localhost systemd[5022]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Mar 26 21:34:13 localhost sshd[5017]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mar 26 21:43:10 localhost sshd[5044]: Received disconnect from 192.168.1.43 port 53184:11: disconnected by user
+Mar 26 21:43:10 localhost sshd[5044]: Disconnected from user root 192.168.1.43 port 53184
+Mar 26 21:43:10 localhost sshd[5017]: pam_unix(sshd:session): session closed for user root
+Mar 26 21:45:14 localhost sshd[5301]: Accepted password for root from 192.168.1.43 port 53186 ssh2
+Mar 26 21:45:14 localhost systemd[5306]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Mar 26 21:45:15 localhost sshd[5301]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mar 26 21:48:05 localhost sshd[5327]: Received disconnect from 192.168.1.43 port 53186:11: disconnected by user
+Mar 26 21:48:05 localhost sshd[5327]: Disconnected from user root 192.168.1.43 port 53186
+Mar 26 21:48:05 localhost sshd[5301]: pam_unix(sshd:session): session closed for user root
+Mar 26 21:50:38 localhost sshd[5481]: Accepted password for root from 192.168.1.43 port 53188 ssh2
+Mar 26 21:50:38 localhost systemd[5486]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Mar 26 21:50:38 localhost sshd[5481]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Mar 26 21:51:33 localhost sshd[5511]: Received disconnect from 192.168.1.43 port 53188:11: disconnected by user
+Mar 26 21:51:33 localhost sshd[5511]: Disconnected from user root 192.168.1.43 port 53188
+Mar 26 21:51:33 localhost sshd[5481]: pam_unix(sshd:session): session closed for user root
+Apr  9 19:08:59 localhost polkitd[860]: Loading rules from directory /etc/polkit-1/rules.d
+Apr  9 19:08:59 localhost polkitd[860]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr  9 19:08:59 localhost polkitd[860]: Finished loading, compiling and executing 10 rules
+Apr  9 19:08:59 localhost polkitd[860]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr  9 19:09:04 localhost sshd[978]: Server listening on 0.0.0.0 port 22.
+Apr  9 19:09:04 localhost sshd[978]: Server listening on :: port 22.
+Apr  9 19:09:13 localhost systemd[1328]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr  9 19:09:13 localhost gdm-launch-environment][1290]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr  9 19:09:29 localhost polkitd[860]: Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr  9 19:10:49 localhost systemd[2084]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:10:49 localhost gdm-password][2072]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:10:55 localhost polkitd[860]: Registered Authentication Agent for unix-session:2 (system bus name :1.224 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr  9 19:11:39 localhost su[2829]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr  9 19:11:39 localhost su[2829]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Apr  9 19:20:39 localhost polkitd[867]: Loading rules from directory /etc/polkit-1/rules.d
+Apr  9 19:20:39 localhost polkitd[867]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr  9 19:20:39 localhost polkitd[867]: Finished loading, compiling and executing 10 rules
+Apr  9 19:20:39 localhost polkitd[867]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr  9 19:20:44 localhost sshd[997]: Server listening on 0.0.0.0 port 22.
+Apr  9 19:20:44 localhost sshd[997]: Server listening on :: port 22.
+Apr  9 19:20:50 localhost systemd[1326]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr  9 19:20:51 localhost gdm-launch-environment][1293]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr  9 19:21:04 localhost polkitd[867]: Registered Authentication Agent for unix-session:c1 (system bus name :1.32 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr  9 19:25:06 localhost systemd[2143]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:25:07 localhost gdm-password][2131]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:25:11 localhost polkitd[867]: Registered Authentication Agent for unix-session:2 (system bus name :1.211 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr  9 19:26:00 localhost sshd[2852]: Accepted password for sfagbohoun from 192.168.1.217 port 54442 ssh2
+Apr  9 19:26:00 localhost sshd[2852]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:26:00 localhost sshd[2857]: Accepted password for sfagbohoun from 192.168.1.217 port 54443 ssh2
+Apr  9 19:26:00 localhost sshd[2857]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:26:13 localhost sshd[2851]: Accepted password for sfagbohoun from 192.168.1.217 port 54441 ssh2
+Apr  9 19:26:13 localhost sshd[2851]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:26:14 localhost sshd[2939]: Accepted password for sfagbohoun from 192.168.1.217 port 54445 ssh2
+Apr  9 19:26:14 localhost sshd[2939]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:39:58 localhost polkitd[876]: Loading rules from directory /etc/polkit-1/rules.d
+Apr  9 19:39:58 localhost polkitd[876]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr  9 19:39:58 localhost polkitd[876]: Finished loading, compiling and executing 10 rules
+Apr  9 19:39:58 localhost polkitd[876]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr  9 19:40:03 localhost sshd[1017]: Server listening on 0.0.0.0 port 22.
+Apr  9 19:40:03 localhost sshd[1017]: Server listening on :: port 22.
+Apr  9 19:40:12 localhost systemd[1355]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr  9 19:40:13 localhost gdm-launch-environment][1316]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr  9 19:40:27 localhost polkitd[876]: Registered Authentication Agent for unix-session:c1 (system bus name :1.32 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr  9 19:40:33 localhost sshd[1612]: Accepted password for sfagbohoun from 192.168.1.217 port 54466 ssh2
+Apr  9 19:40:33 localhost systemd[2045]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:40:33 localhost sshd[2040]: Accepted password for sfagbohoun from 192.168.1.217 port 54467 ssh2
+Apr  9 19:40:34 localhost sshd[1612]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:40:34 localhost sshd[2040]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Apr  9 19:40:43 localhost su[2176]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr  9 19:40:43 localhost su[2176]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+Apr 18 01:06:35 localhost polkitd[1021]: Loading rules from directory /etc/polkit-1/rules.d
+Apr 18 01:06:35 localhost polkitd[1021]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr 18 01:06:35 localhost polkitd[1021]: Finished loading, compiling and executing 10 rules
+Apr 18 01:06:35 localhost polkitd[1021]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr 18 01:06:38 localhost sshd[1185]: Server listening on 0.0.0.0 port 22.
+Apr 18 01:06:38 localhost sshd[1185]: Server listening on :: port 22.
+Apr 18 01:06:44 localhost systemd[1516]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr 18 01:06:45 localhost gdm-launch-environment][1489]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr 18 01:06:56 localhost polkitd[1021]: Registered Authentication Agent for unix-session:c1 (system bus name :1.36 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 18 01:08:18 localhost systemd[6054]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr 18 01:08:18 localhost gdm-password][6042]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr 18 01:08:22 localhost polkitd[1021]: Registered Authentication Agent for unix-session:2 (system bus name :1.224 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 18 01:09:02 localhost su[6814]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr 18 01:09:02 localhost su[6814]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Apr 18 01:32:20 localhost gdm-password][7461]: gkr-pam: unlocked login keyring
+Apr 18 01:48:17 localhost gdm-password][7883]: gkr-pam: unlocked login keyring
+Apr 18 01:55:09 localhost polkitd[1035]: Loading rules from directory /etc/polkit-1/rules.d
+Apr 18 01:55:09 localhost polkitd[1035]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr 18 01:55:09 localhost polkitd[1035]: Finished loading, compiling and executing 10 rules
+Apr 18 01:55:09 localhost polkitd[1035]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr 18 01:55:12 localhost sshd[1198]: Server listening on 0.0.0.0 port 22.
+Apr 18 01:55:12 localhost sshd[1198]: Server listening on :: port 22.
+Apr 18 01:55:19 localhost systemd[1548]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr 18 01:55:19 localhost gdm-launch-environment][1516]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr 18 01:55:29 localhost polkitd[1035]: Registered Authentication Agent for unix-session:c1 (system bus name :1.32 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 18 01:55:38 localhost gdm-password][2244]: pam_unix(gdm-password:auth): conversation failed
+Apr 18 01:55:38 localhost gdm-password][2244]: pam_unix(gdm-password:auth): auth could not identify password for [jmary]
+Apr 18 01:55:38 localhost gdm-password][2244]: gkr-pam: no password is available for user
+Apr 18 01:55:42 localhost systemd[2257]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr 18 01:55:42 localhost gdm-password][2250]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr 18 01:55:46 localhost polkitd[1035]: Registered Authentication Agent for unix-session:2 (system bus name :1.219 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 18 01:56:12 localhost su[2946]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr 18 01:56:12 localhost su[2946]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Apr 23 20:19:00 localhost polkitd[1005]: Loading rules from directory /etc/polkit-1/rules.d
+Apr 23 20:19:00 localhost polkitd[1005]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr 23 20:19:00 localhost polkitd[1005]: Finished loading, compiling and executing 10 rules
+Apr 23 20:19:00 localhost polkitd[1005]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr 23 20:19:05 localhost sshd[1146]: Server listening on 0.0.0.0 port 22.
+Apr 23 20:19:05 localhost sshd[1146]: Server listening on :: port 22.
+Apr 23 20:19:12 localhost systemd[1461]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr 23 20:19:13 localhost gdm-launch-environment][1433]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr 23 20:19:24 localhost polkitd[1005]: Registered Authentication Agent for unix-session:c1 (system bus name :1.36 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 23 20:20:15 localhost systemd[5921]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr 23 20:20:15 localhost gdm-password][5889]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr 23 20:20:24 localhost polkitd[1005]: Registered Authentication Agent for unix-session:2 (system bus name :1.223 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 23 20:21:03 localhost unix_chkpwd[6782]: password check failed for user (root)
+Apr 23 20:21:03 localhost su[6769]: pam_unix(su-l:auth): authentication failure; logname= uid=1000 euid=0 tty=pts/0 ruser=sfagbohoun rhost=  user=root
+Apr 23 20:21:14 localhost su[6810]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr 23 20:21:14 localhost su[6810]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Apr 23 20:33:42 localhost su[6810]: pam_unix(su-l:session): session closed for user root
+Apr 23 20:33:42 localhost polkitd[1005]: Unregistered Authentication Agent for unix-session:c1 (system bus name :1.36, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)
+Apr 23 20:34:28 localhost polkitd[1008]: Loading rules from directory /etc/polkit-1/rules.d
+Apr 23 20:34:28 localhost polkitd[1008]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr 23 20:34:28 localhost polkitd[1008]: Finished loading, compiling and executing 10 rules
+Apr 23 20:34:28 localhost polkitd[1008]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr 23 20:34:32 localhost sshd[1169]: Server listening on 0.0.0.0 port 22.
+Apr 23 20:34:32 localhost sshd[1169]: Server listening on :: port 22.
+Apr 23 20:34:40 localhost systemd[1519]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr 23 20:34:41 localhost gdm-launch-environment][1494]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr 23 20:34:50 localhost polkitd[1008]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 23 20:36:03 localhost systemd[6052]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr 23 20:36:04 localhost gdm-password][6040]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr 23 20:36:11 localhost polkitd[1008]: Registered Authentication Agent for unix-session:2 (system bus name :1.226 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 23 20:37:41 localhost su[6822]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr 23 20:37:41 localhost su[6822]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Apr 23 20:38:09 localhost su[6822]: pam_unix(su-l:session): session closed for user root
+Apr 23 21:04:00 localhost polkitd[1022]: Loading rules from directory /etc/polkit-1/rules.d
+Apr 23 21:04:00 localhost polkitd[1022]: Loading rules from directory /usr/share/polkit-1/rules.d
+Apr 23 21:04:00 localhost polkitd[1022]: Finished loading, compiling and executing 10 rules
+Apr 23 21:04:00 localhost polkitd[1022]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Apr 23 21:04:04 localhost sshd[1171]: Server listening on 0.0.0.0 port 22.
+Apr 23 21:04:04 localhost sshd[1171]: Server listening on :: port 22.
+Apr 23 21:04:13 localhost systemd[1518]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Apr 23 21:04:13 localhost gdm-launch-environment][1495]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Apr 23 21:05:32 localhost polkitd[1022]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 23 21:08:02 localhost systemd[6074]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Apr 23 21:08:02 localhost gdm-password][6062]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Apr 23 21:08:10 localhost polkitd[1022]: Registered Authentication Agent for unix-session:2 (system bus name :1.218 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Apr 23 21:10:37 localhost su[6856]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Apr 23 21:10:37 localhost su[6856]: pam_unix(su-l:session): session opened for user root by (uid=1000)
+Apr 27 11:15:40 localhost gdm-password][68722]: gkr-pam: unlocked login keyring
+Apr 27 11:56:10 localhost gdm-password][69456]: gkr-pam: unlocked login keyring
+Apr 27 11:58:23 localhost chage[69561]: changed password expiry for stan
+Apr 27 11:59:04 localhost unix_chkpwd[69586]: password check failed for user (stan)
+Apr 27 11:59:04 localhost sshd[69580]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=stan
+Apr 27 11:59:05 localhost sshd[69580]: Failed password for stan from 192.168.1.217 port 53134 ssh2
+Apr 27 11:59:18 localhost unix_chkpwd[69587]: password check failed for user (stan)
+Apr 27 11:59:20 localhost sshd[69580]: Failed password for stan from 192.168.1.217 port 53134 ssh2
+Apr 27 11:59:29 localhost unix_chkpwd[69588]: password check failed for user (stan)
+Apr 27 11:59:30 localhost sshd[69580]: Failed password for stan from 192.168.1.217 port 53134 ssh2
+Apr 27 11:59:46 localhost passwd[69594]: pam_unix(passwd:chauthtok): password changed for stan
+Apr 27 11:59:46 localhost passwd[69594]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Apr 27 11:59:51 localhost chage[69606]: changed password expiry for stan
+Apr 27 12:00:11 localhost sshd[69580]: pam_unix(sshd:account): expired password for user stan (root enforced)
+Apr 27 12:00:11 localhost sshd[69580]: Accepted password for stan from 192.168.1.217 port 53134 ssh2
+Apr 27 12:00:11 localhost systemd[69618]: pam_unix(systemd-user:account): expired password for user stan (root enforced)
+Apr 27 12:00:11 localhost sshd[69580]: pam_systemd(sshd:session): Failed to create session: Start job for unit user@1003.service failed with 'failed'
+Apr 27 12:00:11 localhost sshd[69580]: pam_unix(sshd:session): session opened for user stan by (uid=0)
+Apr 27 12:00:23 localhost passwd[69631]: gkr-pam: no password set, and use_authtok was specified
+Apr 27 12:00:25 localhost sshd[69580]: pam_unix(sshd:session): session closed for user stan
+May  7 15:07:08 localhost polkitd[1031]: Loading rules from directory /etc/polkit-1/rules.d
+May  7 15:07:08 localhost polkitd[1031]: Loading rules from directory /usr/share/polkit-1/rules.d
+May  7 15:07:08 localhost polkitd[1031]: Finished loading, compiling and executing 10 rules
+May  7 15:07:08 localhost polkitd[1031]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+May  7 15:07:12 localhost sshd[1195]: Server listening on 0.0.0.0 port 22.
+May  7 15:07:12 localhost sshd[1195]: Server listening on :: port 22.
+May  7 15:07:43 localhost systemd[1542]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+May  7 15:07:43 localhost gdm-launch-environment][1506]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+May  7 15:07:51 localhost polkitd[1031]: Registered Authentication Agent for unix-session:c1 (system bus name :1.36 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May  7 15:10:21 localhost systemd[6077]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+May  7 15:10:22 localhost gdm-password][6065]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+May  7 15:10:28 localhost polkitd[1031]: Registered Authentication Agent for unix-session:2 (system bus name :1.221 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May  7 15:13:11 localhost sudo[6850]: sfagbohoun : TTY=pts/0 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/bash
+May  7 15:13:11 localhost sudo[6850]: pam_systemd(sudo-i:session): Cannot create session: Already running in a session or user slice
+May  7 15:13:11 localhost sudo[6850]: pam_unix(sudo-i:session): session opened for user root by (uid=0)
+May  7 15:21:21 localhost polkitd[1022]: Loading rules from directory /etc/polkit-1/rules.d
+May  7 15:21:21 localhost polkitd[1022]: Loading rules from directory /usr/share/polkit-1/rules.d
+May  7 15:21:21 localhost polkitd[1022]: Finished loading, compiling and executing 10 rules
+May  7 15:21:21 localhost polkitd[1022]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+May  7 15:21:25 localhost sshd[1184]: Server listening on 0.0.0.0 port 22.
+May  7 15:21:25 localhost sshd[1184]: Server listening on :: port 22.
+May  7 15:21:31 localhost systemd[1509]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+May  7 15:21:31 localhost gdm-launch-environment][1483]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+May  7 15:21:43 localhost polkitd[1022]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May  7 15:22:03 localhost systemd[2273]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+May  7 15:22:03 localhost gdm-password][2260]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+May  7 15:22:10 localhost polkitd[1022]: Registered Authentication Agent for unix-session:2 (system bus name :1.217 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May  7 15:23:36 localhost sudo[3081]: sfagbohoun : TTY=pts/0 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/bash
+May  7 15:23:36 localhost sudo[3081]: pam_systemd(sudo-i:session): Cannot create session: Already running in a session or user slice
+May  7 15:23:36 localhost sudo[3081]: pam_unix(sudo-i:session): session opened for user root by (uid=0)
+May  7 15:30:01 localhost sshd[3335]: Accepted password for sfagbohoun from 192.168.1.217 port 49830 ssh2
+May  7 15:30:01 localhost sshd[3335]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+May  7 15:30:01 localhost sshd[3343]: Accepted password for sfagbohoun from 192.168.1.217 port 49831 ssh2
+May  7 15:30:01 localhost sshd[3343]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+May  7 15:30:32 localhost su[3453]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+May  7 15:30:32 localhost su[3453]: pam_unix(su-l:session): session opened for user root by sfagbohoun(uid=1000)
+May  7 16:34:32 localhost sshd[1184]: Received signal 15; terminating.
+May  7 16:34:32 localhost sshd[34644]: Server listening on 0.0.0.0 port 22.
+May  7 16:34:32 localhost sshd[34644]: Server listening on :: port 22.
+May  7 16:35:03 localhost passwd[34661]: pam_unix(passwd:chauthtok): password changed for jsmith
+May  7 16:35:03 localhost passwd[34661]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May  7 16:35:33 localhost unix_chkpwd[34680]: password check failed for user (jsmith)
+May  7 16:35:33 localhost sshd[34679]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=jsmith
+May  7 16:35:35 localhost sshd[34669]: error: PAM: Permission denied for jsmith from 192.168.1.217
+May  7 16:35:39 localhost unix_chkpwd[34684]: password check failed for user (jsmith)
+May  7 16:35:39 localhost sshd[34681]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=jsmith
+May  7 16:35:41 localhost sshd[34669]: error: PAM: Permission denied for jsmith from 192.168.1.217
+May  7 16:35:46 localhost unix_chkpwd[34690]: password check failed for user (jsmith)
+May  7 16:35:46 localhost sshd[34685]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=jsmith
+May  7 16:35:46 localhost sshd[34685]: pam_faillock(sshd:auth): Consecutive login failures for user jsmith account temporarily locked
+May  7 16:35:48 localhost sshd[34669]: error: PAM: Permission denied for jsmith from 192.168.1.217
+May  7 16:35:48 localhost sshd[34669]: Postponed keyboard-interactive for jsmith from 192.168.1.217 port 58606 ssh2 [preauth]
+May  7 16:35:56 localhost unix_chkpwd[34696]: password check failed for user (jsmith)
+May  7 16:35:56 localhost sshd[34695]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=jsmith
+May  7 16:35:58 localhost sshd[34669]: error: PAM: Authentication failure for jsmith from 192.168.1.217
+May  7 16:35:58 localhost sshd[34669]: Failed keyboard-interactive/pam for jsmith from 192.168.1.217 port 58606 ssh2
+May  7 16:35:58 localhost sshd[34669]: Postponed keyboard-interactive for jsmith from 192.168.1.217 port 58606 ssh2 [preauth]
+May  7 16:36:03 localhost unix_chkpwd[34698]: password check failed for user (jsmith)
+May  7 16:36:03 localhost sshd[34697]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=jsmith
+May  7 16:36:05 localhost sshd[34669]: error: PAM: Authentication failure for jsmith from 192.168.1.217
+May  7 16:36:05 localhost sshd[34669]: Failed keyboard-interactive/pam for jsmith from 192.168.1.217 port 58606 ssh2
+May  7 16:36:05 localhost sshd[34669]: Postponed keyboard-interactive for jsmith from 192.168.1.217 port 58606 ssh2 [preauth]
+May  7 16:36:12 localhost unix_chkpwd[34704]: password check failed for user (jsmith)
+May  7 16:36:12 localhost sshd[34699]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.217  user=jsmith
+May  7 16:36:14 localhost sshd[34669]: error: PAM: Authentication failure for jsmith from 192.168.1.217
+May  7 16:36:14 localhost sshd[34669]: Failed keyboard-interactive/pam for jsmith from 192.168.1.217 port 58606 ssh2
+May  7 16:36:14 localhost sshd[34669]: error: maximum authentication attempts exceeded for jsmith from 192.168.1.217 port 58606 ssh2 [preauth]
+May  7 16:36:14 localhost sshd[34669]: Disconnecting authenticating user jsmith 192.168.1.217 port 58606: Too many authentication failures [preauth]
+May  7 16:39:25 localhost sshd[34785]: Accepted keyboard-interactive/pam for jsmith from 192.168.1.217 port 58800 ssh2
+May  7 16:39:25 localhost systemd[34791]: pam_unix(systemd-user:session): session opened for user jsmith by (uid=0)
+May  7 16:39:26 localhost sshd[34785]: pam_unix(sshd:session): session opened for user jsmith by (uid=0)
+May  7 16:39:34 localhost sshd[34785]: pam_unix(sshd:session): session closed for user jsmith
+May  8 01:42:59 localhost sshd[3343]: pam_unix(sshd:session): session closed for user sfagbohoun
+May  8 03:43:01 localhost sshd[3335]: pam_unix(sshd:session): session closed for user sfagbohoun
+May  8 03:43:01 localhost su[3453]: pam_unix(su-l:session): session closed for user root
+May 16 23:41:16 localhost polkitd[1017]: Loading rules from directory /etc/polkit-1/rules.d
+May 16 23:41:16 localhost polkitd[1017]: Loading rules from directory /usr/share/polkit-1/rules.d
+May 16 23:41:16 localhost polkitd[1017]: Finished loading, compiling and executing 10 rules
+May 16 23:41:16 localhost polkitd[1017]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+May 16 23:41:19 localhost sshd[1185]: Server listening on 0.0.0.0 port 22.
+May 16 23:41:19 localhost sshd[1185]: Server listening on :: port 22.
+May 16 23:41:26 localhost systemd[1529]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+May 16 23:41:26 localhost gdm-launch-environment][1506]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+May 16 23:41:36 localhost polkitd[1017]: Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May 16 23:42:13 localhost systemd[2282]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+May 16 23:42:13 localhost gdm-password][2266]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+May 16 23:42:19 localhost polkitd[1017]: Registered Authentication Agent for unix-session:2 (system bus name :1.220 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May 16 23:44:55 localhost passwd[3304]: pam_unix(passwd:chauthtok): password changed for sfagbohoun
+May 16 23:44:55 localhost passwd[3304]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:45:07 localhost passwd[3330]: pam_unix(passwd:chauthtok): password changed for root
+May 16 23:45:07 localhost passwd[3330]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:45:23 localhost passwd[3344]: pam_pwquality(passwd:chauthtok): pam_get_authtok_verify returned error: Failed preliminary check by password service
+May 16 23:45:23 localhost passwd[3344]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:45:43 localhost passwd[3361]: pam_unix(passwd:chauthtok): password changed for jsmith
+May 16 23:45:43 localhost passwd[3361]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:47:00 localhost passwd[3401]: pam_unix(passwd:chauthtok): password changed for jasmine
+May 16 23:47:00 localhost passwd[3401]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:47:38 localhost passwd[3431]: pam_unix(passwd:chauthtok): password changed for stan
+May 16 23:47:38 localhost passwd[3431]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:47:56 localhost passwd[3445]: pam_unix(passwd:chauthtok): password changed for jmary
+May 16 23:47:56 localhost passwd[3445]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 16 23:48:46 localhost passwd[3474]: pam_unix(passwd:chauthtok): password changed for root
+May 16 23:48:46 localhost passwd[3474]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 29 00:07:35 localhost polkitd[1236]: Loading rules from directory /etc/polkit-1/rules.d
+May 29 00:07:35 localhost polkitd[1236]: Loading rules from directory /usr/share/polkit-1/rules.d
+May 29 00:07:35 localhost polkitd[1236]: Finished loading, compiling and executing 10 rules
+May 29 00:07:35 localhost polkitd[1236]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+May 29 00:07:39 localhost sshd[1448]: Server listening on 0.0.0.0 port 22.
+May 29 00:07:39 localhost sshd[1448]: Server listening on :: port 22.
+May 29 00:07:46 localhost systemd[1755]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+May 29 00:07:47 localhost gdm-launch-environment][1731]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+May 29 00:07:56 localhost polkitd[1236]: Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May 29 00:08:31 localhost unix_chkpwd[2354]: password check failed for user (root)
+May 29 00:08:31 localhost gdm-password][2340]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=root
+May 29 00:08:43 localhost systemd[2382]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+May 29 00:08:43 localhost gdm-password][2359]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+May 29 00:08:49 localhost polkitd[1236]: Registered Authentication Agent for unix-session:2 (system bus name :1.226 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May 29 00:14:47 localhost unix_chkpwd[3512]: password check failed for user (root)
+May 29 00:14:47 localhost sshd[3508]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.42  user=root
+May 29 00:14:50 localhost sshd[3503]: error: PAM: Authentication failure for root from 192.168.1.42
+May 29 00:14:56 localhost sshd[3503]: Accepted keyboard-interactive/pam for root from 192.168.1.42 port 37918 ssh2
+May 29 00:14:56 localhost sshd[3503]: pam_unix(sshd:session): session opened for user root by (uid=0)
+May 29 00:14:57 localhost sshd[3524]: Received disconnect from 192.168.1.42 port 37918:11: disconnected by user
+May 29 00:14:57 localhost sshd[3524]: Disconnected from user root 192.168.1.42 port 37918
+May 29 00:14:57 localhost sshd[3503]: pam_unix(sshd:session): session closed for user root
+May 29 00:16:11 localhost sshd[3644]: Accepted keyboard-interactive/pam for root from 192.168.1.42 port 37920 ssh2
+May 29 00:16:11 localhost sshd[3644]: pam_unix(sshd:session): session opened for user root by (uid=0)
+May 29 00:16:11 localhost sshd[3651]: Received disconnect from 192.168.1.42 port 37920:11: disconnected by user
+May 29 00:16:11 localhost sshd[3651]: Disconnected from user root 192.168.1.42 port 37920
+May 29 00:16:11 localhost sshd[3644]: pam_unix(sshd:session): session closed for user root
+May 29 00:18:11 localhost polkitd[1052]: Loading rules from directory /etc/polkit-1/rules.d
+May 29 00:18:11 localhost polkitd[1052]: Loading rules from directory /usr/share/polkit-1/rules.d
+May 29 00:18:11 localhost polkitd[1052]: Finished loading, compiling and executing 10 rules
+May 29 00:18:11 localhost polkitd[1052]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+May 29 00:18:15 localhost sshd[1198]: Server listening on 0.0.0.0 port 22.
+May 29 00:18:15 localhost sshd[1198]: Server listening on :: port 22.
+May 29 00:18:22 localhost systemd[1544]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+May 29 00:18:23 localhost gdm-launch-environment][1522]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+May 29 00:18:32 localhost polkitd[1052]: Registered Authentication Agent for unix-session:c1 (system bus name :1.35 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May 29 00:20:06 localhost systemd[6166]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+May 29 00:20:07 localhost gdm-password][6150]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+May 29 00:20:13 localhost polkitd[1052]: Registered Authentication Agent for unix-session:2 (system bus name :1.220 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+May 29 00:21:26 localhost sshd[6827]: Accepted keyboard-interactive/pam for stan from 192.168.1.217 port 51612 ssh2
+May 29 00:21:26 localhost systemd[6875]: pam_unix(systemd-user:session): session opened for user stan by (uid=0)
+May 29 00:21:27 localhost sshd[6827]: pam_unix(sshd:session): session opened for user stan by (uid=0)
+May 29 00:23:24 localhost su[7132]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+May 29 00:23:24 localhost su[7132]: pam_unix(su-l:session): session opened for user root by stan(uid=1003)
+May 29 00:23:41 localhost useradd[7188]: new group: name=ansible, GID=1005
+May 29 00:23:41 localhost useradd[7188]: new user: name=ansible, UID=1005, GID=1005, home=/home/ansible, shell=/bin/bash
+May 29 00:24:08 localhost passwd[7216]: pam_unix(passwd:chauthtok): password changed for ansible
+May 29 00:24:08 localhost passwd[7216]: gkr-pam: couldn't update the login keyring password: no old password was entered
+May 29 01:20:59 localhost unix_chkpwd[7893]: password check failed for user (root)
+May 29 01:20:59 localhost gdm-password][7888]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=root
+May 29 01:20:59 localhost gdm-password][7888]: gkr-pam: the password for the login keyring was invalid.
+May 29 01:21:09 localhost gdm-password][7894]: gkr-pam: unlocked login keyring
+May 29 02:25:47 localhost sshd[8652]: Connection closed by authenticating user ansible 192.168.1.136 port 58562 [preauth]
+May 29 02:25:47 localhost sshd[8654]: Connection closed by authenticating user ansible 192.168.1.136 port 58564 [preauth]
+May 29 02:25:52 localhost sshd[8656]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 58566 ssh2
+May 29 02:25:53 localhost systemd[8662]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+May 29 02:25:53 localhost sshd[8656]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+May 29 02:25:54 localhost sshd[8686]: Received disconnect from 192.168.1.136 port 58566:11: disconnected by user
+May 29 02:25:54 localhost sshd[8686]: Disconnected from user ansible 192.168.1.136 port 58566
+May 29 02:25:54 localhost sshd[8656]: pam_unix(sshd:session): session closed for user ansible
+May 29 02:25:54 localhost systemd[8671]: pam_unix(systemd-user:session): session closed for user ansible
+May 29 02:29:01 localhost sshd[8781]: Accepted publickey for ansible from 192.168.1.136 port 58586 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+May 29 02:29:02 localhost systemd[8785]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+May 29 02:29:03 localhost sshd[8781]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+May 29 02:30:08 localhost sshd[8802]: Received disconnect from 192.168.1.136 port 58586:11: disconnected by user
+May 29 02:30:08 localhost sshd[8802]: Disconnected from user ansible 192.168.1.136 port 58586
+May 29 02:30:08 localhost sshd[8781]: pam_unix(sshd:session): session closed for user ansible
+May 29 07:41:17 localhost sshd[11719]: Accepted publickey for ansible from 192.168.1.136 port 58652 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+May 29 07:41:18 localhost systemd[11723]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+May 29 07:41:19 localhost sshd[11719]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+May 29 07:41:27 localhost sudo[11929]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-uusaasxapjkjwcmnoaaijgeyexlhpvid ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622288526.723824-10460-50599042122396/AnsiballZ_setup.py
+May 29 07:41:27 localhost sudo[11929]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:41:27 localhost sudo[11929]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:41:31 localhost sudo[11929]: pam_unix(sudo:session): session closed for user root
+May 29 07:41:37 localhost sudo[12150]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-cuavkjpjewcdqjreylbijoefxsdtledu ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622288539.8769917-10532-40419646155281/AnsiballZ_authorized_key.py
+May 29 07:41:37 localhost sudo[12150]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:41:37 localhost sudo[12150]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:41:39 localhost sudo[12150]: pam_unix(sudo:session): session closed for user root
+May 29 07:42:39 localhost sshd[11748]: Received disconnect from 192.168.1.136 port 58652:11: disconnected by user
+May 29 07:42:39 localhost sshd[11748]: Disconnected from user ansible 192.168.1.136 port 58652
+May 29 07:42:39 localhost sshd[11719]: pam_unix(sshd:session): session closed for user ansible
+May 29 07:48:07 localhost sshd[12265]: Accepted publickey for ansible from 192.168.1.136 port 58662 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+May 29 07:48:08 localhost systemd[12270]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+May 29 07:48:10 localhost sshd[12265]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+May 29 07:48:17 localhost sudo[12481]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-juudbcygvuombdlsilkglqsccgigwvhi ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622288937.0106418-10648-218821103483900/AnsiballZ_command.py
+May 29 07:48:17 localhost sudo[12481]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:48:17 localhost sudo[12481]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:48:18 localhost sudo[12481]: pam_unix(sudo:session): session closed for user root
+May 29 07:49:18 localhost sshd[12293]: Received disconnect from 192.168.1.136 port 58662:11: disconnected by user
+May 29 07:49:18 localhost sshd[12293]: Disconnected from user ansible 192.168.1.136 port 58662
+May 29 07:49:18 localhost sshd[12265]: pam_unix(sshd:session): session closed for user ansible
+May 29 07:49:18 localhost systemd[12278]: pam_unix(systemd-user:session): session closed for user ansible
+May 29 07:53:44 localhost sshd[12611]: Accepted publickey for ansible from 192.168.1.136 port 58672 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+May 29 07:53:45 localhost systemd[12615]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+May 29 07:53:46 localhost sshd[12611]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+May 29 07:53:54 localhost sudo[12830]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-gerrsquxafstevqwymqsvdppjyjjmibd ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622289273.6234176-10780-151860568116218/AnsiballZ_stat.py
+May 29 07:53:54 localhost sudo[12830]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:53:54 localhost sudo[12830]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:53:55 localhost sudo[12830]: pam_unix(sudo:session): session closed for user root
+May 29 07:53:57 localhost sudo[12951]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-abmfptuqphbtxtebepfimbrzzihivtws ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622289273.6234176-10780-151860568116218/AnsiballZ_copy.py
+May 29 07:53:57 localhost sudo[12951]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:53:57 localhost sudo[12951]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:53:59 localhost sudo[12951]: pam_unix(sudo:session): session closed for user root
+May 29 07:55:00 localhost sshd[12639]: Received disconnect from 192.168.1.136 port 58672:11: disconnected by user
+May 29 07:55:00 localhost sshd[12639]: Disconnected from user ansible 192.168.1.136 port 58672
+May 29 07:55:00 localhost sshd[12611]: pam_unix(sshd:session): session closed for user ansible
+May 29 07:55:00 localhost systemd[12625]: pam_unix(systemd-user:session): session closed for user ansible
+May 29 07:55:04 localhost sshd[13026]: Accepted publickey for ansible from 192.168.1.136 port 58682 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+May 29 07:55:05 localhost systemd[13031]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+May 29 07:55:06 localhost sshd[13026]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+May 29 07:55:13 localhost sudo[13242]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-lsijqsofiufzylwahbtmmrwketxodcsw ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622289353.6512187-10906-99984452906854/AnsiballZ_command.py
+May 29 07:55:13 localhost sudo[13242]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:55:13 localhost sudo[13242]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:55:14 localhost sudo[13242]: pam_unix(sudo:session): session closed for user root
+May 29 07:55:48 localhost sudo[13426]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-cmrxrzvixxtxflcbzhbdvtmfbrpvdjki ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622289391.8515456-10996-133092762561795/AnsiballZ_stat.py
+May 29 07:55:48 localhost sudo[13426]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:55:48 localhost sudo[13426]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:55:49 localhost sudo[13426]: pam_unix(sudo:session): session closed for user root
+May 29 07:55:51 localhost sudo[13536]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ifnmmxzowelzbjolqvxenjuivcsnebfv ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622289391.8515456-10996-133092762561795/AnsiballZ_copy.py
+May 29 07:55:51 localhost sudo[13536]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:55:51 localhost sudo[13536]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:55:52 localhost sudo[13536]: pam_unix(sudo:session): session closed for user root
+May 29 07:56:07 localhost sudo[13712]: ansible : TTY=pts/2 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-mmlgoovxzgvcatgpjjjfjdyggfagzkmi ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622289410.728932-11097-104587459613861/AnsiballZ_command.py
+May 29 07:56:07 localhost sudo[13712]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+May 29 07:56:07 localhost sudo[13712]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+May 29 07:56:07 localhost sudo[13712]: pam_unix(sudo:session): session closed for user root
+May 29 07:57:08 localhost sshd[13051]: Received disconnect from 192.168.1.136 port 58682:11: disconnected by user
+May 29 07:57:08 localhost sshd[13051]: Disconnected from user ansible 192.168.1.136 port 58682
+May 29 07:57:08 localhost sshd[13026]: pam_unix(sshd:session): session closed for user ansible
+May 29 07:57:08 localhost systemd[13036]: pam_unix(systemd-user:session): session closed for user ansible
+Jun  5 11:07:04 node3 polkitd[1030]: Loading rules from directory /etc/polkit-1/rules.d
+Jun  5 11:07:04 node3 polkitd[1030]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun  5 11:07:04 node3 polkitd[1030]: Finished loading, compiling and executing 10 rules
+Jun  5 11:07:04 node3 polkitd[1030]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun  5 11:07:12 node3 sshd[1190]: Server listening on 0.0.0.0 port 22.
+Jun  5 11:07:12 node3 sshd[1190]: Server listening on :: port 22.
+Jun  5 11:07:25 node3 systemd[1524]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun  5 11:07:27 node3 gdm-launch-environment][1499]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun  5 11:07:41 node3 polkitd[1030]: Registered Authentication Agent for unix-session:c1 (system bus name :1.33 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun  5 11:39:21 node3 sshd[2551]: Accepted publickey for ansible from 192.168.1.136 port 51902 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun  5 11:39:22 node3 systemd[2556]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun  5 11:39:23 node3 sshd[2551]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun  5 11:39:32 node3 sudo[2769]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wnggfntvvasghyeanpmzkoygkdyobdpi ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622907565.1896603-3715-278029552546237/AnsiballZ_stat.py
+Jun  5 11:39:32 node3 sudo[2769]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 11:39:32 node3 sudo[2769]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 11:39:33 node3 sudo[2769]: pam_unix(sudo:session): session closed for user root
+Jun  5 11:39:34 node3 sudo[2852]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-klqhgjfjfdnbnfnxizryedpenamdzdkz ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622907565.1896603-3715-278029552546237/AnsiballZ_file.py
+Jun  5 11:39:34 node3 sudo[2852]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 11:39:34 node3 sudo[2852]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 11:39:35 node3 sudo[2852]: pam_unix(sudo:session): session closed for user root
+Jun  5 11:40:36 node3 sshd[2579]: Received disconnect from 192.168.1.136 port 51902:11: disconnected by user
+Jun  5 11:40:36 node3 sshd[2579]: Disconnected from user ansible 192.168.1.136 port 51902
+Jun  5 11:40:36 node3 sshd[2551]: pam_unix(sshd:session): session closed for user ansible
+Jun  5 11:40:36 node3 systemd[2564]: pam_unix(systemd-user:session): session closed for user ansible
+Jun  5 12:00:12 node3 sshd[3092]: Accepted publickey for ansible from 192.168.1.136 port 51912 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun  5 12:00:13 node3 systemd[3096]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun  5 12:00:14 node3 sshd[3092]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun  5 12:00:22 node3 sudo[3304]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ixhxlgnplehrefofwjjgluffkonkqwle ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622908815.1305737-4223-137972945922020/AnsiballZ_setup.py
+Jun  5 12:00:22 node3 sudo[3304]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 12:00:22 node3 sudo[3304]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 12:00:26 node3 sudo[3304]: pam_unix(sudo:session): session closed for user root
+Jun  5 12:00:31 node3 sudo[3515]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wulblslrpggudbmqwrqlxhxyqvlwghes ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622908828.1920984-4296-51645012990050/AnsiballZ_stat.py
+Jun  5 12:00:31 node3 sudo[3515]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 12:00:31 node3 sudo[3515]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 12:00:32 node3 sudo[3515]: pam_unix(sudo:session): session closed for user root
+Jun  5 12:00:34 node3 sudo[3587]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-bomcryuyruiqzegbgdycvqrasmebdthz ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622908828.1920984-4296-51645012990050/AnsiballZ_file.py
+Jun  5 12:00:34 node3 sudo[3587]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 12:00:34 node3 sudo[3587]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 12:00:35 node3 sudo[3587]: pam_unix(sudo:session): session closed for user root
+Jun  5 12:01:16 node3 sudo[3769]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-lvidbbvmvzfxayvzalprgijhkthwolem ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622908874.097837-4400-271065006485562/AnsiballZ_setup.py
+Jun  5 12:01:16 node3 sudo[3769]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 12:01:16 node3 sudo[3769]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 12:01:19 node3 sudo[3769]: pam_unix(sudo:session): session closed for user root
+Jun  5 12:01:22 node3 sudo[3959]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-vutybbgirhvtdhokyfkfrxwyvxaluakr ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622908881.1304088-4457-138867431332586/AnsiballZ_stat.py
+Jun  5 12:01:22 node3 sudo[3959]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 12:01:22 node3 sudo[3959]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 12:01:23 node3 sudo[3959]: pam_unix(sudo:session): session closed for user root
+Jun  5 12:01:25 node3 sudo[4030]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-eiuvaqylorccdmyzqmplfnccaeyrxnrl ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1622908881.1304088-4457-138867431332586/AnsiballZ_file.py
+Jun  5 12:01:25 node3 sudo[4030]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 12:01:25 node3 sudo[4030]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun  5 12:01:26 node3 sudo[4030]: pam_unix(sudo:session): session closed for user root
+Jun  5 12:02:26 node3 sshd[3120]: Received disconnect from 192.168.1.136 port 51912:11: disconnected by user
+Jun  5 12:02:26 node3 sshd[3120]: Disconnected from user ansible 192.168.1.136 port 51912
+Jun  5 12:02:26 node3 sshd[3092]: pam_unix(sshd:session): session closed for user ansible
+Jun  5 12:02:27 node3 systemd[3108]: pam_unix(systemd-user:session): session closed for user ansible
+Jun  5 12:45:44 node3 sshd[4465]: Connection closed by authenticating user sfagbohoun 192.168.1.136 port 51918 [preauth]
+Jun  5 12:47:54 node3 sshd[4484]: Connection closed by 192.168.1.136 port 51920 [preauth]
+Jun  5 12:47:59 node3 sshd[4486]: Connection closed by authenticating user sfagbohoun 192.168.1.136 port 51922 [preauth]
+Jun  5 12:48:04 node3 unix_chkpwd[4491]: password check failed for user (sfagbohoun)
+Jun  5 12:48:04 node3 sshd[4490]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.136  user=sfagbohoun
+Jun  5 12:48:05 node3 sshd[4488]: error: PAM: Authentication failure for sfagbohoun from 192.168.1.136
+Jun  5 12:48:09 node3 unix_chkpwd[4501]: password check failed for user (sfagbohoun)
+Jun  5 12:48:09 node3 sshd[4492]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.136  user=sfagbohoun
+Jun  5 12:48:11 node3 sshd[4488]: error: PAM: Authentication failure for sfagbohoun from 192.168.1.136
+Jun  5 12:48:11 node3 sshd[4488]: Postponed keyboard-interactive for sfagbohoun from 192.168.1.136 port 51924 ssh2 [preauth]
+Jun  5 12:48:15 node3 sshd[4488]: Postponed keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51924 ssh2 [preauth]
+Jun  5 12:48:15 node3 sshd[4488]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51924 ssh2
+Jun  5 12:48:15 node3 systemd[4506]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:48:16 node3 sshd[4488]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:48:16 node3 sshd[4531]: Received disconnect from 192.168.1.136 port 51924:11: disconnected by user
+Jun  5 12:48:16 node3 sshd[4531]: Disconnected from user sfagbohoun 192.168.1.136 port 51924
+Jun  5 12:48:16 node3 sshd[4488]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 12:48:16 node3 systemd[4516]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 12:48:20 node3 sshd[4571]: Connection closed by authenticating user sfagbohoun 192.168.1.136 port 51926 [preauth]
+Jun  5 12:48:20 node3 sshd[4573]: Connection closed by authenticating user sfagbohoun 192.168.1.136 port 51928 [preauth]
+Jun  5 12:48:25 node3 sshd[4575]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51930 ssh2
+Jun  5 12:48:25 node3 systemd[4582]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:48:26 node3 sshd[4575]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:48:26 node3 sshd[4603]: Received disconnect from 192.168.1.136 port 51930:11: disconnected by user
+Jun  5 12:48:26 node3 sshd[4603]: Disconnected from user sfagbohoun 192.168.1.136 port 51930
+Jun  5 12:48:26 node3 sshd[4575]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 12:48:26 node3 systemd[4589]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 12:48:41 node3 unix_chkpwd[4634]: password check failed for user (sfagbohoun)
+Jun  5 12:48:41 node3 sshd[4632]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.136  user=sfagbohoun
+Jun  5 12:48:43 node3 sshd[4630]: error: PAM: Authentication failure for sfagbohoun from 192.168.1.136
+Jun  5 12:48:48 node3 sshd[4630]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51932 ssh2
+Jun  5 12:48:49 node3 systemd[4645]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:48:49 node3 sshd[4630]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:48:49 node3 sshd[4666]: Received disconnect from 192.168.1.136 port 51932:11: disconnected by user
+Jun  5 12:48:49 node3 sshd[4666]: Disconnected from user sfagbohoun 192.168.1.136 port 51932
+Jun  5 12:48:49 node3 sshd[4630]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 12:48:49 node3 systemd[4652]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 12:49:14 node3 sshd[4699]: Connection closed by 192.168.1.136 port 51934 [preauth]
+Jun  5 12:49:26 node3 unix_chkpwd[4704]: password check failed for user (root)
+Jun  5 12:49:26 node3 sshd[4703]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.136  user=root
+Jun  5 12:49:28 node3 sshd[4701]: error: PAM: Authentication failure for root from 192.168.1.136
+Jun  5 12:49:31 node3 unix_chkpwd[4706]: password check failed for user (root)
+Jun  5 12:49:31 node3 sshd[4705]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.1.136  user=root
+Jun  5 12:49:33 node3 sshd[4701]: error: PAM: Authentication failure for root from 192.168.1.136
+Jun  5 12:49:33 node3 sshd[4701]: Postponed keyboard-interactive for root from 192.168.1.136 port 51936 ssh2 [preauth]
+Jun  5 12:49:47 node3 unix_chkpwd[4719]: password check failed for user (sfagbohoun)
+Jun  5 12:49:47 node3 gdm-password][4711]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=sfagbohoun
+Jun  5 12:49:55 node3 systemd[4727]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:49:56 node3 gdm-password][4720]: pam_unix(gdm-password:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:49:57 node3 gdm-password][4720]: pam_unix(gdm-password:session): session closed for user sfagbohoun
+Jun  5 12:49:57 node3 systemd[4736]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 12:50:04 node3 gdm-password][4819]: pam_faillock(gdm-password:auth): User unknown
+Jun  5 12:50:08 node3 gdm-password][4819]: pam_unix(gdm-password:auth): conversation failed
+Jun  5 12:50:08 node3 gdm-password][4819]: pam_unix(gdm-password:auth): auth could not identify password for [online1]
+Jun  5 12:50:16 node3 unix_chkpwd[4838]: password check failed for user (root)
+Jun  5 12:50:16 node3 gdm-password][4831]: pam_unix(gdm-password:auth): authentication failure; logname= uid=0 euid=0 tty=/dev/tty1 ruser= rhost=  user=root
+Jun  5 12:50:16 node3 gdm-password][4831]: pam_faillock(gdm-password:auth): Consecutive login failures for user root account temporarily locked
+Jun  5 12:50:25 node3 gdm-password][4840]: pam_unix(gdm-password:auth): conversation failed
+Jun  5 12:50:25 node3 gdm-password][4840]: pam_unix(gdm-password:auth): auth could not identify password for [root]
+Jun  5 12:51:33 node3 systemd[4869]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jun  5 12:51:33 node3 gdm-password][4859]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jun  5 12:51:41 node3 polkitd[1030]: Registered Authentication Agent for unix-session:14 (system bus name :1.550 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun  5 12:52:25 node3 passwd[5486]: pam_unix(passwd:chauthtok): password changed for root
+Jun  5 12:52:25 node3 passwd[5486]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jun  5 12:52:50 node3 passwd[5518]: pam_unix(passwd:chauthtok): password changed for sfagbohoun
+Jun  5 12:52:50 node3 passwd[5518]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jun  5 12:57:53 node3 sshd[5668]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51940 ssh2
+Jun  5 12:57:54 node3 systemd[5674]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:57:54 node3 sshd[5668]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:58:55 node3 sshd[5693]: Received disconnect from 192.168.1.136 port 51940:11: disconnected by user
+Jun  5 12:58:55 node3 sshd[5693]: Disconnected from user sfagbohoun 192.168.1.136 port 51940
+Jun  5 12:58:55 node3 sshd[5668]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 12:59:39 node3 sshd[5825]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51944 ssh2
+Jun  5 12:59:40 node3 systemd[5831]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 12:59:40 node3 sshd[5825]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:00:37 node3 gdm-password][5937]: gkr-pam: the password for the login keyring was invalid.
+Jun  5 13:01:00 node3 sshd[5854]: Received disconnect from 192.168.1.136 port 51944:11: disconnected by user
+Jun  5 13:01:00 node3 sshd[5854]: Disconnected from user sfagbohoun 192.168.1.136 port 51944
+Jun  5 13:01:00 node3 sshd[5825]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 13:01:24 node3 passwd[5953]: pam_unix(passwd:chauthtok): password changed for root
+Jun  5 13:01:24 node3 passwd[5953]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jun  5 13:01:44 node3 passwd[6014]: pam_unix(passwd:chauthtok): password changed for sfagbohoun
+Jun  5 13:01:44 node3 passwd[6014]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jun  5 13:02:01 node3 sshd[6024]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51946 ssh2
+Jun  5 13:02:01 node3 systemd[6030]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:02:02 node3 sshd[6024]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:03:02 node3 sshd[6053]: Received disconnect from 192.168.1.136 port 51946:11: disconnected by user
+Jun  5 13:03:02 node3 sshd[6053]: Disconnected from user sfagbohoun 192.168.1.136 port 51946
+Jun  5 13:03:02 node3 sshd[6024]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 13:03:03 node3 systemd[6039]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 13:03:42 node3 sshd[6177]: Connection closed by authenticating user sfagbohoun 192.168.1.136 port 51950 [preauth]
+Jun  5 13:04:01 node3 sshd[6179]: Accepted publickey for ansible from 192.168.1.136 port 51954 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun  5 13:04:02 node3 systemd[6183]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun  5 13:04:03 node3 sshd[6179]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun  5 13:04:07 node3 sshd[6206]: Received disconnect from 192.168.1.136 port 51954:11: disconnected by user
+Jun  5 13:04:07 node3 sshd[6206]: Disconnected from user ansible 192.168.1.136 port 51954
+Jun  5 13:04:07 node3 sshd[6179]: pam_unix(sshd:session): session closed for user ansible
+Jun  5 13:04:07 node3 systemd[6192]: pam_unix(systemd-user:session): session closed for user ansible
+Jun  5 13:04:20 node3 sshd[6324]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51956 ssh2
+Jun  5 13:04:20 node3 systemd[6332]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:04:21 node3 sshd[6324]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:04:21 node3 sshd[6353]: Received disconnect from 192.168.1.136 port 51956:11: disconnected by user
+Jun  5 13:04:21 node3 sshd[6353]: Disconnected from user sfagbohoun 192.168.1.136 port 51956
+Jun  5 13:04:21 node3 sshd[6324]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 13:04:21 node3 systemd[6339]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 13:04:58 node3 sshd[6380]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51958 ssh2
+Jun  5 13:04:58 node3 systemd[6386]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:04:59 node3 sshd[6380]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:04:59 node3 sshd[6409]: Received disconnect from 192.168.1.136 port 51958:11: disconnected by user
+Jun  5 13:04:59 node3 sshd[6409]: Disconnected from user sfagbohoun 192.168.1.136 port 51958
+Jun  5 13:04:59 node3 sshd[6380]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 13:04:59 node3 systemd[6395]: pam_unix(systemd-user:session): session closed for user sfagbohoun
+Jun  5 13:05:16 node3 su[6464]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:05:16 node3 su[6464]: pam_unix(su-l:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:05:16 node3 su[6464]: pam_unix(su-l:session): session closed for user sfagbohoun
+Jun  5 13:06:59 node3 su[6526]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:06:59 node3 su[6526]: pam_unix(su-l:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:08:03 node3 sshd[6572]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51960 ssh2
+Jun  5 13:08:04 node3 systemd[6578]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:08:04 node3 sshd[6572]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:08:10 node3 sudo[6794]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xfagdldmlqcwzyeesarmcqjgiseaxgrx ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622912885.7250164-6428-176340574455335/AnsiballZ_setup.py
+Jun  5 13:08:10 node3 sudo[6794]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:08:10 node3 sudo[6794]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:08:15 node3 sudo[6794]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:08:19 node3 sudo[7016]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-lbkctwrscuwfkyuvuqliobwzydyqwnxm ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622912897.616149-6474-259927736945640/AnsiballZ_dnf.py
+Jun  5 13:08:19 node3 sudo[7016]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:08:19 node3 sudo[7016]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:08:42 node3 groupadd[7035]: group added to /etc/group: name=apache, GID=48
+Jun  5 13:08:42 node3 groupadd[7035]: group added to /etc/gshadow: name=apache
+Jun  5 13:08:42 node3 groupadd[7035]: new group: name=apache, GID=48
+Jun  5 13:08:43 node3 useradd[7042]: new user: name=apache, UID=48, GID=48, home=/usr/share/httpd, shell=/sbin/nologin
+Jun  5 13:08:49 node3 sudo[7016]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:08:52 node3 sudo[8617]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-rqmnjizeoivnlqdylxmhchdziwkgfqhg ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622912930.4834495-6524-80345855982566/AnsiballZ_stat.py
+Jun  5 13:08:52 node3 sudo[8617]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:08:52 node3 sudo[8617]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:08:52 node3 sudo[8617]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:08:54 node3 sudo[9712]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xfamqfevmkjyartpqwjffaqgkafglfco ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622912930.4834495-6524-80345855982566/AnsiballZ_copy.py
+Jun  5 13:08:54 node3 sudo[9712]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:08:54 node3 sudo[9712]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:08:54 node3 sudo[9712]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:08:57 node3 sudo[11332]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ysofkbzvqwgbopjflffmyrjdzwvaeezm ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622912935.8121042-6575-260298674743894/AnsiballZ_systemd.py
+Jun  5 13:08:57 node3 sudo[11332]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:08:57 node3 sudo[11332]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:08:59 node3 sudo[11332]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:09:59 node3 sshd[6601]: Received disconnect from 192.168.1.136 port 51960:11: disconnected by user
+Jun  5 13:09:59 node3 sshd[6601]: Disconnected from user sfagbohoun 192.168.1.136 port 51960
+Jun  5 13:09:59 node3 sshd[6572]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun  5 13:16:42 node3 sshd[37126]: Accepted keyboard-interactive/pam for sfagbohoun from 192.168.1.136 port 51968 ssh2
+Jun  5 13:16:43 node3 systemd[37132]: pam_unix(systemd-user:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:16:44 node3 sshd[37126]: pam_unix(sshd:session): session opened for user sfagbohoun by (uid=0)
+Jun  5 13:16:49 node3 sudo[37342]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-rptnamvrlutgrafzqiliylkzuwdyzufd ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622913404.8847277-6792-38311278362967/AnsiballZ_setup.py
+Jun  5 13:16:49 node3 sudo[37342]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:16:49 node3 sudo[37342]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:16:52 node3 sudo[37342]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:16:56 node3 sudo[37556]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-dxvsinmwlgjqjtdsbyjisbrxrevewpoe ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622913414.8418221-6838-259729421604331/AnsiballZ_dnf.py
+Jun  5 13:16:56 node3 sudo[37556]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:16:56 node3 sudo[37556]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:17:11 node3 sudo[37556]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:17:15 node3 sudo[37705]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-vxzmcpzjhfyxmuwsbrcljebuwokcmdpa ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622913433.4325094-6870-243304851709841/AnsiballZ_stat.py
+Jun  5 13:17:15 node3 sudo[37705]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:17:15 node3 sudo[37705]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:17:15 node3 sudo[37705]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:17:16 node3 sudo[37778]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-kcgcnlwwibzlwvlmcaitssnedchtojlf ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622913433.4325094-6870-243304851709841/AnsiballZ_file.py
+Jun  5 13:17:16 node3 sudo[37778]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:17:16 node3 sudo[37778]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:17:16 node3 sudo[37778]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:17:18 node3 sudo[37915]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-mkgplcdqvwqkvsrjubauzxtelyymdeta ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622913437.2719898-6916-272204062195563/AnsiballZ_systemd.py
+Jun  5 13:17:18 node3 sudo[37915]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:17:18 node3 sudo[37915]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:17:19 node3 sudo[37915]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:17:21 node3 sudo[38058]: sfagbohoun : TTY=pts/1 ; PWD=/home/sfagbohoun ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wkntktnhaxtehdmqaduhdzutahdlqrmq ; /usr/libexec/platform-python /home/sfagbohoun/.ansible/tmp/ansible-tmp-1622913439.9361753-6948-94176838227653/AnsiballZ_firewalld.py
+Jun  5 13:17:21 node3 sudo[38058]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun  5 13:17:21 node3 sudo[38058]: pam_unix(sudo:session): session opened for user root by sfagbohoun(uid=0)
+Jun  5 13:17:24 node3 sudo[38058]: pam_unix(sudo:session): session closed for user root
+Jun  5 13:18:24 node3 sshd[37156]: Received disconnect from 192.168.1.136 port 51968:11: disconnected by user
+Jun  5 13:18:24 node3 sshd[37156]: Disconnected from user sfagbohoun 192.168.1.136 port 51968
+Jun  5 13:18:24 node3 sshd[37126]: pam_unix(sshd:session): session closed for user sfagbohoun
+Jun 12 11:14:20 node3 polkitd[1037]: Loading rules from directory /etc/polkit-1/rules.d
+Jun 12 11:14:20 node3 polkitd[1037]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun 12 11:14:20 node3 polkitd[1037]: Finished loading, compiling and executing 10 rules
+Jun 12 11:14:20 node3 polkitd[1037]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun 12 11:14:31 node3 sshd[1194]: Server listening on 0.0.0.0 port 22.
+Jun 12 11:14:31 node3 sshd[1194]: Server listening on :: port 22.
+Jun 12 11:14:50 node3 systemd[1537]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun 12 11:14:55 node3 gdm-launch-environment][1506]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun 12 11:15:16 node3 polkitd[1037]: Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 12 11:56:59 node3 sshd[2861]: Connection closed by 192.168.1.136 port 46270 [preauth]
+Jun 12 11:58:01 node3 sshd[2864]: Invalid user devops from 192.168.1.136 port 46282
+Jun 12 11:58:01 node3 sshd[2864]: Connection closed by invalid user devops 192.168.1.136 port 46282 [preauth]
+Jun 12 11:58:14 node3 sshd[2874]: Invalid user devops from 192.168.1.136 port 46290
+Jun 12 11:58:14 node3 sshd[2874]: Connection closed by invalid user devops 192.168.1.136 port 46290 [preauth]
+Jun 12 12:02:30 node3 sshd[2917]: Connection closed by authenticating user ansible 192.168.1.136 port 46304 [preauth]
+Jun 12 12:03:30 node3 sshd[2927]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 46316 ssh2
+Jun 12 12:03:31 node3 systemd[2933]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 12 12:03:32 node3 sshd[2927]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 12 12:04:40 node3 sshd[2958]: Received disconnect from 192.168.1.136 port 46316:11: disconnected by user
+Jun 12 12:04:40 node3 sshd[2958]: Disconnected from user ansible 192.168.1.136 port 46316
+Jun 12 12:04:40 node3 sshd[2927]: pam_unix(sshd:session): session closed for user ansible
+Jun 12 12:04:40 node3 systemd[2946]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 12 12:15:12 node3 sshd[3315]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 46324 ssh2
+Jun 12 12:15:13 node3 systemd[3322]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 12 12:15:14 node3 sshd[3315]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 12 12:16:22 node3 sshd[3345]: Received disconnect from 192.168.1.136 port 46324:11: disconnected by user
+Jun 12 12:16:22 node3 sshd[3345]: Disconnected from user ansible 192.168.1.136 port 46324
+Jun 12 12:16:22 node3 sshd[3315]: pam_unix(sshd:session): session closed for user ansible
+Jun 12 12:16:22 node3 systemd[3331]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 12 12:16:26 node3 sshd[3611]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 46334 ssh2
+Jun 12 12:16:27 node3 systemd[3617]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 12 12:16:27 node3 sshd[3611]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 12 12:16:36 node3 sudo[3828]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-vdrilfwuijtrpchgujwiufefdhcmimyd ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1623514589.052028-4782-84750873126376/AnsiballZ_user.py
+Jun 12 12:16:36 node3 sudo[3828]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 12:16:36 node3 sudo[3828]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 12 12:16:37 node3 useradd[3839]: new group: name=devops, GID=1006
+Jun 12 12:16:37 node3 useradd[3839]: new user: name=devops, UID=1006, GID=1006, home=/home/devops, shell=/bin/bash
+Jun 12 12:16:39 node3 sudo[3828]: pam_unix(sudo:session): session closed for user root
+Jun 12 12:17:40 node3 sshd[3638]: Received disconnect from 192.168.1.136 port 46334:11: disconnected by user
+Jun 12 12:17:40 node3 sshd[3638]: Disconnected from user ansible 192.168.1.136 port 46334
+Jun 12 12:17:40 node3 sshd[3611]: pam_unix(sshd:session): session closed for user ansible
+Jun 12 12:24:44 node3 sshd[3980]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 46354 ssh2
+Jun 12 12:24:44 node3 systemd[3986]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 12 12:24:45 node3 sshd[3980]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 12 12:24:53 node3 su[4094]: pam_systemd(su-l:session): Cannot create session: Already running in a session or user slice
+Jun 12 12:24:53 node3 su[4094]: pam_unix(su-l:session): session opened for user root by ansible(uid=1005)
+Jun 12 12:25:19 node3 passwd[4130]: pam_unix(passwd:chauthtok): password changed for devops
+Jun 12 12:25:19 node3 passwd[4130]: gkr-pam: couldn't update the login keyring password: no old password was entered
+Jun 12 12:25:27 node3 su[4094]: pam_unix(su-l:session): session closed for user root
+Jun 12 12:25:31 node3 sshd[4012]: Received disconnect from 192.168.1.136 port 46354:11: disconnected by user
+Jun 12 12:25:31 node3 sshd[4012]: Disconnected from user ansible 192.168.1.136 port 46354
+Jun 12 12:25:31 node3 sshd[3980]: pam_unix(sshd:session): session closed for user ansible
+Jun 12 12:25:31 node3 systemd[3997]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 12 12:26:33 node3 sshd[4191]: Connection closed by authenticating user devops 192.168.1.136 port 46370 [preauth]
+Jun 12 12:26:33 node3 sshd[4193]: Connection closed by authenticating user devops 192.168.1.136 port 46372 [preauth]
+Jun 12 12:26:41 node3 sshd[4195]: Accepted keyboard-interactive/pam for devops from 192.168.1.136 port 46374 ssh2
+Jun 12 12:26:41 node3 systemd[4201]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 12:26:42 node3 sshd[4195]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 12:26:43 node3 sshd[4225]: Received disconnect from 192.168.1.136 port 46374:11: disconnected by user
+Jun 12 12:26:43 node3 sshd[4225]: Disconnected from user devops 192.168.1.136 port 46374
+Jun 12 12:26:43 node3 sshd[4195]: pam_unix(sshd:session): session closed for user devops
+Jun 12 12:26:43 node3 systemd[4210]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 12:31:39 node3 sshd[4335]: Accepted publickey for devops from 192.168.1.136 port 46386 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 12:31:40 node3 systemd[4339]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 12:31:41 node3 sshd[4335]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 12:33:05 node3 sshd[4363]: Received disconnect from 192.168.1.136 port 46386:11: disconnected by user
+Jun 12 12:33:05 node3 sshd[4363]: Disconnected from user devops 192.168.1.136 port 46386
+Jun 12 12:33:05 node3 sshd[4335]: pam_unix(sshd:session): session closed for user devops
+Jun 12 12:33:05 node3 systemd[4352]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 12:34:23 node3 sshd[4603]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 46394 ssh2
+Jun 12 12:34:24 node3 systemd[4609]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 12 12:34:25 node3 sshd[4603]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 12 12:35:27 node3 sshd[4640]: Received disconnect from 192.168.1.136 port 46394:11: disconnected by user
+Jun 12 12:35:27 node3 sshd[4640]: Disconnected from user ansible 192.168.1.136 port 46394
+Jun 12 12:35:27 node3 sshd[4603]: pam_unix(sshd:session): session closed for user ansible
+Jun 12 12:35:28 node3 systemd[4618]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 12 12:43:59 node3 sshd[4870]: Accepted publickey for devops from 192.168.1.136 port 46400 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 12:44:00 node3 systemd[4874]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 12:44:01 node3 sshd[4870]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 12:44:08 node3 sudo[5089]:  devops : user NOT in sudoers ; TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-togthslmcscpcfaivrwujxlwrasinvxh ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623516242.5170693-5977-91564345899465/AnsiballZ_stat.py
+Jun 12 12:45:08 node3 sshd[4898]: Received disconnect from 192.168.1.136 port 46400:11: disconnected by user
+Jun 12 12:45:08 node3 sshd[4898]: Disconnected from user devops 192.168.1.136 port 46400
+Jun 12 12:45:08 node3 sshd[4870]: pam_unix(sshd:session): session closed for user devops
+Jun 12 12:45:09 node3 systemd[4886]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 12:48:41 node3 sshd[5214]: Accepted publickey for devops from 192.168.1.136 port 46410 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 12:48:41 node3 systemd[5218]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 12:48:42 node3 sshd[5214]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 12:48:49 node3 sudo[5425]:  devops : user NOT in sudoers ; TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-hduymkefzlcoxpsdwxxxxphxpocdfyvw ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623516523.8580046-6148-35250427243718/AnsiballZ_stat.py
+Jun 12 12:49:50 node3 sshd[5241]: Received disconnect from 192.168.1.136 port 46410:11: disconnected by user
+Jun 12 12:49:50 node3 sshd[5241]: Disconnected from user devops 192.168.1.136 port 46410
+Jun 12 12:49:50 node3 sshd[5214]: pam_unix(sshd:session): session closed for user devops
+Jun 12 12:49:50 node3 systemd[5227]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 12:57:33 node3 sshd[5586]: Accepted publickey for devops from 192.168.1.136 port 46418 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 12:57:34 node3 systemd[5590]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 12:57:35 node3 sshd[5586]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 12:57:42 node3 sudo[5805]:  devops : user NOT in sudoers ; TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-nhrvingggmsdcpmwwsxvkazlwmrwkcjv ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623517056.0568144-6427-186632843437557/AnsiballZ_setup.py
+Jun 12 12:58:42 node3 sshd[5615]: Received disconnect from 192.168.1.136 port 46418:11: disconnected by user
+Jun 12 12:58:42 node3 sshd[5615]: Disconnected from user devops 192.168.1.136 port 46418
+Jun 12 12:58:42 node3 sshd[5586]: pam_unix(sshd:session): session closed for user devops
+Jun 12 12:58:42 node3 systemd[5602]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 12:58:43 node3 sshd[5864]: Accepted publickey for devops from 192.168.1.136 port 46426 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 12:58:44 node3 systemd[5884]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 12:58:45 node3 sshd[5864]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 12:58:52 node3 sudo[6096]:  devops : user NOT in sudoers ; TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-gdfaieiatvlgsydzeoianbwclfdcllds ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623517126.4159236-6516-13155868196490/AnsiballZ_setup.py
+Jun 12 12:59:13 node3 sudo[6286]:  devops : user NOT in sudoers ; TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-dwfdkgrjhxpufytyadvlzarvoouwfynk ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623517150.6102135-6618-99217189757952/AnsiballZ_setup.py
+Jun 12 13:00:13 node3 sshd[5905]: Received disconnect from 192.168.1.136 port 46426:11: disconnected by user
+Jun 12 13:00:13 node3 sshd[5905]: Disconnected from user devops 192.168.1.136 port 46426
+Jun 12 13:00:13 node3 sshd[5864]: pam_unix(sshd:session): session closed for user devops
+Jun 12 13:00:13 node3 systemd[5892]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 13:03:29 node3 sshd[6389]: Accepted publickey for devops from 192.168.1.136 port 46436 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 13:03:30 node3 systemd[6393]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 13:03:31 node3 sshd[6389]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 13:03:37 node3 sudo[6608]:  devops : user NOT in sudoers ; TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-hiwphvtszuqiuqsigucynkezxornwbiy ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623517412.1388905-6794-163491232291696/AnsiballZ_lineinfile.py
+Jun 12 13:04:38 node3 sshd[6417]: Received disconnect from 192.168.1.136 port 46436:11: disconnected by user
+Jun 12 13:04:38 node3 sshd[6417]: Disconnected from user devops 192.168.1.136 port 46436
+Jun 12 13:04:38 node3 sshd[6389]: pam_unix(sshd:session): session closed for user devops
+Jun 12 13:04:38 node3 systemd[6405]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 13:04:40 node3 sshd[6680]: Connection closed by authenticating user ansible 192.168.1.136 port 46442 [preauth]
+Jun 12 13:05:06 node3 sshd[6700]: Accepted keyboard-interactive/pam for ansible from 192.168.1.136 port 46450 ssh2
+Jun 12 13:05:07 node3 systemd[6706]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 12 13:05:08 node3 sshd[6700]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 12 13:05:14 node3 sudo[6923]: ansible : TTY=pts/0 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-leiyatznyihxoxnrlkxwqkgjwndkgunh ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1623517509.30363-6917-155979964985688/AnsiballZ_lineinfile.py
+Jun 12 13:05:14 node3 sudo[6923]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 13:05:14 node3 sudo[6923]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 12 13:05:15 node3 sudo[6923]: pam_unix(sudo:session): session closed for user root
+Jun 12 13:05:50 node3 sshd[6958]: Accepted publickey for devops from 192.168.1.136 port 46454 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 13:05:50 node3 systemd[6962]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 13:05:51 node3 sshd[6958]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 13:06:02 node3 sudo[7071]:  devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/vim /etc/hosts
+Jun 12 13:06:02 node3 sudo[7071]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 13:06:02 node3 sudo[7071]: pam_unix(sudo:session): session opened for user root by devops(uid=0)
+Jun 12 13:06:14 node3 sudo[7071]: pam_unix(sudo:session): session closed for user root
+Jun 12 13:06:16 node3 sshd[6733]: Received disconnect from 192.168.1.136 port 46450:11: disconnected by user
+Jun 12 13:06:16 node3 sshd[6733]: Disconnected from user ansible 192.168.1.136 port 46450
+Jun 12 13:06:16 node3 sshd[6700]: pam_unix(sshd:session): session closed for user ansible
+Jun 12 13:06:16 node3 systemd[6717]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 12 13:06:25 node3 sshd[6986]: Received disconnect from 192.168.1.136 port 46454:11: disconnected by user
+Jun 12 13:06:25 node3 sshd[6986]: Disconnected from user devops 192.168.1.136 port 46454
+Jun 12 13:06:25 node3 sshd[6958]: pam_unix(sshd:session): session closed for user devops
+Jun 12 13:06:25 node3 systemd[6971]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 13:10:13 node3 sshd[7160]: Accepted publickey for devops from 192.168.1.136 port 46462 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 13:10:13 node3 systemd[7164]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 13:10:14 node3 sshd[7160]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 13:11:21 node3 sshd[7188]: Received disconnect from 192.168.1.136 port 46462:11: disconnected by user
+Jun 12 13:11:21 node3 sshd[7188]: Disconnected from user devops 192.168.1.136 port 46462
+Jun 12 13:11:21 node3 sshd[7160]: pam_unix(sshd:session): session closed for user devops
+Jun 12 13:11:22 node3 systemd[7175]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 13:15:17 node3 sshd[7492]: Accepted publickey for devops from 192.168.1.136 port 46468 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 13:15:17 node3 systemd[7496]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 13:15:18 node3 sshd[7492]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 13:15:26 node3 sudo[7710]:  devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-azpllelqpboixjmfebrfavlwutbxizpr ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623518119.9395044-7278-43937145329124/AnsiballZ_stat.py
+Jun 12 13:15:26 node3 sudo[7710]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 13:15:26 node3 sudo[7710]: pam_unix(sudo:session): session opened for user root by devops(uid=0)
+Jun 12 13:15:27 node3 sudo[7710]: pam_unix(sudo:session): session closed for user root
+Jun 12 13:15:29 node3 sudo[7839]:  devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xnbypqvdxvnasniyblhchesmyojuvetq ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623518119.9395044-7278-43937145329124/AnsiballZ_copy.py
+Jun 12 13:15:29 node3 sudo[7839]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 13:15:29 node3 sudo[7839]: pam_unix(sudo:session): session opened for user root by devops(uid=0)
+Jun 12 13:15:30 node3 sudo[7839]: pam_unix(sudo:session): session closed for user root
+Jun 12 13:15:55 node3 sudo[8018]:  devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-lmyhizzrmimaszuvydzupixqgdiaimng ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623518153.396387-7392-2853531653760/AnsiballZ_stat.py
+Jun 12 13:15:55 node3 sudo[8018]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 13:15:55 node3 sudo[8018]: pam_unix(sudo:session): session opened for user root by devops(uid=0)
+Jun 12 13:15:56 node3 sudo[8018]: pam_unix(sudo:session): session closed for user root
+Jun 12 13:15:57 node3 sudo[8089]:  devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-zdrferktbvcnbhzusjileflfbkhtljnp ; /usr/libexec/platform-python /home/devops/.ansible/tmp/ansible-tmp-1623518153.396387-7392-2853531653760/AnsiballZ_file.py
+Jun 12 13:15:57 node3 sudo[8089]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 12 13:15:57 node3 sudo[8089]: pam_unix(sudo:session): session opened for user root by devops(uid=0)
+Jun 12 13:15:58 node3 sudo[8089]: pam_unix(sudo:session): session closed for user root
+Jun 12 13:16:58 node3 sshd[7519]: Received disconnect from 192.168.1.136 port 46468:11: disconnected by user
+Jun 12 13:16:58 node3 sshd[7519]: Disconnected from user devops 192.168.1.136 port 46468
+Jun 12 13:16:58 node3 sshd[7492]: pam_unix(sshd:session): session closed for user devops
+Jun 12 13:16:58 node3 systemd[7505]: pam_unix(systemd-user:session): session closed for user devops
+Jun 12 13:19:40 node3 sshd[8188]: Accepted publickey for devops from 192.168.1.136 port 46476 ssh2: RSA SHA256:4eU5yRUy7W0CunssYRsg6EJor1uJiMpwuo9O9cNRZ8Y
+Jun 12 13:19:41 node3 systemd[8192]: pam_unix(systemd-user:session): session opened for user devops by (uid=0)
+Jun 12 13:19:42 node3 sshd[8188]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jun 12 13:20:50 node3 sshd[8215]: Received disconnect from 192.168.1.136 port 46476:11: disconnected by user
+Jun 12 13:20:50 node3 sshd[8215]: Disconnected from user devops 192.168.1.136 port 46476
+Jun 12 13:20:50 node3 sshd[8188]: pam_unix(sshd:session): session closed for user devops
+Jun 12 13:20:50 node3 systemd[8200]: pam_unix(systemd-user:session): session closed for user devops
+Jun 19 11:39:52 node3 polkitd[1006]: Loading rules from directory /etc/polkit-1/rules.d
+Jun 19 11:39:52 node3 polkitd[1006]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun 19 11:39:52 node3 polkitd[1006]: Finished loading, compiling and executing 10 rules
+Jun 19 11:39:52 node3 polkitd[1006]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun 19 11:40:00 node3 sshd[1172]: Server listening on 0.0.0.0 port 22.
+Jun 19 11:40:00 node3 sshd[1172]: Server listening on :: port 22.
+Jun 19 11:40:12 node3 systemd[1505]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun 19 11:40:13 node3 gdm-launch-environment][1483]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun 19 11:40:25 node3 polkitd[1006]: Registered Authentication Agent for unix-session:c1 (system bus name :1.40 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 19 11:48:51 node3 systemd[2537]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jun 19 11:48:52 node3 gdm-password][2527]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jun 19 11:49:04 node3 polkitd[1006]: Registered Authentication Agent for unix-session:2 (system bus name :1.240 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 19 12:01:00 node3 polkitd[1030]: Loading rules from directory /etc/polkit-1/rules.d
+Jun 19 12:01:00 node3 polkitd[1030]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun 19 12:01:00 node3 polkitd[1030]: Finished loading, compiling and executing 10 rules
+Jun 19 12:01:00 node3 polkitd[1030]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun 19 12:01:06 node3 sshd[1198]: Server listening on 0.0.0.0 port 22.
+Jun 19 12:01:06 node3 sshd[1198]: Server listening on :: port 22.
+Jun 19 12:01:15 node3 systemd[1533]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun 19 12:01:16 node3 gdm-launch-environment][1513]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun 19 12:01:26 node3 polkitd[1030]: Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 19 12:14:09 node3 systemd[2609]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jun 19 12:14:10 node3 gdm-password][2599]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jun 19 12:14:17 node3 polkitd[1030]: Registered Authentication Agent for unix-session:2 (system bus name :1.225 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 19 16:11:20 node3 sshd[6788]: Accepted publickey for ansible from 192.168.2.179 port 51502 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 19 16:11:20 node3 systemd[6792]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 19 16:11:21 node3 sshd[6788]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 19 16:12:25 node3 sshd[6806]: Received disconnect from 192.168.2.179 port 51502:11: disconnected by user
+Jun 19 16:12:25 node3 sshd[6806]: Disconnected from user ansible 192.168.2.179 port 51502
+Jun 19 16:12:25 node3 sshd[6788]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 17:58:53 node3 polkitd[1033]: Loading rules from directory /etc/polkit-1/rules.d
+Jun 23 17:58:53 node3 polkitd[1033]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun 23 17:58:53 node3 polkitd[1033]: Finished loading, compiling and executing 10 rules
+Jun 23 17:58:53 node3 polkitd[1033]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun 23 17:59:01 node3 sshd[1204]: Server listening on 0.0.0.0 port 22.
+Jun 23 17:59:01 node3 sshd[1204]: Server listening on :: port 22.
+Jun 23 17:59:11 node3 systemd[1555]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun 23 17:59:11 node3 gdm-launch-environment][1511]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun 23 17:59:21 node3 polkitd[1033]: Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 23 18:31:37 node3 systemd[2791]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jun 23 18:31:37 node3 gdm-password][2782]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jun 23 18:31:44 node3 polkitd[1033]: Registered Authentication Agent for unix-session:2 (system bus name :1.231 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 23 18:35:42 node3 polkitd[1031]: Loading rules from directory /etc/polkit-1/rules.d
+Jun 23 18:35:42 node3 polkitd[1031]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun 23 18:35:42 node3 polkitd[1031]: Finished loading, compiling and executing 10 rules
+Jun 23 18:35:42 node3 polkitd[1031]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun 23 18:35:46 node3 sshd[1187]: Server listening on 0.0.0.0 port 22.
+Jun 23 18:35:46 node3 sshd[1187]: Server listening on :: port 22.
+Jun 23 18:35:54 node3 systemd[1517]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun 23 18:35:54 node3 gdm-launch-environment][1495]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun 23 18:36:05 node3 polkitd[1031]: Registered Authentication Agent for unix-session:c1 (system bus name :1.39 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 23 18:37:12 node3 systemd[2497]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jun 23 18:37:13 node3 gdm-password][2487]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jun 23 18:37:19 node3 polkitd[1031]: Registered Authentication Agent for unix-session:2 (system bus name :1.216 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 23 18:57:22 node3 sshd[3411]: Accepted publickey for ansible from 192.168.1.136 port 60828 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 18:57:23 node3 systemd[3415]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 18:57:23 node3 sshd[3411]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 18:58:30 node3 sshd[3432]: Received disconnect from 192.168.1.136 port 60828:11: disconnected by user
+Jun 23 18:58:30 node3 sshd[3432]: Disconnected from user ansible 192.168.1.136 port 60828
+Jun 23 18:58:30 node3 sshd[3411]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 20:23:05 node3 sshd[4604]: Accepted publickey for ansible from 192.168.1.136 port 60836 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 20:23:06 node3 systemd[4609]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 20:23:07 node3 sshd[4604]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 20:23:13 node3 sudo[4823]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-lowgthkmtvadwmipubzubbadychbctnw ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494188.6942878-4072-239672838658542/AnsiballZ_setup.py
+Jun 23 20:23:13 node3 sudo[4823]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:23:13 node3 sudo[4823]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:23:17 node3 sudo[4823]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:24:18 node3 sshd[4634]: Received disconnect from 192.168.1.136 port 60836:11: disconnected by user
+Jun 23 20:24:18 node3 sshd[4634]: Disconnected from user ansible 192.168.1.136 port 60836
+Jun 23 20:24:18 node3 sshd[4604]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 20:24:58 node3 sshd[4979]: Accepted publickey for ansible from 192.168.1.136 port 60842 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 20:24:59 node3 systemd[4983]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 20:25:00 node3 sshd[4979]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 20:25:06 node3 sudo[5197]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-pggekgmgmrgakzcigzyxrngunbhprksf ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494301.23492-4162-141142976801224/AnsiballZ_setup.py
+Jun 23 20:25:06 node3 sudo[5197]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:25:06 node3 sudo[5197]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:25:09 node3 sudo[5197]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:25:15 node3 sudo[5402]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-pfayclcwvrfvdvhgphvayuxedglstvew ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494312.9594038-4218-78516645391977/AnsiballZ_dnf.py
+Jun 23 20:25:15 node3 sudo[5402]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:25:15 node3 sudo[5402]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:28:19 node3 sudo[5402]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:28:22 node3 sudo[7483]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ozqjbdoyvhqlgdllzhjfznegzkhohror ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494500.5265-4282-225706342521884/AnsiballZ_systemd.py
+Jun 23 20:28:22 node3 sudo[7483]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:28:22 node3 sudo[7483]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:28:24 node3 sudo[7483]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:28:28 node3 sudo[9712]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xfefliqazzicbykzstwyrdyaktkiltfn ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494507.090465-4321-199998277456399/AnsiballZ_systemd.py
+Jun 23 20:28:28 node3 sudo[9712]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:28:28 node3 sudo[9712]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:28:29 node3 sudo[9712]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:28:31 node3 sudo[10847]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-dfhubjooytgmqgmbweqzhdxahxovccqf ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494510.2389731-4357-35236520726558/AnsiballZ_stat.py
+Jun 23 20:28:31 node3 sudo[10847]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:28:31 node3 sudo[10847]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:28:32 node3 sudo[10847]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:28:33 node3 sudo[11497]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-bwtfwmbakxcffitmenzaxwialexrscwm ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494510.2389731-4357-35236520726558/AnsiballZ_copy.py
+Jun 23 20:28:33 node3 sudo[11497]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:28:33 node3 sudo[11497]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:28:34 node3 sudo[11497]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:28:36 node3 sudo[12823]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ugfqjfzirnubsikvubucpswilirmykzi ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624494515.3293316-4422-6474727263914/AnsiballZ_firewalld.py
+Jun 23 20:28:36 node3 sudo[12823]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:28:36 node3 sudo[12823]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:28:38 node3 sudo[12823]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:29:38 node3 sshd[5006]: Received disconnect from 192.168.1.136 port 60842:11: disconnected by user
+Jun 23 20:29:38 node3 sshd[5006]: Disconnected from user ansible 192.168.1.136 port 60842
+Jun 23 20:29:38 node3 sshd[4979]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 20:40:58 node3 sshd[35721]: Accepted publickey for ansible from 192.168.1.136 port 60860 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 20:40:59 node3 systemd[35725]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 20:41:00 node3 sshd[35721]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 20:41:06 node3 sudo[35933]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-lghxtxmpvjsvorosdxwqddxznnbqhyio ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495261.7819011-4657-178414563417683/AnsiballZ_setup.py
+Jun 23 20:41:06 node3 sudo[35933]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:06 node3 sudo[35933]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:10 node3 sudo[35933]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:41:16 node3 sudo[36147]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-imqrjznizhrgbmwmlwzywdtbbnjfkvge ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495273.7548056-4713-21129510888655/AnsiballZ_dnf.py
+Jun 23 20:41:16 node3 sudo[36147]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:16 node3 sudo[36147]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:37 node3 groupadd[36158]: group added to /etc/group: name=nginx, GID=973
+Jun 23 20:41:37 node3 groupadd[36158]: group added to /etc/gshadow: name=nginx
+Jun 23 20:41:38 node3 groupadd[36158]: new group: name=nginx, GID=973
+Jun 23 20:41:39 node3 useradd[36165]: new user: name=nginx, UID=974, GID=973, home=/var/lib/nginx, shell=/sbin/nologin
+Jun 23 20:41:47 node3 sudo[36147]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:41:50 node3 sudo[36428]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-kfnqgulbwughtyetyatqsybzofxntbca ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495308.51094-4759-218458642792506/AnsiballZ_systemd.py
+Jun 23 20:41:50 node3 sudo[36428]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:50 node3 sudo[36428]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:51 node3 sudo[36428]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:41:52 node3 sudo[36567]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-iikfcmxczgqthmlqfruuuxnmuqfwqxkx ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495312.0408542-4795-162671438876271/AnsiballZ_systemd.py
+Jun 23 20:41:52 node3 sudo[36567]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:52 node3 sudo[36567]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:53 node3 sudo[36567]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:41:55 node3 sudo[36704]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-jftfyslpxmoefyxzfaevdymrmjtxnimq ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495314.4687412-4831-206784892111619/AnsiballZ_stat.py
+Jun 23 20:41:55 node3 sudo[36704]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:55 node3 sudo[36704]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:55 node3 sudo[36704]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:41:56 node3 sudo[36775]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ijevrqrqhxxgbrfeqrhvidhipawzjswn ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495314.4687412-4831-206784892111619/AnsiballZ_file.py
+Jun 23 20:41:56 node3 sudo[36775]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:56 node3 sudo[36775]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:57 node3 sudo[36775]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:41:58 node3 sudo[36908]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-pytcqmfedzxleqclpffathpvishhftrn ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624495317.8058143-4883-87453211246906/AnsiballZ_firewalld.py
+Jun 23 20:41:58 node3 sudo[36908]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 20:41:58 node3 sudo[36908]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 20:41:59 node3 sudo[36908]: pam_unix(sudo:session): session closed for user root
+Jun 23 20:43:00 node3 sshd[35750]: Received disconnect from 192.168.1.136 port 60860:11: disconnected by user
+Jun 23 20:43:00 node3 sshd[35750]: Disconnected from user ansible 192.168.1.136 port 60860
+Jun 23 20:43:00 node3 sshd[35721]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 20:44:34 node3 sshd[36990]: Accepted publickey for ansible from 192.168.1.136 port 60870 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 20:44:34 node3 systemd[36994]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 20:44:35 node3 sshd[36990]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 20:45:46 node3 sshd[37017]: Received disconnect from 192.168.1.136 port 60870:11: disconnected by user
+Jun 23 20:45:46 node3 sshd[37017]: Disconnected from user ansible 192.168.1.136 port 60870
+Jun 23 20:45:46 node3 sshd[36990]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 21:13:42 node3 sshd[37584]: Accepted publickey for ansible from 192.168.1.136 port 60880 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 21:13:43 node3 systemd[37588]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 21:13:44 node3 sshd[37584]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 21:13:51 node3 sudo[37812]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-kmjvmzqjpdjsklavunyfwrccoydywkir ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624497225.2839558-5437-113096414602882/AnsiballZ_setup.py
+Jun 23 21:13:51 node3 sudo[37812]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 21:13:51 node3 sudo[37812]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 21:13:54 node3 sudo[37812]: pam_unix(sudo:session): session closed for user root
+Jun 23 21:13:59 node3 sudo[38018]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-suyxtmncehqahjedqlycarstqwushfed ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624497236.7986007-5515-92690088259862/AnsiballZ_user.py
+Jun 23 21:13:59 node3 sudo[38018]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 21:13:59 node3 sudo[38018]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 21:14:01 node3 useradd[38026]: new group: name=oracle, GID=1007
+Jun 23 21:14:01 node3 useradd[38026]: new user: name=oracle, UID=1007, GID=1007, home=/home/oracle, shell=/bin/bash
+Jun 23 21:14:04 node3 sudo[38018]: pam_unix(sudo:session): session closed for user root
+Jun 23 21:15:05 node3 sshd[37612]: Received disconnect from 192.168.1.136 port 60880:11: disconnected by user
+Jun 23 21:15:05 node3 sshd[37612]: Disconnected from user ansible 192.168.1.136 port 60880
+Jun 23 21:15:05 node3 sshd[37584]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 21:20:56 node3 sshd[38160]: Accepted publickey for ansible from 192.168.1.136 port 60886 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 21:20:57 node3 systemd[38165]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 21:20:58 node3 sshd[38160]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 21:22:06 node3 sshd[38188]: Received disconnect from 192.168.1.136 port 60886:11: disconnected by user
+Jun 23 21:22:06 node3 sshd[38188]: Disconnected from user ansible 192.168.1.136 port 60886
+Jun 23 21:22:06 node3 sshd[38160]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 21:22:06 node3 systemd[38174]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 23 21:26:13 node3 sshd[38505]: Accepted publickey for ansible from 192.168.1.136 port 60900 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 21:26:14 node3 systemd[38509]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 21:26:15 node3 sshd[38505]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 21:26:22 node3 sudo[38717]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-cdjexrkqrkfmwlsyhdcpuyzagmrhczxm ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624497976.6942148-5776-278220882993824/AnsiballZ_setup.py
+Jun 23 21:26:22 node3 sudo[38717]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 21:26:22 node3 sudo[38717]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 21:26:25 node3 sudo[38717]: pam_unix(sudo:session): session closed for user root
+Jun 23 21:26:29 node3 sudo[38927]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-kpamnajsieukkpwnfrjzcezbvcvwafyc ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624497987.6909945-5846-256665464532531/AnsiballZ_user.py
+Jun 23 21:26:29 node3 sudo[38927]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 21:26:29 node3 sudo[38927]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 21:26:30 node3 sudo[38927]: pam_unix(sudo:session): session closed for user root
+Jun 23 21:27:31 node3 sshd[38533]: Received disconnect from 192.168.1.136 port 60900:11: disconnected by user
+Jun 23 21:27:31 node3 sshd[38533]: Disconnected from user ansible 192.168.1.136 port 60900
+Jun 23 21:27:31 node3 sshd[38505]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 21:27:31 node3 systemd[38519]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 23 21:30:26 node3 sshd[39034]: Accepted publickey for ansible from 192.168.1.136 port 60910 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 23 21:30:27 node3 systemd[39039]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 23 21:30:28 node3 sshd[39034]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 23 21:30:35 node3 sudo[39253]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ihhtjkornaxkpsionllqymyzkvjvloaf ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624498229.6926498-5951-108855328417187/AnsiballZ_setup.py
+Jun 23 21:30:35 node3 sudo[39253]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 21:30:35 node3 sudo[39253]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 21:30:38 node3 sudo[39253]: pam_unix(sudo:session): session closed for user root
+Jun 23 21:30:42 node3 sudo[39457]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xhtsskdfrskeryyfaxqwnwchtwbhbtif ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624498240.4702065-6019-73335730397585/AnsiballZ_user.py
+Jun 23 21:30:42 node3 sudo[39457]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 23 21:30:42 node3 sudo[39457]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 23 21:30:43 node3 sudo[39457]: pam_unix(sudo:session): session closed for user root
+Jun 23 21:31:44 node3 sshd[39062]: Received disconnect from 192.168.1.136 port 60910:11: disconnected by user
+Jun 23 21:31:44 node3 sshd[39062]: Disconnected from user ansible 192.168.1.136 port 60910
+Jun 23 21:31:44 node3 sshd[39034]: pam_unix(sshd:session): session closed for user ansible
+Jun 23 21:31:44 node3 systemd[39047]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 24 06:43:50 node3 sshd[45332]: Accepted publickey for ansible from 192.168.1.136 port 32800 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 06:43:51 node3 systemd[45337]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 06:43:51 node3 sshd[45332]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 06:45:02 node3 sshd[45360]: Received disconnect from 192.168.1.136 port 32800:11: disconnected by user
+Jun 24 06:45:02 node3 sshd[45360]: Disconnected from user ansible 192.168.1.136 port 32800
+Jun 24 06:45:02 node3 sshd[45332]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 06:46:59 node3 sshd[45849]: Accepted publickey for ansible from 192.168.1.136 port 32812 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 06:46:59 node3 systemd[45853]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 06:47:00 node3 sshd[45849]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 06:48:11 node3 sshd[45876]: Received disconnect from 192.168.1.136 port 32812:11: disconnected by user
+Jun 24 06:48:11 node3 sshd[45876]: Disconnected from user ansible 192.168.1.136 port 32812
+Jun 24 06:48:11 node3 sshd[45849]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 07:30:27 node3 sshd[46775]: Accepted publickey for ansible from 192.168.1.136 port 32852 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 07:30:27 node3 systemd[46779]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 07:30:28 node3 sshd[46775]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 07:30:33 node3 sudo[46995]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-fevnhbkxrggiplbioobeenwtuaaeuxsx ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534229.3774817-12139-1071254738036/AnsiballZ_setup.py
+Jun 24 07:30:33 node3 sudo[46995]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:30:33 node3 sudo[46995]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:30:36 node3 sudo[46995]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:30:39 node3 sudo[47201]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wyhymtcvvijmvplaamjhbkkrionmyjki ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534237.2661417-12212-218810776115449/AnsiballZ_file.py
+Jun 24 07:30:39 node3 sudo[47201]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:30:39 node3 sudo[47201]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:30:39 node3 sudo[47201]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:31:41 node3 sshd[46802]: Received disconnect from 192.168.1.136 port 32852:11: disconnected by user
+Jun 24 07:31:41 node3 sshd[46802]: Disconnected from user ansible 192.168.1.136 port 32852
+Jun 24 07:31:41 node3 sshd[46775]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 07:31:41 node3 systemd[46785]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 24 07:33:13 node3 sshd[47347]: Accepted publickey for ansible from 192.168.1.136 port 32864 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 07:33:13 node3 systemd[47351]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 07:33:14 node3 sshd[47347]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 07:33:19 node3 sudo[47566]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-hetarztvolivexpabqiwbtgtlzbkhdli ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534394.9474685-12314-180358703051822/AnsiballZ_setup.py
+Jun 24 07:33:19 node3 sudo[47566]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:19 node3 sudo[47566]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:21 node3 sudo[47566]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:24 node3 sudo[47779]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-vymutvkfargfwqkryxpchlcprcyuryhm ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534402.467626-12387-158434359609871/AnsiballZ_file.py
+Jun 24 07:33:24 node3 sudo[47779]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:24 node3 sudo[47779]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:24 node3 sudo[47779]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:27 node3 sudo[47912]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-cxbdpzsbufdalfucbvkmtqociazjalnq ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534405.6889565-12432-271969069255542/AnsiballZ_stat.py
+Jun 24 07:33:27 node3 sudo[47912]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:27 node3 sudo[47912]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:28 node3 sudo[47912]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:30 node3 sudo[48020]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ahkoaqgazytwsnkrlmxbpdgpxzsichxx ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534405.6889565-12432-271969069255542/AnsiballZ_copy.py
+Jun 24 07:33:30 node3 sudo[48020]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:30 node3 sudo[48020]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:30 node3 sudo[48020]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:47 node3 sudo[48198]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-xpislmyauisoovlazlwgvcjtdosvdaru ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534425.9400232-12518-279354586237445/AnsiballZ_setup.py
+Jun 24 07:33:47 node3 sudo[48198]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:47 node3 sudo[48198]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:48 node3 sudo[48198]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:50 node3 sudo[48389]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-afpevaaiapzhybmsqttufdxlvrisubby ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534429.4982538-12576-190482517584818/AnsiballZ_file.py
+Jun 24 07:33:50 node3 sudo[48389]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:50 node3 sudo[48389]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:50 node3 sudo[48389]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:52 node3 sudo[48522]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-rehonqprpdypzfsxomactfterprtbmrn ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534431.1289647-12621-138471808304473/AnsiballZ_stat.py
+Jun 24 07:33:52 node3 sudo[48522]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:52 node3 sudo[48522]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:52 node3 sudo[48522]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:33:53 node3 sudo[48593]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-mowesyvjlmqknsuoolripjuezafthiuq ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534431.1289647-12621-138471808304473/AnsiballZ_file.py
+Jun 24 07:33:53 node3 sudo[48593]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:33:53 node3 sudo[48593]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:33:53 node3 sudo[48593]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:34:53 node3 sshd[47375]: Received disconnect from 192.168.1.136 port 32864:11: disconnected by user
+Jun 24 07:34:53 node3 sshd[47375]: Disconnected from user ansible 192.168.1.136 port 32864
+Jun 24 07:34:53 node3 sshd[47347]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 07:34:53 node3 systemd[47357]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 24 07:35:34 node3 sshd[48674]: Accepted publickey for ansible from 192.168.1.136 port 32872 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 07:35:35 node3 systemd[48678]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 07:35:35 node3 sshd[48674]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 07:35:51 node3 sudo[49079]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ulffayqumazhtvmrokauwggujeduylbe ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624534548.8430512-12790-239902718575088/AnsiballZ_command.py
+Jun 24 07:35:51 node3 sudo[49079]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:35:51 node3 sudo[49079]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:35:51 node3 sudo[49079]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:36:52 node3 sshd[48701]: Received disconnect from 192.168.1.136 port 32872:11: disconnected by user
+Jun 24 07:36:52 node3 sshd[48701]: Disconnected from user ansible 192.168.1.136 port 32872
+Jun 24 07:36:52 node3 sshd[48674]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 07:36:52 node3 systemd[48687]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 24 07:43:47 node3 sshd[49223]: Accepted publickey for ansible from 192.168.1.136 port 32882 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 07:43:48 node3 systemd[49227]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 07:43:49 node3 sshd[49223]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 07:43:53 node3 sudo[49443]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-keznbmoucwuzfosckspsrzkdhilejvke ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535029.9035087-12942-186166388843365/AnsiballZ_setup.py
+Jun 24 07:43:53 node3 sudo[49443]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:43:53 node3 sudo[49443]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:43:56 node3 sudo[49443]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:44:00 node3 sudo[49648]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wdmsyvhgpmwpgfkgxrrlgdcmviggtwar ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535038.7206314-13011-225061530254055/AnsiballZ_dnf.py
+Jun 24 07:44:00 node3 sudo[49648]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:44:00 node3 sudo[49648]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:44:09 node3 sudo[49648]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:44:11 node3 sudo[49781]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ennfooeejhzjqwbuqxeukzjdxzgjyovo ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535050.4479046-13065-262222871719053/AnsiballZ_systemd.py
+Jun 24 07:44:11 node3 sudo[49781]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:44:11 node3 sudo[49781]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:44:12 node3 sudo[49781]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:45:12 node3 sshd[49252]: Received disconnect from 192.168.1.136 port 32882:11: disconnected by user
+Jun 24 07:45:12 node3 sshd[49252]: Disconnected from user ansible 192.168.1.136 port 32882
+Jun 24 07:45:12 node3 sshd[49223]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 07:56:46 node3 sshd[49984]: Accepted publickey for ansible from 192.168.1.136 port 32892 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 07:56:46 node3 systemd[49988]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 07:56:47 node3 sshd[49984]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 07:56:52 node3 sudo[50208]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-owfisxaduxdcugolhhirqeugbtccmnuc ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535808.4393024-13239-217861056722073/AnsiballZ_setup.py
+Jun 24 07:56:52 node3 sudo[50208]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:56:52 node3 sudo[50208]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:56:55 node3 sudo[50208]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:56:59 node3 sudo[50409]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-ygdqkgdulaqqvgruftrodjtathmdwtvw ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535817.7717721-13308-88277593994116/AnsiballZ_dnf.py
+Jun 24 07:56:59 node3 sudo[50409]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:56:59 node3 sudo[50409]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:07 node3 sudo[50409]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:08 node3 sudo[50542]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-gdfwnqsaltbvtqbyjsturippzyhnzihu ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535828.008923-13354-147584066622403/AnsiballZ_systemd.py
+Jun 24 07:57:08 node3 sudo[50542]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:08 node3 sudo[50542]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:09 node3 sudo[50542]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:10 node3 sudo[50679]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-rhpfowfiifxlwswomfdkdnknzitzgvxp ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535829.9598777-13390-213497761370139/AnsiballZ_lineinfile.py
+Jun 24 07:57:10 node3 sudo[50679]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:10 node3 sudo[50679]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:10 node3 sudo[50679]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:11 node3 sudo[50812]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-irnotupmpatolbzpgcjapkobfqijzhkj ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535831.3902102-13434-165222425698967/AnsiballZ_systemd.py
+Jun 24 07:57:11 node3 sudo[50812]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:11 node3 sudo[50812]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:13 node3 sudo[50812]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:26 node3 sudo[51218]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-hwhfcmbmtkliagklcsslaqbnilxeyevw ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535845.5674167-13478-165438876627454/AnsiballZ_setup.py
+Jun 24 07:57:26 node3 sudo[51218]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:26 node3 sudo[51218]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:28 node3 sudo[51218]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:31 node3 sudo[51409]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wsiikcaszjeeowzdxvukvkbtvbicliec ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535850.3280683-13532-69147822824393/AnsiballZ_dnf.py
+Jun 24 07:57:31 node3 sudo[51409]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:31 node3 sudo[51409]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:34 node3 sudo[51409]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:36 node3 sudo[51544]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-uqnngpvpyrsuqybapcxzgogvnnpiqylj ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535855.1567087-13578-144114813614885/AnsiballZ_systemd.py
+Jun 24 07:57:36 node3 sudo[51544]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:36 node3 sudo[51544]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:36 node3 sudo[51544]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:57:37 node3 sudo[51681]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-zapoaictcsrbgnhrabrerjqznbscygfg ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624535857.015186-13614-268332184810553/AnsiballZ_lineinfile.py
+Jun 24 07:57:37 node3 sudo[51681]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 07:57:37 node3 sudo[51681]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 07:57:37 node3 sudo[51681]: pam_unix(sudo:session): session closed for user root
+Jun 24 07:58:38 node3 sshd[50013]: Received disconnect from 192.168.1.136 port 32892:11: disconnected by user
+Jun 24 07:58:38 node3 sshd[50013]: Disconnected from user ansible 192.168.1.136 port 32892
+Jun 24 07:58:38 node3 sshd[49984]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 08:12:10 node3 sshd[51886]: Accepted publickey for ansible from 192.168.1.136 port 32902 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 08:12:11 node3 systemd[51890]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 08:12:11 node3 sshd[51886]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 08:12:16 node3 sudo[52110]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-vbudcxlciuaxjiqlmtbqsyefoembhepy ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624536732.8557508-13833-35644859429489/AnsiballZ_setup.py
+Jun 24 08:12:16 node3 sudo[52110]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:12:16 node3 sudo[52110]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:12:20 node3 sudo[52110]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:12:25 node3 sudo[52318]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-yvegnjfxsqtvqmoxbaznimdvbppcumxh ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624536742.970611-13909-240481598329823/AnsiballZ_dnf.py
+Jun 24 08:12:25 node3 sudo[52318]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:12:25 node3 sudo[52318]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:12:31 node3 sudo[52318]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:12:33 node3 sudo[52451]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-pikngyixtobcwlhohbeeaysosvlhsqtc ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624536752.2168713-13955-231090348609677/AnsiballZ_systemd.py
+Jun 24 08:12:33 node3 sudo[52451]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:12:33 node3 sudo[52451]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:12:33 node3 sudo[52451]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:12:34 node3 sudo[52590]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-riptpjbfdhgsdrvywiixetpyqghmevcd ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624536754.1524777-13991-63337181740023/AnsiballZ_lineinfile.py
+Jun 24 08:12:34 node3 sudo[52590]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:12:34 node3 sudo[52590]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:12:35 node3 sudo[52590]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:13:35 node3 sshd[51914]: Received disconnect from 192.168.1.136 port 32902:11: disconnected by user
+Jun 24 08:13:35 node3 sshd[51914]: Disconnected from user ansible 192.168.1.136 port 32902
+Jun 24 08:13:35 node3 sshd[51886]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 08:13:35 node3 systemd[51899]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 24 08:28:29 node3 sshd[52814]: Accepted publickey for ansible from 192.168.1.136 port 32912 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 08:28:29 node3 systemd[52818]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 08:28:30 node3 sshd[52814]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 08:28:35 node3 sudo[53039]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-msrbepghelitbfgitajscpylrzxvxqwi ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624537711.4834664-14214-111835880121146/AnsiballZ_setup.py
+Jun 24 08:28:35 node3 sudo[53039]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:28:35 node3 sudo[53039]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:28:37 node3 sudo[53039]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:28:41 node3 sudo[53241]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-feghukzisoxhdsgjlnwinachzogblusm ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624537719.4131532-14285-34837200303042/AnsiballZ_user.py
+Jun 24 08:28:41 node3 sudo[53241]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:28:41 node3 sudo[53241]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:28:41 node3 sudo[53241]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:29:14 node3 sudo[53417]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-wqlgrjofzwrelsdqrdclxgewawnlezpr ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624537753.6027977-14349-220179270244171/AnsiballZ_setup.py
+Jun 24 08:29:14 node3 sudo[53417]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:29:14 node3 sudo[53417]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:29:16 node3 sudo[53417]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:29:18 node3 sudo[53608]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-bjmgxitarswhhzctdnxefzgzafdceexr ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624537757.4352162-14403-216637382559607/AnsiballZ_user.py
+Jun 24 08:29:18 node3 sudo[53608]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:29:18 node3 sudo[53608]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:29:18 node3 useradd[53615]: new group: name=stanislas, GID=1008
+Jun 24 08:29:18 node3 useradd[53615]: new user: name=stanislas, UID=1008, GID=1008, home=/home/stanislas, shell=/bin/bash
+Jun 24 08:29:20 node3 sudo[53608]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:29:28 node3 sudo[53799]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-zhmjyephnrkvfcwwihxvnghwbudvylrk ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624537767.267298-14457-57225302551048/AnsiballZ_setup.py
+Jun 24 08:29:28 node3 sudo[53799]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:29:28 node3 sudo[53799]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:29:29 node3 sudo[53799]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:29:31 node3 sudo[53990]: ansible : TTY=pts/1 ; PWD=/home/ansible ; USER=root ; COMMAND=/bin/sh -c echo BECOME-SUCCESS-jhnvhjudizdumgsfegdomgtaabtvruim ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1624537771.0960104-14511-27923095702989/AnsiballZ_user.py
+Jun 24 08:29:31 node3 sudo[53990]: pam_systemd(sudo:session): Cannot create session: Already running in a session or user slice
+Jun 24 08:29:31 node3 sudo[53990]: pam_unix(sudo:session): session opened for user root by ansible(uid=0)
+Jun 24 08:29:32 node3 sudo[53990]: pam_unix(sudo:session): session closed for user root
+Jun 24 08:30:55 node3 sshd[52843]: Received disconnect from 192.168.1.136 port 32912:11: disconnected by user
+Jun 24 08:30:55 node3 sshd[52843]: Disconnected from user ansible 192.168.1.136 port 32912
+Jun 24 08:30:55 node3 sshd[52814]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 08:57:22 node3 sshd[54516]: Accepted publickey for ansible from 192.168.1.136 port 32924 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 24 08:57:23 node3 systemd[54520]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 24 08:57:24 node3 sshd[54516]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 24 08:58:31 node3 sshd[54545]: Received disconnect from 192.168.1.136 port 32924:11: disconnected by user
+Jun 24 08:58:31 node3 sshd[54545]: Disconnected from user ansible 192.168.1.136 port 32924
+Jun 24 08:58:31 node3 sshd[54516]: pam_unix(sshd:session): session closed for user ansible
+Jun 24 08:58:31 node3 systemd[54531]: pam_unix(systemd-user:session): session closed for user ansible
+Jun 26 11:10:03 node3 polkitd[1011]: Loading rules from directory /etc/polkit-1/rules.d
+Jun 26 11:10:03 node3 polkitd[1011]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jun 26 11:10:03 node3 polkitd[1011]: Finished loading, compiling and executing 10 rules
+Jun 26 11:10:03 node3 polkitd[1011]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jun 26 11:10:15 node3 sshd[1193]: Server listening on 0.0.0.0 port 22.
+Jun 26 11:10:15 node3 sshd[1193]: Server listening on :: port 22.
+Jun 26 11:10:28 node3 systemd[1508]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jun 26 11:10:29 node3 gdm-launch-environment][1486]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jun 26 11:10:44 node3 polkitd[1011]: Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jun 26 11:26:50 node3 sshd[2602]: Accepted publickey for ansible from 192.168.1.136 port 34832 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jun 26 11:26:51 node3 systemd[2606]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jun 26 11:26:52 node3 sshd[2602]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jun 26 11:27:59 node3 sshd[2630]: Received disconnect from 192.168.1.136 port 34832:11: disconnected by user
+Jun 26 11:27:59 node3 sshd[2630]: Disconnected from user ansible 192.168.1.136 port 34832
+Jun 26 11:27:59 node3 sshd[2602]: pam_unix(sshd:session): session closed for user ansible
+Jun 26 11:28:00 node3 systemd[2616]: pam_unix(systemd-user:session): session closed for user ansible
+Jul  3 10:59:37 node3 polkitd[1045]: Loading rules from directory /etc/polkit-1/rules.d
+Jul  3 10:59:37 node3 polkitd[1045]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jul  3 10:59:37 node3 polkitd[1045]: Finished loading, compiling and executing 10 rules
+Jul  3 10:59:37 node3 polkitd[1045]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jul  3 10:59:44 node3 sshd[1194]: Server listening on 0.0.0.0 port 22.
+Jul  3 10:59:44 node3 sshd[1194]: Server listening on :: port 22.
+Jul  3 10:59:56 node3 systemd[1531]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jul  3 10:59:57 node3 gdm-launch-environment][1508]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jul  3 11:00:09 node3 polkitd[1045]: Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jul 10 09:26:23 node3 polkitd[1027]: Loading rules from directory /etc/polkit-1/rules.d
+Jul 10 09:26:23 node3 polkitd[1027]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jul 10 09:26:24 node3 polkitd[1027]: Finished loading, compiling and executing 10 rules
+Jul 10 09:26:24 node3 polkitd[1027]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jul 10 09:26:31 node3 sshd[1184]: Server listening on 0.0.0.0 port 22.
+Jul 10 09:26:31 node3 sshd[1184]: Server listening on :: port 22.
+Jul 10 09:26:41 node3 systemd[1535]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jul 10 09:26:42 node3 gdm-launch-environment][1495]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jul 10 09:26:55 node3 polkitd[1027]: Registered Authentication Agent for unix-session:c1 (system bus name :1.40 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jul 10 09:35:42 node3 systemd[2556]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jul 10 09:35:42 node3 gdm-password][2547]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jul 10 09:35:49 node3 polkitd[1027]: Registered Authentication Agent for unix-session:2 (system bus name :1.229 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jul 10 11:01:50 node3 gdm-password][4481]: gkr-pam: the password for the login keyring was invalid.
+Jul 10 11:10:06 node3 sshd[4674]: Accepted publickey for ansible from 192.168.1.136 port 54078 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jul 10 11:10:07 node3 systemd[4678]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jul 10 11:10:08 node3 sshd[4674]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jul 10 11:11:12 node3 sshd[4694]: Received disconnect from 192.168.1.136 port 54078:11: disconnected by user
+Jul 10 11:11:12 node3 sshd[4694]: Disconnected from user ansible 192.168.1.136 port 54078
+Jul 10 11:11:12 node3 sshd[4674]: pam_unix(sshd:session): session closed for user ansible
+Jul 10 11:12:33 node3 sshd[4988]: Accepted publickey for ansible from 192.168.1.136 port 54094 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jul 10 11:12:34 node3 systemd[4992]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jul 10 11:12:36 node3 sshd[4988]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jul 10 11:13:43 node3 sshd[5015]: Received disconnect from 192.168.1.136 port 54094:11: disconnected by user
+Jul 10 11:13:43 node3 sshd[5015]: Disconnected from user ansible 192.168.1.136 port 54094
+Jul 10 11:13:43 node3 sshd[4988]: pam_unix(sshd:session): session closed for user ansible
+Jul 17 10:50:34 node3 polkitd[1030]: Loading rules from directory /etc/polkit-1/rules.d
+Jul 17 10:50:34 node3 polkitd[1030]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jul 17 10:50:34 node3 polkitd[1030]: Finished loading, compiling and executing 10 rules
+Jul 17 10:50:34 node3 polkitd[1030]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jul 17 10:50:40 node3 sshd[1178]: Server listening on 0.0.0.0 port 22.
+Jul 17 10:50:40 node3 sshd[1178]: Server listening on :: port 22.
+Jul 17 10:50:52 node3 systemd[1514]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jul 17 10:50:53 node3 gdm-launch-environment][1490]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jul 17 10:51:04 node3 polkitd[1030]: Registered Authentication Agent for unix-session:c1 (system bus name :1.37 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jul 17 11:16:18 node3 systemd[2709]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jul 17 11:16:19 node3 gdm-password][2700]: pam_unix(gdm-password:session): session opened for user root by (uid=0)
+Jul 17 11:16:28 node3 polkitd[1030]: Registered Authentication Agent for unix-session:2 (system bus name :1.225 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jul 17 11:19:09 node3 polkitd[1036]: Loading rules from directory /etc/polkit-1/rules.d
+Jul 17 11:19:09 node3 polkitd[1036]: Loading rules from directory /usr/share/polkit-1/rules.d
+Jul 17 11:19:09 node3 polkitd[1036]: Finished loading, compiling and executing 10 rules
+Jul 17 11:19:09 node3 polkitd[1036]: Acquired the name org.freedesktop.PolicyKit1 on the system bus
+Jul 17 11:19:15 node3 sshd[1179]: Server listening on 0.0.0.0 port 22.
+Jul 17 11:19:15 node3 sshd[1179]: Server listening on :: port 22.
+Jul 17 11:19:26 node3 systemd[1515]: pam_unix(systemd-user:session): session opened for user gdm by (uid=0)
+Jul 17 11:19:28 node3 gdm-launch-environment][1493]: pam_unix(gdm-launch-environment:session): session opened for user gdm by (uid=0)
+Jul 17 11:19:40 node3 polkitd[1036]: Registered Authentication Agent for unix-session:c1 (system bus name :1.36 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)
+Jul 17 11:27:08 node3 sshd[2523]: Accepted publickey for ansible from 192.168.2.179 port 58482 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jul 17 11:27:09 node3 systemd[2527]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jul 17 11:27:12 node3 sshd[2523]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jul 17 11:28:23 node3 sshd[2560]: Received disconnect from 192.168.2.179 port 58482:11: disconnected by user
+Jul 17 11:28:23 node3 sshd[2560]: Disconnected from user ansible 192.168.2.179 port 58482
+Jul 17 11:28:23 node3 sshd[2523]: pam_unix(sshd:session): session closed for user ansible
+Jul 17 11:28:23 node3 systemd[2546]: pam_unix(systemd-user:session): session closed for user ansible
+Jul 17 12:08:45 node3 sshd[3170]: Connection closed by authenticating user root 192.168.2.179 port 58494 [preauth]
+Jul 17 12:09:31 node3 sshd[3181]: Connection closed by authenticating user root 192.168.2.179 port 58502 [preauth]
+Jul 17 12:10:38 node3 sshd[3191]: Accepted publickey for ansible from 192.168.2.179 port 58512 ssh2: RSA SHA256:jpchiL+jLX3smTuII7SubLqdvcmq8e3I+5HSG4oUreQ
+Jul 17 12:10:39 node3 systemd[3195]: pam_unix(systemd-user:session): session opened for user ansible by (uid=0)
+Jul 17 12:10:40 node3 sshd[3191]: pam_unix(sshd:session): session opened for user ansible by (uid=0)
+Jul 17 12:11:35 node3 sshd[3454]: Connection closed by authenticating user root 192.168.2.179 port 58524 [preauth]
+Jul 17 12:11:49 node3 sshd[3218]: Received disconnect from 192.168.2.179 port 58512:11: disconnected by user
+Jul 17 12:11:49 node3 sshd[3218]: Disconnected from user ansible 192.168.2.179 port 58512
+Jul 17 12:11:49 node3 sshd[3191]: pam_unix(sshd:session): session closed for user ansible
+Jul 17 12:12:01 node3 sshd[3495]: Accepted keyboard-interactive/pam for root from 192.168.2.179 port 58534 ssh2
+Jul 17 12:12:03 node3 systemd[3502]: pam_unix(systemd-user:session): session opened for user root by (uid=0)
+Jul 17 12:12:03 node3 sshd[3495]: pam_unix(sshd:session): session opened for user root by (uid=0)

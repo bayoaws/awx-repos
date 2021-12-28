@@ -1,0 +1,6 @@
+---
+- src: geerlingguy.haproxy
+  name: haproxy
+
+- src: geerlingguy.php
+  name: php.info

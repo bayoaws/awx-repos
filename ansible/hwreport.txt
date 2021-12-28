@@ -1,0 +1,5 @@
+- Inventory hostname
+- Total Memory
+- BIOS version
+- Size of disk device xvda
+- Size of disk device xvdb

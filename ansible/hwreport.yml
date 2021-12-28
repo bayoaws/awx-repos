@@ -1,0 +1,59 @@
+---
+- hosts: all
+  user: admin
+  become: yes
+  tasks:
+  - name: Create /root/hwreport.txt file on remote systems
+    copy:
+      src: /home/admin/ansible/hwreport.txt
+      dest: /root/hwreport.txt
+ 
+  - name: Add Inventory hostname to /root/hwreport.txt
+    replace:
+      replace: "Hostname= {{ inventory_hostname }}"
+      regexp: "- Inventory hostname"
+      path: /root/hwreport.txt
+
+  - name: Add Total Memory to /root/hwreport.txt
+    replace:
+      replace: "Memory= {{ ansible_memtotal_mb }}"
+      regexp: "- Total Memory"
+      path: /root/hwreport.txt
+
+  - name: Add BIOS version to /root/hwreport.txt
+    replace:
+      replace: "Version= {{ ansible_bios_version }}"
+      regexp: "- BIOS version"
+      path: /root/hwreport.txt
+
+  
+  - name: Add Size of disk device xvda to /root/hwreport
+    replace:
+      replace: "sda_size= {{ ansible_devices['xvda']['size'] }}"
+      regexp: "- Size of disk device xvda"
+      path: /root/hwreport.txt
+    ignore_errors: yes
+    register: xvda_data
+
+  - name: Add none to /root/hwreport if Size of xvda does not exist
+    replace:
+      replace: "xvda_size= none"
+      regexp: "- Size of disk device xvda"
+      path: /root/hwreport.txt
+    when: xvda_data is failed
+
+  - name: Add Size of disk device xvdb to /root/hwreport
+    replace:
+      replace: "sdb_size= {{ ansible_devices['xvdb']['size'] }}"
+      regexp: "- Size of disk device xvdb"
+      path: /root/hwreport.txt
+    ignore_errors: yes
+    register: xvdb_data
+
+  - name: Add none to /root/hwreport if Size of xvdb does not exist
+    replace:
+      replace: "xvdb= none"
+      regexp: "- Size of disk device xvdb"
+      path: /root/hwreport.txt
+    when: xvdb_data is failed
+...

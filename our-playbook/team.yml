@@ -1,0 +1,13 @@
+---
+- name: create user and group
+  hosts: all
+  become: true
+  vars_files:
+    - vault.yml
+
+  tasks:
+    - name: create stanislas user
+      user:
+        name: stanislas
+        password: "{{ password | password_hash('sha512') }}"
+        update_password: on_create

@@ -1,0 +1,46 @@
+---
+- name: Enable intranet services
+  hosts: node1
+  become: true
+  tasks:
+    - name: latest version of httpd and firewalld installed
+      yum:
+        name: 
+          - httpd
+          - firewalld
+        state: latest  
+
+    - name: Add content to /var/www/html/index.html
+      copy:
+        content: "Welcome to the example.com intranet!"
+        dest: /var/www/html/index.html
+
+    - name: firewalld enabled and running
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: Allow connections to the httpd service
+      firewalld:
+        port: 80/tcp
+        permanent: true
+        immediate: true
+        state: enabled
+
+    - name: httpd enabled and running
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+- name: Test intranet web server
+  hosts: localhost
+  tasks:
+    - name: connect to intranet web server
+      uri:
+        url: http://node1
+        return_content: true
+        status_code: 200
+
+...        

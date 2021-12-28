@@ -1,0 +1,11 @@
+---
+- name: Collect the mtu from the manage nodes
+  hosts: all
+
+  tasks:
+  - name: Print the mtu into a file
+    template:
+      src: mtu.j2
+      dest: /home/ansible/newfile
+    delegate_to: localhost  
+     

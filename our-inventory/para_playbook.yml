@@ -1,0 +1,23 @@
+---
+- name: Update web server
+  hosts: webserver
+  become: true
+  serial: 3
+
+  tasks:
+    - name: Lastest httpd package installed
+      yum:
+        name: httpd
+        state: latest
+      notify:
+        - Restart httpd
+   
+     
+
+  handlers:
+    - name: Restart httpd
+      service:
+        name: httpd
+        enabled: yes
+        state: restarted
+

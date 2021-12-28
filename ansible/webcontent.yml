@@ -1,0 +1,26 @@
+---
+- hosts: dev
+  user: admin
+  become: yes
+  tasks:
+  - name: create the webdev group
+    group: name=webdev state=present 
+  - name: Create the /webdev directory
+    file:
+      name: /webdev
+      state: directory
+      group: webdev
+      mode: 2775 
+  - name: Create a symbolic link
+    file:
+      src: /webdev
+      dest: /var/www/html/webdev
+      state: link
+  - name: Create the file /webdev/index.html
+    copy:
+      content: Development
+      dest: /webdev/index.html
+  - name: Restart httpd
+    service:
+      name: httpd
+      state: restarted

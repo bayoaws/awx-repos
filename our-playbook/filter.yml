@@ -1,0 +1,11 @@
+---
+- name: Print the group
+  hosts: localhost 
+  vars_files: groups.yml
+
+  tasks:
+    - name: Display unique groups
+      debug:
+        msg: "{{ item.groups }}"
+      loop:
+        - "{{ users }}"

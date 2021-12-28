@@ -1,0 +1,50 @@
+---
+- hosts: all
+  user: admin
+  become: yes
+  no_log: true
+  vars_files:
+    - /home/admin/ansible/user-list.yml
+    - /home/admin/ansible/locker.yml 
+  tasks:
+  - name: Create groups
+    group: 
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - devops
+      - opsmgr
+  - name: Create users with job description of developer in dev group
+    user:
+      name: "{{ item.username }}"
+      state: present
+      groups: devops
+      append: yes
+      password: "{{ PW_developer | password_hash('sha512') }}"
+      update_password: on_create
+    with_items:
+      - "{{ users }}"
+    when: inventory_hostname in groups['dev'] and item.job == "developer"
+
+  - name: Create users with job description of developer in test group
+    user:
+      name: "{{ item.username }}"
+      state: present
+      groups: devops
+      append: yes
+      password: "{{ PW_developer | password_hash('sha512') }}"
+      update_password: on_create
+    with_items:
+      - "{{ users }}"
+    when: inventory_hostname in groups['test'] and item.job == "developer"
+
+  - name: Create users with job description of manager
+    user: 
+      name: "{{ item.username }}"
+      state: present
+      groups: opsmgr
+      append: yes
+      password: "{{ PW_manager | password_hash('sha512', 'mysecretsalt') }}"
+    with_items:
+      - "{{ users }}"
+    when: inventory_hostname in groups['prod'] and item.job == "manager"

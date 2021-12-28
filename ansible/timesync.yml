@@ -1,0 +1,13 @@
+---
+- name: Configure NTP with RHEL system role
+  hosts: all
+  user: admin
+  become: yes
+  vars:
+    timesync_ntp_servers:
+      - hostname: 127.0.0.1
+        iburst: yes
+    timesync_ntp_provider: ntp
+  roles:
+    - rhel-system-roles.timesync
+...

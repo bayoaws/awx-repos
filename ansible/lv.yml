@@ -1,0 +1,33 @@
+---
+- hosts: all
+  user: admin
+  become: yes
+  gather_facts: yes
+  tasks:
+  - name: create research volume group and logical volume call data
+    block:
+      - lvg:
+          vg: research
+          pvs: /dev/xvdb
+    rescue:
+      - debug:
+          msg: "Volume group research does not exit"
+    block:
+      - lvol:
+          vg: research
+          lv: data
+          size: '1500'
+      - debug:
+          msg: "Create ext4 file system and mount it if the logical volume is created"
+      - filesystem:
+          fstype: ext4
+          dev: /dev/research/data
+      - mount:
+          src: /dev/research/data
+          path: /mnt/mount
+          state: mounted
+          fstype: ext4
+    always:
+      - debug:
+          msg: "Mount file system only on system1 and system3" 
+...       

@@ -1,0 +1,12 @@
+node5
+[london]
+node1
+[berlin]
+node2
+[tokyo]
+node3
+[atlanta]
+node4
+[europe:children]
+london
+berlin

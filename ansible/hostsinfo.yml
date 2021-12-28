@@ -1,0 +1,54 @@
+---
+- hosts: all
+  become: yes
+  ignore_errors: yes
+  tasks:
+    - name: collect the process model info
+      lineinfile:
+        line: "cpu model= {{ ansible_product_name }}"
+        regexp: '^cpu model='
+        path: /etc/inv.file
+        create: yes
+
+
+    - name: collect the hosts swap size
+      lineinfile:
+        line: "swap size= {{ ansible_swaptotal_mb }}"
+        regexp: '^swap size='
+        path: /etc/inv.file
+        create: yes
+
+
+    - name: collect the hosts disk sda
+      lineinfile:
+        line: "xvda size= {{ ansible_devices.xvda.partitions.size }}"
+        regexp: '^xvda size='
+        path: /etc/inv.file
+        create: yes
+      register: xvda_output
+
+    - name: enter absent as a value if not find
+      lineinfile:
+        line: 'xvda size= absent'
+        regexp: 'xvda size='
+        path: /etc/inv.file
+        create: yes
+      when: xvda_output is failed
+
+
+    - name: collect the hosts disk sdb
+      lineinfile:
+        line: "cpu model= {{ ansible_devices.xvdb.partitions.size }}"
+        regexp: '^xvdb size='
+        path: /etc/inv.file
+        create: yes
+      register: xvdb_output
+
+
+    - name: enter absent as a value if not find
+      lineinfile:
+        line: 'xvdb size= absent'
+        regexp: 'xvdb size='
+        path: /etc/inv.file
+        create: yes
+      when: xvdb_output is failed

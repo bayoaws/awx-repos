@@ -1,0 +1,45 @@
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+avahi-autoipd:x:170:170:Avahi IPv4LL Stack:/var/lib/avahi-autoipd:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+chrony:x:998:996::/var/lib/chrony:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+centos:x:1000:1000:Cloud User:/home/centos:/bin/bash
+user:x:1001:1001::/home/user:/bin/bash
+usbmuxd:x:113:113:usbmuxd user:/:/sbin/nologin
+colord:x:997:995:User for colord:/var/lib/colord:/sbin/nologin
+rtkit:x:172:172:RealtimeKit:/proc:/sbin/nologin
+pulse:x:171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+gdm:x:42:42::/var/lib/gdm:/sbin/nologin
+tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+systemd-bus-proxy:x:996:992:systemd Bus Proxy:/:/sbin/nologin
+systemd-network:x:995:991:systemd Network Management:/:/sbin/nologin
+geoclue:x:994:990:User for geoclue:/var/lib/geoclue:/sbin/nologin
+cloud_user:x:1002:1003::/home/cloud_user:/bin/bash
+ssm-user:x:1003:1004::/home/ssm-user:/bin/bash
+test:x:1004:1006::/home/test:/bin/bash
+sam:x:1005:1007::/home/sam:/bin/bash
+alpha:x:1006:1008::/home/john:/bin/bash
+bob:x:1007:1009::/home/bob:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+ansible:x:1008:1010::/home/ansible:/bin/bash
+stan:x:1009:1011::/home/stan:/bin/bash
+automation:x:1010:1012::/home/automation:/bin/bash
+admin:x:1011:1013::/home/admin:/bin/bash

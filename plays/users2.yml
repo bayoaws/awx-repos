@@ -1,0 +1,49 @@
+---
+- hosts: database, test
+  become: true
+  vars_files:
+    - locker.yml
+    - user_list.yml
+
+  tasks:
+    - name: create group devops
+      group:
+        name: devops
+        state: present
+
+    - name: create users for devops groups
+      user:
+        name: "{{ item.username }}"
+        groups: devops
+        append: true
+        comment: "{{ item.Job }}"
+        password: "{{ pw_developer | password_hash('sha512') }}"
+        update_password: on_create
+      when:  item.Job == "developer"
+      loop: "{{ users }}"   
+
+
+- hosts: proxy, prod
+  become: true
+  vars_files:
+    - locker.yml
+    - user_list.yml
+
+  tasks:
+    - name: create group devops
+      group:
+        name: opsmgr
+        state: present
+
+    - name: create users for devops groups
+      user:
+        name: "{{ item.username }}"
+        groups: opsmgr
+        append: true
+        comment: "{{ item.Job }}"
+        password: "{{ pw_manager | password_hash('sha512') }}"
+        update_password: on_create
+      when:  item.Job == "manager"
+      loop: "{{ users }}"
+ 
+
