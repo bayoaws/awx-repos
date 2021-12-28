@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  remote_user: ansible 
+  vars:
+    packages: vim
+  tasks: 
+    - name: Install {{ packages }} on Linux
+      package:
+        name: "{{ packages }}"
+        state: latest
+      tags: linux

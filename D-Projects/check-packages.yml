@@ -1,0 +1,68 @@
+- hosts: all
+  become: yes
+  remote_user: admin
+  vars:
+    packages: firefox
+  tasks: 
+    - name: Check packages on Centos
+      shell: "rpm -qa {{ packages }}"
+      ignore_errors: yes
+      register: check_packages_rhel
+      when: ansible_facts['os_family'] == "CentOS" or  ansible_facts['os_family'] == "RedHat"
+
+    - name: displays message if exist
+      debug:
+        msg: "{{ packages }} does not exist" 
+      when:
+        - check_packages_rhel.rc != 0
+        - ansible_facts['os_family'] == "CentOS" or  ansible_facts['os_family'] == "RedHat"
+
+    - name: displays message if not exist
+      debug: 
+         msg: "{{ packages }} exist"
+      when: 
+        - check_packages_rhel.rc == 0
+        - ansible_facts['os_family'] == "CentOS" or  ansible_facts['os_family'] == "RedHat"
+
+    
+
+    - name: Check packages on ubuntu
+      shell:  "apt list -a {{ packages }}"
+      ignore_errors: yes
+      register: check_packages_ub
+      when: ansible_facts['os_family'] == "Ubuntu"
+
+    - name: displays message if exist
+      debug:
+        msg: "{{ packages }} does not exist"
+      when:
+        - check_packages_ub.rc != 0
+        - ansible_facts['os_family'] == "Ubuntu"
+
+    - name: displays message if not exist
+      debug:
+         msg: "{{ packages }} exist"
+      when:
+        - check_packages_ub.rc == 0
+        - ansible_facts['os_family'] == "Ubuntu"
+
+
+    - name: Check packages on Suse
+      shell: "zypper search -i {{ packages }}"
+      ignore_errors: yes
+      register: check_packages_suse
+      when: ansible_facts['os_family'] == "Suse"
+
+    - name: displays message if exist
+      debug:
+        msg: "{{ packages }} does not exist"
+      when: 
+        - check_packages_suse.rc != 0
+        - ansible_facts['os_family'] == "Suse"
+
+    - name: displays message if not exist
+      debug:
+         msg: "{{ packages }} exist"
+      when: 
+        - check_packages_suse.rc == 0
+        - ansible_facts['os_family'] == "Suse"

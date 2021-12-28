@@ -1,0 +1,26 @@
+---
+- hosts: all
+  #remote_user: ansible
+  become: yes
+  vars:
+    packages: firefox
+  tasks:
+    - name: Remove packages on Centos
+      yum:
+        name: "{{ packages }}"
+        state: absent
+      when: ansible_facts['os_family'] == "CentOS" or ansible_facts['os_family'] == "RedHat"
+
+    - name: Install packages on Ubuntu
+      apt:
+        name: "{{ packages }}"
+        state: absent
+      when: ansible_facts['os_family'] == "Ubuntu"
+
+    - name: Install packages on Suse
+      zypper:
+        name: "{{ packages }}"
+        state: absent
+      when: ansible_facts['os_family'] == "Suse"
+
+

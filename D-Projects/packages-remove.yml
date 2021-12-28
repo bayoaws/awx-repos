@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  # remote_user: ansible 
+  vars:
+    packages: vim
+  tasks: 
+    - name: Remove {{ packages }} on Linux
+      package:
+        name: "{{ packages }}"
+        state: absent
+      tags: linux
