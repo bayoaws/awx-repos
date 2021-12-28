@@ -1,0 +1,11 @@
+---
+
+- name: haproxy
+  src: geerlingguy.haproxy
+
+- name: phpinfo
+  src: davidalger.php_fpm
+  
+- name: balancer
+  src: http://rhgls.labx.example.com/materials/haproxy.tar
+

@@ -1,0 +1,15 @@
+---
+- name: Configure haproxy
+  hosts: proxy
+  become: true
+  vars:
+    haproxy_backend_servers:
+      - name: ansible3.hl.local
+        address: 192.168.1.155:80
+      - name: ansible4.hl.local
+        address: 192.168.1.50:80
+
+  roles:
+    - haproxy       
+
+

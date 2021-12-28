@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ansible all -i inventory -m user -a "name=automation state=present password='$6$eZtFiedQ9UTYfJS/$5Y327p62/U.PUSC.m8vrEpB5lR6OGLsLKlEn2rSU7J4pZC6dAGm0OVItrgR7CJ3bL61ogG8n/D5CVEPWpKSUG/'" -k -u root
+
+ansible all -i inventory -m authorized_key -a "user=automation state=present key='{{ lookup('file', '/home/automation/.ssh/id_rsa.pub') }}'" -u root -k  
+
+ansible all -i inventory -m lineinfile -a 'line="automation ALL=(ALL) NOPASSWD:ALL" path=/etc/sudoers backup=true' -k -u root
+ 

@@ -1,0 +1,14 @@
+---
+- name: Schedule crontab job
+  hosts: proxy
+  become: true
+
+  tasks:
+    - name: Create a root crontab
+      cron:
+        name: date command append to /var/log/time.log
+        minute: "0"
+        hour: "*"
+        user: root
+        job: "date >> /var/log/time.log"
+

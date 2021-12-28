@@ -1,0 +1,11 @@
+---
+users:
+  - username: louis
+    Job: manager
+  - username: John
+    Job: developer
+  - username: Oscar
+    Job: developer
+  - username: bayo
+    Job: developer
+

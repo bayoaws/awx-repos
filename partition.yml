@@ -1,0 +1,47 @@
+---
+- name: Create a partition and filesystem
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Check if sdb exsit or not
+      assert:
+        that:
+          - ansible_facts['devices']['sdb'] is defined
+        fail_msg: "Disk does not exist"
+
+    - name: Create the partition from sdb
+      block:
+        - name: create a partition      
+          parted:
+            device: /dev/sdb
+            number: 1
+            state: present
+            part_end: 1500MiB
+
+      rescue:  
+        - name: Print message
+          debug:
+            msg: "Could not create partition of that size"
+
+        - name: Create another partition
+          parted:
+            device: /dev/sdb
+            number: 1
+            state: present
+            part_end: 800MiB
+    
+    - name: format the partition
+      filesystem:
+        fstype: ext4
+        dev: /dev/sdb1
+
+    - name: Mount the filesystem
+      mount:
+        path: /newpart
+        src: /dev/sdb1
+        fstype: ext4
+        state: mounted
+
+
+        

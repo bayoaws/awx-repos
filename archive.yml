@@ -1,0 +1,21 @@
+---
+- name: Archive a file
+  hosts: database
+  become: true
+  
+  tasks:
+    - name: create mysql_backup directory
+      file:
+        name: /mnt/mysql_backups
+        state: directory
+
+    - name: Craete a file with content
+      copy:
+        content: "dev,test,qa,prod"
+        dest: /mnt/mysql_backups/database_list.txt 
+
+    - name: Create the archive file
+      archive:
+        path: /mnt/mysql_backups/database_list.txt
+        dest: /mnt/mysql_backups/archive.gz
+    

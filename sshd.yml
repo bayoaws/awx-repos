@@ -1,0 +1,19 @@
+---
+- name: Configure ssh server
+  hosts: all
+  become: true
+
+  tasks:
+    - name: configure sshd config file
+      template:
+        src: sshd.j2
+        dest: /etc/ssh/sshd_config
+      notify:  
+        - restart sshd
+ 
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
