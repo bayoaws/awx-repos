@@ -1,7 +1,6 @@
 ---
 - hosts: all
   become: yes
-  remote_user: ansible 
   vars:
     packages: vim
   tasks: 
