@@ -1,6 +1,5 @@
 - hosts: all
   become: yes
-  remote_user: admin
   vars:
     packages: firefox
   tasks: 
