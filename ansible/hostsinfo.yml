@@ -1,6 +1,7 @@
 ---
 - hosts: dev
   become: yes
+  remote_user: automation
   ignore_errors: yes
   tasks:
     - name: collect the process model info
