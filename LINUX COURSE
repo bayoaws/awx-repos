@@ -13,4 +13,581 @@ containers
 
 
 
+WORKING WITH FILES 
+PATH AND FILE TYPES
+Absolute Paths and Relative Paths
+
+The path of a file or directory specifies its unique file system location. When navigating through a file system, there are two types of paths: absolute paths and relative paths. Understanding the difference between them and how to navigate through them is essential for effective file management.
+
+Absolute Paths
+
+An absolute path is a fully qualified name that specifies the exact location of a file or directory in the file system hierarchy. It begins at the root (/) directory and specifies each subdirectory that must be traversed to reach the specific file. Every file in a file system has a unique absolute path name. An absolute path name always starts with a forward slash (/).
+
+For example, the absolute path name for the system message log file is /var/log/messages. Absolute path names can be long to type, so files may also be located relative to the current working directory for your shell prompt.
+
+Relative Paths
+
+A relative path identifies a unique file, specifying only the path necessary to reach the file from the working directory. A relative path name always starts with anything other than a forward slash (/).
+
+For example, if a user is in the /var directory, they could refer to the message log file relatively as log/messages. Relative paths can be simpler to use and shorter than absolute paths, especially when dealing with files in the current working directory.
+
+Navigating Paths
+
+When a user logs in and opens a command window, the initial location is normally the user's home directory. Users and processes navigate to other directories as needed; the terms working directory or current working directory refer to their current location.
+
+The pwd command displays the full path name of the current working directory for that shell. This can help you determine the syntax to reach files using relative path names. The ls command lists directory contents for the specified directory or, if no directory is given, for the current working directory.
+
+Use the cd command to change your shell's current working directory. If you do not specify any arguments to the command, it will change to your home directory. In the following example, a mixture of absolute and relative paths are used with the cd command to change the current working directory for the shell:
+
+    [user@host ~]$ pwd
+    /home/user
+    [user@host ~]$ cd Videos
+    [user@host Videos]$ pwd
+    /home/user/Videos
+    [user@host Videos]$ cd /home/user/Documents
+    [user@host Documents]$ pwd
+    /home/user/Documents
+    [user@host Documents]$ cd
+    [user@host ~]$ pwd
+    /home/user
+
+The touch command normally updates a file's timestamp to the current date and time without otherwise modifying it. This is useful for creating empty files, which can be used for practice, because "touching" a file name that does not exist causes the file to be created. In the following example, the touch command creates practice files in the Documents and Videos subdirectories:
+
+    [user@host ~]$ touch Videos/blockbuster1.ogg
+    [user@host ~]$ touch Videos/blockbuster2.ogg
+    [user@host ~]$ touch Documents/thesis_chapter1.odf
+    [user@host ~]$ touch Documents/thesis_chapter2.odf
+    [user@host ~]$
+
+The ls command has multiple options for displaying attributes on files. The most common and useful are -l (long listing format), -a (all files, including hidden files), and -R (recursive, to include the contents of all subdirectories).
+
+    [user@host ~]$ ls -l
+    total 15
+    drwxr-xr-x. 2 user user 4096 Feb 7 14:02 Desktop
+    drwxr-xr-x. 2 user user 4096 Jan 9 15:00 Documents
+
+When you use the ls command to list the contents of a directory, you will notice that there are two special directories at the top of the list: the current directory (.) and the parent directory (..). The current directory is the directory you are currently in, and the parent directory is the directory that contains the current directory.
+
+For example, if you are currently in the directory /home/user/Documents, the current directory is Documents and the parent directory is /home/user.
+
+These special directories are present in every directory on the system and are useful when navigating the file system. For instance, you can use the cd .. command to move up one level to the parent directory.
+
+Additionally, file names beginning with a dot (.) are hidden files, and they are not visible by default when you use commands like ls. These files are used to store user configuration files, and they prevent clutter in home directories. Commands like ls -a can be used to show hidden files and process them with specific command-line options.
+
+Let's say you are currently in the directory /home/user/Documents, and you want to list the contents of this directory. You can use the ls command to do this, and you will see something like this:
+
+    $ ls
+    file1.txt file2.txt file3.txt
+
+At the top of this list, you will see two special directories: . and ... The . directory represents the current directory (/home/user/Documents in this case), and the .. directory represents the parent directory (/home/user).
+
+To navigate to the parent directory, you can use the cd command followed by .., like this:
+
+    $ cd ..
+
+Now, you are in the parent directory /home/user. You can use ls again to list its contents:
+
+    $ ls
+    Desktop Documents Downloads Music Pictures Public Templates Videos
+
+You can also use the ls -a command to see all files and directories, including the hidden ones:
+
+    $ ls -a
+    . .. .config .local Desktop Documents Downloads Music Pictures Public Templates Videos
+
+Notice that the hidden directories and files (those that begin with a dot) are now visible. They are usually used to store user configuration files that you don't need to see or modify very often.
+
+To return to the current user's home directory assuming the current working directory is /tmp and their home directory is /home/user, you can use the "cd" command. Type "cd" followed by the tilde symbol "~" which represents the home directory, then press Enter. The command should look like this:
+    cd ~
+
+To display the absolute path name of the current location, use the "pwd" command. Type "pwd" and press Enter. The command should look like this:
+
+    pwd
+
+To return to the working directory used prior to the current working directory, use the "cd -" command. Type "cd -" and press Enter. The command should look like this:
+
+    cd -
+
+To change the working directory up two levels from the current location, use the "cd ../.." command. Type "cd ../.." and press Enter. The command should look like this:
+
+    cd ../..
+
+To list files in the current location, using a long format and including hidden files, use the "ls -al" command. Type "ls -al" and press Enter. The command should look like this:
+
+    ls -al
+
+To change the working directory to /bin, use the "cd /bin" command. Type "cd /bin" and press Enter. The command should look like this:
+
+    cd /bin
+
+To change the working directory to the parent of the current location, use the "cd .." command. Type "cd .." and press Enter. The command should look like this:
+    cd ..
+
+To change the working directory to /tmp if the current working directory is /home/student, use the "cd ../../tmp" command. Type "cd ../../tmp" and press Enter. The command should look like this:
+
+    cd ../../tmp
+
+Questions pour cet exercice
+
+Which command is used to return to the current user's home directory, assuming the current working directory is /tmp and their home directory is /home/user?
+
+Which command displays the absolute path name of the current location?
+
+Which command will always return you to the working directory used prior to the current working directory?
+
+Which command will always change the working directory up two levels from the current location?
+
+Which command lists files in the current location, using a long format, and including hidden files?
+
+Which command will always change the working directory to /bin?
+
+Which command will always change the working directory to the parent of the current location?
+
+Which command will change the working directory to /tmp if the current working directory is /home/student?
+
+
+
+CREATING DIRECTORIES AND MANAGING FILES
+Introduction
+
+The command line interface (CLI) is a powerful tool for managing files and directories in a Linux-based operating system. In this comprehensive guide, we will explore various commands used for creating, organizing, copying, moving, and removing files and directories. We will also discuss the appropriate use of options to enhance the functionality of these commands.
+
+Creating Directories with mkdir
+
+The mkdir command is used to create one or more directories or subdirectories. This command requires a list of paths to the directories you want to create as its arguments. For example, to create a new directory called "Projects" in your home directory, you would enter:
+
+    [user@host ~]$ mkdir Projects
+
+Handling Errors and Missing Parent Directories
+
+The mkdir command will fail with an error if the directory already exists or if you are trying to create a subdirectory in a directory that does not exist. To create missing parent directories for the requested destination, use the -p (parent) option:
+
+    [user@host ~]$ mkdir -p Projects/Project1
+
+However, use the mkdir -p command with caution, as spelling mistakes can create unintended directories without generating error messages. In the following example, the user tries to create a directory in the "Videos" directory named "Watched" but accidentally left off the letter "s" in "Videos":
+
+    [user@host ~]$ mkdir Video/Watched
+    mkdir: cannot create directory `Video/Watched': No such file or directory
+
+Creating Multiple Directories
+
+To create multiple directories at once, use the mkdir command followed by a space-delimited list of the directory names:
+
+    [user@host ~]$ mkdir ProjectA ProjectB ProjectC
+
+Copying Files with cp
+
+The cp command is used to copy a file, creating a new file either in the current directory or in a specified directory. It can also copy multiple files to a directory. For example, to copy a file called "file1.txt" to a directory called "Backup":
+
+    [user@host ~]$ cp file1.txt Backup/
+
+Warning: If the destination file already exists, the cp command overwrites the file.
+
+Copying Multiple Files and Directories
+
+When copying multiple files with one command, the last argument must be a directory. Copied files retain their original names in the new directory. If a file with the same name exists in the target directory, the existing file is overwritten. By default, the cp command does not copy directories; it ignores them.
+
+To copy a directory and its contents, use the -r (recursive) option:
+
+    [user@host ~]$ cp -r DirectoryA/ DirectoryB/
+
+Moving Files with mv
+
+The mv command moves files from one location to another. It can also be used to rename a file. The file contents remain unchanged. To rename a file called "oldname.txt" to "newname.txt":
+
+    [user@host ~]$ mv oldname.txt newname.txt
+
+To move a file to a different directory, use the mv command followed by the source file and the target directory:
+
+    [user@host ~]$ mv file1.txt DirectoryA/
+
+Removing Files and Directories with rm
+
+The rm command is used to remove files. By default, rm will not remove directories that contain files, unless you add the -r or --recursive option.
+
+Important: There is no command-line undelete feature, nor a "trash bin" from which you can restore files staged
+
+
+Assignment
+
+The purpose of this assignment is to practice using the command line interface (CLI) to create, organize, copy, move, and remove files and directories in a Linux-based operating system. Follow the instructions below and submit your results in a text file.
+
+Instructions
+
+    Create a directory named MyAssignment in your home directory.
+
+    Inside MyAssignment, create three directories: Documents, Images, and Scripts.
+
+    Create a text file named file1.txt in the Documents directory. Write the following text inside the file: "This is the first file."
+
+    Create a text file named file2.txt in the Documents directory. Write the following text inside the file: "This is the second file."
+
+    Create a copy of file1.txt in the Images directory and name it file1_backup.txt.
+
+    Move file2.txt from the Documents directory to the Scripts directory.
+
+    Rename file2.txt in the Scripts directory to file2_renamed.txt.
+
+    Remove file1_backup.txt from the Images directory.
+
+    Create a new directory named Archived inside the MyAssignment directory.
+
+    Copy the Documents, Images, and Scripts directories, along with their contents, into the Archived directory.
+
+___________
+
+Solution (scroll to view):
+
+Creating Directories and Managing Files from the Command Line: A Comprehensive Guide
+
+Assignment Solution
+
+The purpose of this assignment is to practice using the command line interface to create, organize, copy, move, and remove files and directories in a Linux-based operating system.
+
+Instructions and Commands:
+
+    Create a directory named MyAssignment in your home directory. Command: mkdir MyAssignment
+
+    Inside MyAssignment, create three directories: Documents, Images, and Scripts. Command: mkdir MyAssignment/Documents MyAssignment/Images MyAssignment/Scripts
+
+    Create a text file named file1.txt in the Documents directory. Write the following text inside the file: "This is the first file." Command: echo "This is the first file." > MyAssignment/Documents/file1.txt
+
+    Create a text file named file2.txt in the Documents directory. Write the following text inside the file: "This is the second file." Command: echo "This is the second file." > MyAssignment/Documents/file2.txt
+
+    Create a copy of file1.txt in the Images directory and name it file1_backup.txt. Command: cp MyAssignment/Documents/file1.txt MyAssignment/Images/file1_backup.txt
+
+    Move file2.txt from the Documents directory to the Scripts directory. Command: mv MyAssignment/Documents/file2.txt MyAssignment/Scripts/
+
+    Rename file2.txt in the Scripts directory to file2_renamed.txt. Command: mv MyAssignment/Scripts/file2.txt MyAssignment/Scripts/file2_renamed.txt
+
+    Remove file1_backup.txt from the Images directory. Command: rm MyAssignment/Images/file1_backup.txt
+
+    Create a new directory named Archived inside the MyAssignment directory. Command: mkdir MyAssignment/Archived
+
+    Copy the Documents, Images, and Scripts directories, along with their contents, into the Archived directory. Command: cp -r MyAssignment/Documents MyAssignment/Images MyAssignment/Scripts MyAssignment/Archived/
+
+Questions pour cet exercice
+
+What is the purpose of the mkdir command?
+
+What does the -r option do when used with the cp command?
+
+What is the difference between the cp and mv commands?
+
+What is the significance of the touch command?
+
+What is the function of the rm command, and what does the -r option do when used with this command?
+
+
+
+
+
+LOCATING FILES ON THE SYSTEM
+In today's computing environment, system administrators often find themselves managing large amounts of data. As a result, being able to quickly and effectively locate files on mounted file systems is an essential skill. This article will discuss two powerful tools for searching for files: find and locate. By the end of this article, you should be able to proficiently search for files on mounted file systems using both commands.
+
+Objectives:
+
+    Learn how to use the find and locate commands to search for files on mounted file systems.
+
+    Understand the differences between find and locate.
+
+    Discover various options for refining your search criteria.
+
+Searching for Files
+
+System administrators require tools to search for files that match certain criteria on the file system. Two such commands that can search for files in the file-system hierarchy are locate and find.
+
+    The locate command searches a pregenerated index for file names or file paths and returns the results instantly.
+
+    The find command searches for files in real time by crawling through the file-system hierarchy.
+
+Locating Files by Name
+
+The locate command finds files based on the name or path to the file. It is fast because it looks up this information from the mlocate database. However, this database is not updated in real time, and it must be frequently updated for results to be accurate. This also means that locate will not find files that have been created since the last update of the database.
+
+The locate database is automatically updated every day. However, at any time the root user can issue the updatedb command to force an immediate update.
+
+To use the locate command, you must have search permission on the directory in which the file resides. Results are returned even when the file name or path is only a partial match to the search query.
+
+The -i option performs a case-insensitive search, and the -n option limits the number of returned search results by the locate command.
+
+Searching for Files in Real Time
+
+The find command locates files by performing a real-time search in the file-system hierarchy. It is slower than locate, but more accurate. It can also search for files based on criteria other than the file name, such as the permissions of the file, type of file, its size, or its modification time.
+
+To search for files by file name, use the -name FILENAME option. Wildcards are available to search for a file name and return all results that are a partial match.
+
+The find command can search for files based on their ownership or permissions, file size, modification time, and file type. Useful options when searching by owner are -user and -group (which search by name) and -uid and -gid (which search by ID).
+
+The -perm option is used to look for files with a particular set of permissions.
+
+Conclusion
+
+In this article, we explored the find and locate commands for searching files on mounted file systems. Both commands offer a range of options and parameters to refine your search and cater to specific requirements. By mastering these commands, you can efficiently locate files on your system and better manage your data.
+
+
+    Familiarize yourself with the locate command by executing the following tasks:
+
+    a. Update the mlocate database by running the updatedb command as root.
+
+    b. Use the locate command to search for files with the word "passwd" in their name or path.
+
+    c. Perform a case-insensitive search using the -i option for files containing the word "messages."
+
+    d. Limit the number of returned search results using the -n option. For example, find the first five matches for the term "snow.png."
+
+    Explore the find command by completing the following tasks:
+
+    a. Search for files named "sshd_config" starting from the root (/) directory.
+
+    b. Search for files ending with ".txt" in the root (/) directory.
+
+    c. Perform a case-insensitive search for files containing the word "messages" in their names.
+
+    d. Search for files owned by a specific user or group in a given directory (e.g., /home/user).
+
+    e. Find files with specific permissions using the -perm option.
+
+    f. Look up files that match a specified size using the -size option (e.g., files larger than 10MB).
+
+    g. Search for files based on their modification time using the -mmin option (e.g., files modified more than 200 minutes ago).
+
+    h. Limit the search scope to a specific file type using the -type option (e.g., regular files, directories, soft links, or block devices).
+
+    Combine multiple search criteria using the find command to create more advanced searches. For example, find all regular files in the /var/log directory that are larger than 500KB and have been modified within the last 24 hours.
+
+    Write a brief summary of your experiences with the find and locate commands, highlighting their advantages and limitations, and any challenges you faced while completing the tasks.
+
+_____________________
+
+Solution (scroll to view):
+
+    Using the locate command:
+
+    a. Update the mlocate database:
+
+        sudo updatedb
+
+    b. Search for files with the word "passwd":
+
+        locate passwd
+
+    c. Perform a case-insensitive search for files containing the word "messages":
+
+        locate -i messages
+
+    d. Limit the number of returned search results to find the first five matches for the term "snow.png":
+
+        locate -n 5 snow.png
+
+    Using the find command:
+
+    a. Search for files named "sshd_config" starting from the root (/) directory:
+
+        find / -name sshd_config
+
+    b. Search for files ending with ".txt" in the root (/) directory:
+
+        find / -name "*.txt"
+
+    c. Perform a case-insensitive search for files containing the word "messages" in their names:
+
+        find / -iname "*messages*"
+
+    d. Search for files owned by a specific user (replace 'username' with the desired username) or group (replace 'groupname' with the desired group name) in a given directory:
+
+        find /home/user -user username
+        find /home/user -group groupname
+
+    e. Find files with specific permissions (e.g., 644):
+
+        find / -type f -perm 644
+
+    f. Look up files that match a specified size (e.g., files larger than 10MB):
+
+        find / -type f -size +10M
+
+    g. Search for files based on their modification time (e.g., files modified more than 200 minutes ago):
+
+        find / -type f -mmin +200
+
+    h. Limit the search scope to a specific file type (e.g., regular files):
+
+        find / -type f
+
+    Combine multiple search criteria using the find command:
+
+        find /var/log -type f -size +500k -mtime -1
+
+Questions pour cet exercice
+
+What is the difference between the find and locate commands in Linux?
+
+How can you update the locate command's database?
+
+How can you use the find command to search for files modified within a specific time range?
+
+How can you use the find command to search for files based on their permissions?
+
+How do you limit the search results returned by the locate command?
+
+How can you use the find command to search for files owned by a specific user or group?
+
+
+FILE PERMISSIONS and PERMISSIONS 
+
+VIM EDITOR
+Vim Operating Modes: A Comprehensive Guide
+
+An unusual characteristic of Vim is that it has several modes of operation, including command mode, extended command mode, edit mode, and visual mode. Depending on the mode, you may be issuing commands, editing text, or working with blocks of text. As a new Vim user, you should always be aware of your current mode as keystrokes have different effects in different modes.
+
+Figure 5.10: Moving between Vim modes
+
+When you first open Vim, it starts in command mode, which is used for navigation, cut and paste, and other text manipulation. Enter each of the other modes with single character keystrokes to access specific editing functionality:
+
+    An i keystroke enters insert mode, where all text typed becomes file content. Pressing Esc returns to command mode.
+
+    A v keystroke enters visual mode, where multiple characters may be selected for text manipulation. Use Shift+V for multiline and Ctrl+V for block selection. The same keystroke used to enter visual mode (v, Shift+V or Ctrl+V) is used to exit.
+
+    The : keystroke begins extended command mode for tasks such as writing the file (to save it) and quitting the Vim editor.
+
+NOTE: If you are not sure what mode Vim is in, you can try pressing Esc a few times to get back into command mode. Pressing Esc in command mode is harmless, so a few extra key presses are okay.
+
+The Minimum, Basic Vim Workflow
+
+Vim has efficient, coordinated keystrokes for advanced editing tasks. Although considered useful with practice, Vim's capabilities can overwhelm new users.
+
+The i key puts Vim into insert mode. All text entered after this is treated as file contents until you exit insert mode. The Esc key exits insert mode and returns Vim to command mode. The u key will undo the most recent edit. Press the x key to delete a single character. The :w command writes (saves) the file and remains in command mode for more editing. The :wq command writes (saves) the file and quits Vim. The :q! command quits Vim, discarding all file changes since the last write.
+
+The Vim user must learn these commands to accomplish any editing task.
+
+Rearranging Existing Text
+
+In Vim, copy and paste is known as yank and put, using command characters Y and P. Begin by positioning the cursor on the first character to be selected, and then enter visual mode. Use the arrow keys to expand the visual selection. When ready, press y to yank the selection into memory. Position the cursor at the new location, and then press p to put the selection at the cursor.
+
+Visual Mode in Vim
+
+Visual mode is a great way to highlight and manipulate text. There are three keystrokes:
+
+    Character mode: v
+
+    Line mode: Shift+V
+
+    Block mode: Ctrl+V
+
+Character mode highlights sentences in a block of text. The word VISUAL will appear at the bottom of the screen. Press v to enter visual character mode. Shift+V enters line mode. VISUAL LINE will appear at the bottom of the screen.
+
+Visual block mode is perfect for manipulating data files. From the cursor, press the Ctrl+V to enter visual block. VISUAL BLOCK will appear at the bottom of the screen. Use the arrow keys to highlight the section to change.
+
+NOTE: Vim has a lot of capabilities, but you should master the basic workflow first. You do not need to quickly understand the entire editor and its capabilities. Get comfortable with those basics through practice and then you can expand your Vim vocabulary by learning additional Vim commands (keystrokes).
+
+The exercise for this section will introduce you to the vimtutor command. This tutorial, which ships with vim-enhanced, is an excellent way to learn the core functionality of Vim.
+
+In summary, Vim offers multiple operating modes that enable efficient text editing and manipulation. By understanding and mastering command mode, insert mode, visual mode, and extended command mode, you can harness the full power of Vim for your text editing needs. New users should focus on becoming comfortable with the basic workflow before delving into Vim's advanced capabilities. The vimtutor command provides a valuable resource for learning and reinforcing core Vim functionality, making it easier to become a proficient Vim user.
+
+
+To further solidify your understanding of Vim's operating modes and functionality, here are some example exercises that you can practice:
+
+Exercise 1: Creating and saving a new file
+
+    Open a terminal.
+
+    Type vim newfile.txt to create a new file called newfile.txt and open it in Vim.
+
+    Press i to enter insert mode.
+
+    Type some text into the file.
+
+    Press Esc to exit insert mode.
+
+    Type :wq to save the file and quit Vim.
+
+Exercise 2: Opening an existing file, editing, and saving changes
+
+    Open a terminal.
+
+    Type vim existingfile.txt to open an existing file called existingfile.txt in Vim.
+
+    Use the arrow keys to navigate to the desired text.
+
+    Press i to enter insert mode and edit the text.
+
+    Press Esc to exit insert mode.
+
+    Type :w to save the changes.
+
+    Type :q to quit Vim.
+
+Exercise 3: Copy and paste text within a file
+
+    Open a terminal.
+
+    Type vim filetocopy.txt to open a file called filetocopy.txt in Vim.
+
+    Use the arrow keys to navigate to the first character of the text you want to copy.
+
+    Press v to enter visual mode.
+
+    Use the arrow keys to highlight the text you want to copy.
+
+    Press y to yank (copy) the selected text.
+
+    Use the arrow keys to navigate to the location where you want to paste the copied text.
+
+    Press p to put (paste) the copied text.
+
+    Press Esc to exit visual mode.
+
+    Type :wq to save the changes and quit Vim.
+
+Exercise 4: Utilize the vimtutor
+
+    Open a terminal.
+
+    Type vimtutor and press Enter.
+
+    Follow the interactive tutorial to learn and practice core Vim functionality.
+
+These exercises provide hands-on experience with Vim's operating modes and essential functions. By completing these exercises, you'll gain familiarity with Vim's basic workflow and improve your text editing proficiency.
+
+
+
+    Write a brief summary of Vim's operating modes (command, insert, visual, and extended command mode) and explain their primary functions.
+
+    Using the terminal, create a new text file named practice.txt in Vim. Write a paragraph about your favorite hobby, save the file, and quit Vim.
+
+    Open the practice.txt file in Vim and edit the text by adding two more sentences. Save the changes and quit Vim.
+
+    In practice.txt, use visual mode to copy and paste a sentence within the file. Save the changes and quit Vim.
+
+    Complete the vimtutor tutorial and share your experience, highlighting any new concepts or commands you learned.
+
+Questions pour cet exercice
+
+What are the four main operating modes in Vim?
+
+How can you enter Insert mode in Vim, and what is its purpose?
+
+How do you copy and paste text within Vim, and what are the command characters for this operation?
+
+How do you save a file in Vim without quitting the editor?
+
+How can you exit Vim without saving any changes made to the file since the last save?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
