@@ -1,3 +1,0 @@
-- src: geerlingguy.redis
-  version: "1.5.0"
-  name: our_role
