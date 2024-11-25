@@ -1,0 +1,8 @@
+---
+ - hosts: rhel8
+   become: true
+   tasks: 
+     - name: create users
+       ansible.builtin.user:
+         name: alex
+         state: present
