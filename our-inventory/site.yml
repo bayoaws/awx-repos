@@ -1,7 +1,7 @@
 ---
 - name: Install and start Apache HTTPD
   hosts: web
-  remote_user: sfagbohoun
+  remote_user: automation
   become: true
   tasks:
     - name: httpd package is present
