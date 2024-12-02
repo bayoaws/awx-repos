@@ -1,6 +1,6 @@
 ---
 - name: Install and start Apache HTTPD
-  hosts: web
+  hosts: all
   remote_user: automation
   become: true
   tasks:
