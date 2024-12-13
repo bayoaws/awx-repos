@@ -1,0 +1,51 @@
+- name: Fetch and Report AWX Job Run Details
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    awx_api_url: "https://localhost/api/v2/jobs/"
+    awx_api_token: "BRvaNBTgKhKTBuVOERANsFt2sfQcNq"
+    output_report: "/tmp/awx_job_run_details.csv"
+
+  tasks:
+    - name: Query AWX API for Job Execution Data
+      uri:
+        url: "{{ awx_api_url }}"
+        method: GET
+        headers:
+          Authorization: "Bearer {{ awx_api_token }}"
+        return_content: yes
+        validate_certs: no
+      register: job_data
+
+    - name: Parse and Extract Job Data
+      set_fact:
+        jobs: "{{ job_data.json.results }}"
+
+    - name: Initialize Job Runtime Dictionary
+      set_fact:
+        job_runtimes: {}
+
+    - name: Organize Job Data by Name and Runtime
+      set_fact:
+        job_runtimes: >
+          {{
+            job_runtimes | combine({
+              item.name: (job_runtimes.get(item.name, []) + [item.elapsed])
+            })
+          }}
+      loop: "{{ jobs }}"
+      loop_control:
+        label: "{{ item.name }}"
+
+
+    - name: Generate CSV Report
+      template:
+        src: /home/automation/awx_job_report_template.j2
+        dest: "{{ output_report }}"
+
+
+    - name: Display CSV Report Path
+      debug:
+        msg: "Report generated at {{ output_report }}"
+
