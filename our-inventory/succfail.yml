@@ -1,0 +1,44 @@
+- name: Fetch AWX Job Statuses
+  hosts: localhost
+  tasks:
+    - name: Fetch all jobs from AWX
+      uri:
+        url: "http://localhost/api/v2/jobs/"
+        method: GET
+        headers:
+          Authorization: "Bearer BRvaNBTgKhKTBuVOERANsFt2sfQcNq"
+        return_content: yes
+        validate_certs: no
+      register: job_response
+
+    - name: Parse job results
+      set_fact:
+        successful_jobs: "{{ job_response.json.results | selectattr('status', 'equalto', 'successful') | list }}"       
+        failed_jobs: "{{ job_response.json.results | selectattr('status', 'equalto', 'failed') | list }}"
+
+    - name: Save job statuses to a JSON report
+      copy:
+        content: |
+          {
+            "successful_jobs": {{ successful_jobs | to_nice_json }},
+            "failed_jobs": {{ failed_jobs | to_nice_json }} 
+          }
+        dest: ./awx_job_report.json
+
+    - name: Generate human-readable report
+      copy:
+        content: |
+          AWX Job Report:
+      
+          Successful Jobs:
+          {% for job in successful_jobs %}
+          - Name: {{ job.name }} | ID: {{ job.id }}
+          {% endfor %}
+      
+          Failed Jobs:
+          {% for job in failed_jobs %}
+          - Name: {{ job.name }} | ID: {{ job.id }}
+          Error: {{ job.summary_fields.job_explanation if job.summary_fields.job_explanation is defined else 'No error message' }}
+          {% endfor %}
+        dest: ./awx_job_report.txt
+ 
