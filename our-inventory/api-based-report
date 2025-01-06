@@ -1,0 +1,22 @@
+---
+- name: Create API-based execution environment report
+  hosts: localhost
+  tasks:
+    - name: Fetch details from AWX
+      ansible.builtin.uri:
+        url: "{{ url }}"
+        method: GET
+        validate_certs: false
+        user: admin
+        password: "{{ password }}"
+        force_basic_auth: true
+        status_code: 200
+        body_format: json
+      register: execution_environment_details
+    - name: Create report
+      ansible.builtin.copy:
+        content: "Name: {{ execution_environment_details.json.name }}\n presence: {{ execution_environment_details.json.presence }}\n\n Ansible Collection(s) installed:\n
+          {{ execution_environment_details.json.image_contents.ansible_collections }}\n\n Python librairies installed:\n {{ execution_environment_details.json.image_contents.python_dependencies
+          }}\n\n Other installed components (if parseable):\n {{ execution_environment_details.json.image_contents.other_contents }}\n\n Inherited from:\n {{ execution_environment_details.json.ancestor_image_ids
+          }}\n"
+        dest: execution_environment_report.txt
