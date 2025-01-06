@@ -26,3 +26,45 @@
           }}\n\n Other installed components (if parseable):\n {{ execution_environment_details.json.image_contents.other_contents }}\n\n Inherited from:\n {{ execution_environment_details.json.ancestor_image_ids
           }}\n"
         dest: execution_environment_report.txt
+
+
+
+---
+- name: Create API-based execution environment report
+  hosts: localhost
+  tasks:
+    - name: Fetch details from AWX
+      ansible.builtin.uri:
+         url: "{{ awx_api_url }}"
+         method: GET
+         headers:
+           Authorization: "Bearer {{ awx_api_token }}"
+         return_content: yes
+         validate_certs: no
+      register: execution_environment_details
+
+    - name: Ensure execution environment details are present
+      assert:
+        that: execution_environment_details is defined and
+              execution_environment_details.json is defined
+        fail_msg: "Execution environment details are not available."
+
+    - name: Create report
+      ansible.builtin.copy:
+        content: |
+          Name: {{ execution_environment_details.json.name | default('N/A') }}
+          Presence: {{ execution_environment_details.json.presence | default('N/A') }}
+
+          Ansible Collection(s) installed:
+          {{ execution_environment_details.json.image_contents.ansible_collections | default('N/A') }}
+
+          Python libraries installed:
+          {{ execution_environment_details.json.image_contents.python_dependencies | default('N/A') }}
+
+          Other installed components (if parseable):
+          {{ execution_environment_details.json.image_contents.other_contents | default('N/A') }}
+
+          Inherited from:
+          {{ execution_environment_details.json.ancestor_image_ids | default('N/A') }}
+        dest: /tmp/execution_environment_report.csv
+
