@@ -4,14 +4,20 @@
   tasks:
     - name: Fetch details from AWX
       ansible.builtin.uri:
-        url: "{{ url }}"
-        method: GET
-        validate_certs: false
-        user: admin
-        password: "{{ password }}"
-        force_basic_auth: true
-        status_code: 200
-        body_format: json
+         url: "{{ awx_api_url }}"
+         method: GET
+         headers:
+           Authorization: "Bearer {{ awx_api_token }}"
+         return_content: yes
+         validate_certs: no
+       # url: "{{ url }}"
+        #method: GET
+       # validate_certs: false
+       # user: admin
+       # password: "{{ password }}"
+      #  force_basic_auth: true
+       # status_code: 200
+      #  body_format: json
       register: execution_environment_details
     - name: Create report
       ansible.builtin.copy:
