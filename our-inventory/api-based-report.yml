@@ -68,3 +68,41 @@
           {{ execution_environment_details.json.ancestor_image_ids | default('N/A') }}
         dest: /tmp/execution_environment_report.csv
 
+
+
+- name: Retrieve and save execution environment details to CSV
+  hosts: localhost
+  gather_facts: no
+  vars:
+    awx_api_url: "http://localhost:8052"
+    awx_api_token: "YOUR_API_TOKEN_HERE"
+    csv_file_path: "/tmp/execution_environments.csv"
+  tasks:
+    - name: Fetch execution environments from AWX
+      ansible.builtin.uri:
+        url: "{{ awx_api_url }}/api/v2/execution_environments/"
+        method: GET
+        headers:
+          Authorization: "Bearer {{ awx_api_token }}"
+        return_content: yes
+        validate_certs: no
+      register: execution_environments_response
+
+    - name: Parse execution environment details
+      ansible.builtin.set_fact:
+        execution_environments_data: "{{ execution_environments_response.json.results }}"
+
+    - name: Create CSV file header
+      ansible.builtin.copy:
+        content: "Name,Image,Description,Organization,Created,Modified\n"
+        dest: "{{ csv_file_path }}"
+        force: yes
+
+    - name: Append execution environment details to CSV
+      ansible.builtin.lineinfile:
+        path: "{{ csv_file_path }}"
+        line: "{{ item.name }},{{ item.image }},{{ item.description | default('N/A') }},{{ item.organization | default('N/A') }},{{ item.created }},{{ item.modified }}"
+        state: present
+        create: yes
+      loop: "{{ execution_environments_data }}"
+
