@@ -36,3 +36,14 @@
         create: yes
       loop: "{{ execution_environments_data }}"
 
+    - name: Sending an e-mail using Gmail SMTP servers
+      community.general.mail:
+        host: smtp.gmail.com
+        port: 587
+        username: adebayobuss@gmail.com
+        password: "{{ gmail_pass }}"
+        to: adebayobuss@gmail.com
+        subject: Ansible-report test
+        body: Ansible AWX report from {{ ansible_hostname }}
+      delegate_to: localhost
+
