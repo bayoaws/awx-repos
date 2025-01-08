@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     awx_api_url: "http://localhost:8052"
-    awx_api_token: "YOUR_API_TOKEN_HERE"
+    awx_api_token:
     csv_file_path: "/tmp/execution_environments.csv"
   tasks:
     - name: Fetch execution environments from AWX
