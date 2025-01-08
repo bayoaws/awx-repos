@@ -13,6 +13,7 @@
         method: GET
         headers:
           Authorization: "Bearer {{ awx_api_token }}"
+          Accept: "application/json"
         return_content: yes
         validate_certs: no
       register: execution_environments_response
