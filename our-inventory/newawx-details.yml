@@ -4,7 +4,7 @@
 
   vars:
     awx_api_url: "http://localhost/api/v2/jobs/"
-    awx_api_token: "eZLUNvP2GhepZvzVe8HayWDewRScCL"
+    awx_api_token: "2jhkrc5rwwNOOOTd1CaQ1NP1QegvJH"
     output_report: "/tmp/awx_job_run_details.csv"
 
   tasks:
