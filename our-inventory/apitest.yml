@@ -3,7 +3,7 @@
   gather_facts: no
   vars:
     api_url: "http://localhost/api/v2/jobs/"
-    api_token: "AFVwEe3kUl2fiK3LsK5qGnSMejWTon"
+    api_token: "VWEdlncWhcCYfdbO7edC21kaEzBr5w"
   tasks:
     - name: Get list of jobs
       uri:
