@@ -3,7 +3,7 @@
   gather_facts: no
 
   vars:
-    awx_api_url: "http://localhost/api/v2/jobs/"
+    awx_api_url: "http://192.168.4.100/api/v2/jobs/"
     awx_api_token: "2jhkrc5rwwNOOOTd1CaQ1NP1QegvJH"
     output_report: "/tmp/awx_job_run_details.csv"
 
