@@ -14,38 +14,31 @@
         method: GET
         headers:
           Authorization: "Bearer {{ awx_api_token }}"
+          Accept: "application/json"
         return_content: yes
         validate_certs: no
-      register: job_data
+      register: job_details
 
     - name: Parse and Extract Job Data
       set_fact:
-        jobs: "{{ job_data.json.results }}"
+        job_list: "{{ job_details.json.results }}"
 
-    - name: Initialize Job Runtime Dictionary
-      set_fact:
-        job_runtimes: {}
+    - name: Create csv file with job details
+      copy: 
+        content: |
+          Name,Average_run_time,List_of_runs,Dates
+          {% for job in job_list %}
+          {{ job.name }}, {{ (job.elapsed) }},{{ job.id }},{{ job.finished }}
+          {% endfor %}
+        dest: /tmp/awx_jobs.csv
 
-    - name: Organize Job Data by Name and Runtime
-      set_fact:
-        job_runtimes: >
-          {{
-            job_runtimes | combine({
-              item.name: (job_runtimes.get(item.name, []) + [item.elapsed])
-            })
-          }}
-      loop: "{{ jobs }}"
-      loop_control:
-        label: "{{ item.name }}"
-
-
-    - name: Generate CSV Report
-      template:
-        src: /home/automation/awx_job_report_template.j2
-        dest: "{{ output_report }}"
-
-
-    - name: Display CSV Report Path
-      debug:
-        msg: "Report generated at {{ output_report }}"
-
+    - name: Ensure CSV file is created 
+      stat: 
+        path: /tmp/awx_jobs.csv
+      register: csv_file
+      
+    - name: Display csv file content
+      debug: 
+        msg: "CSV file created at  {{ csv_file.stat.path }}"
+        
+    
