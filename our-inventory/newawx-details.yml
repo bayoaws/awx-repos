@@ -1,44 +1,45 @@
-- name: Fetch and Report AWX Job Run Details
-  hosts: localhost
-  gather_facts: no
+---
+ - name: Fetch and Report AWX Job Run Details
+   hosts: localhost
+   gather_facts: no
 
-  vars:
-    awx_api_url: "http://localhost/api/v2/jobs/"
-    awx_api_token: "2jhkrc5rwwNOOOTd1CaQ1NP1QegvJH"
-    output_report: "/tmp/awx_jobs.csv"
+   vars:
+     awx_api_url: "http://localhost/api/v2/jobs/"
+     awx_api_token: "2jhkrc5rwwNOOOTd1CaQ1NP1QegvJH"
+     output_report: "/tmp/awx_jobs.csv"
 
-  tasks:
-    - name: Query AWX API for Job Execution Data
-      uri:
-        url: "{{ awx_api_url }}"
-        method: GET
-        headers:
-          Authorization: "Bearer {{ awx_api_token }}"
-          Accept: "application/json"
-        return_content: yes
-        validate_certs: no
-      register: job_details
+   tasks:
+     - name: Query AWX API for Job Execution Data
+       uri:
+         url: "{{ awx_api_url }}"
+         method: GET
+         headers:
+           Authorization: "Bearer {{ awx_api_token }}"
+           Accept: "application/json"
+         return_content: yes
+         validate_certs: no
+       register: job_details
 
-    - name: Parse and Extract Job Data
-      set_fact:
-        job_list: "{{ job_details.json.results }}"
+     - name: Parse and Extract Job Data
+       set_fact:
+         job_list: "{{ job_details.json.results }}"
 
-    - name: Create csv file with job details
-      copy: 
-        content: |
-          Name,Average_run_time,List_of_runs,Dates
-          {% for job in job_list %}
-          {{ job.name }}, {{ (job.elapsed) }},{{ job.id }},{{ job.finished }}
-          {% endfor %}
-        dest: /tmp/awx_jobs.csv
+     - name: Create csv file with job details
+       copy: 
+         content: |
+           Name,Average_run_time,List_of_runs,Dates
+           {% for job in job_list %}
+           {{ job.name }}, {{ (job.elapsed) }},{{ job.id }},{{ job.finished }}
+           {% endfor %}
+         dest: /tmp/awx_jobs.csv
 
-    - name: Ensure CSV file is created 
-      stat: 
-        path: /tmp/awx_jobs.csv
-      register: csv_file
+     - name: Ensure CSV file is created 
+       stat: 
+         path: /tmp/awx_jobs.csv
+       register: csv_file
       
-    - name: Display csv file content
-      debug: 
-        msg: "CSV file created at  {{ csv_file.stat.path }}"
+     - name: Display csv file content
+       debug: 
+         msg: "CSV file created at  {{ csv_file.stat.path }}"
         
     
