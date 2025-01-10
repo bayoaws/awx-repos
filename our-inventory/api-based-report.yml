@@ -32,18 +32,24 @@
         dest: "{{ execution_env_csv_file_path }}"
         force: yes
 
-    - name: List installed collections
-      ansible.builtin.command: "ansible-galaxy collection list"
-      register: collections_list
+    - name: Fetch details for each execution environment
+      ansible.builtin.uri:
+        url: "{{ item.url }}"
+        method: GET
+        headers:
+          Authorization: "Bearer {{ awx_api_token }}"
+          Accept: "application/json"
+        return_content: yes
+        validate_certs: no
+      loop: "{{ execution_environments_data }}"
+      register: execution_environment_details
 
-    - name: List installed Python libraries
-      ansible.builtin.command: "pip list"
-      register: python_libs_list
-
-    - name: Combine collections and Python libraries into a dict
+    - name: Parse details for each execution environment
       ansible.builtin.set_fact:
-        collections_data: "{{ collections_list.stdout_lines | join('; ') }}"
-        python_libs_data: "{{ python_libs_list.stdout_lines[2:] | join('; ') }}"
+        execution_environments_with_details: >
+          {{
+            execution_environment_details.results | map(attribute='json') | list
+          }}
 
     - name: Append execution environment details to CSV
       ansible.builtin.lineinfile:
@@ -51,14 +57,14 @@
         line: >
           {{
             (item.name | default('N/A') | string) + "," +
-            (collections_data | default('N/A') | string) + "," +
-            (python_libs_data | default('N/A') | string) + "," +
-            'N/A' + "," + # Placeholder for other components
-            'N/A'         # Placeholder for inheritance tree
+            (item.collections | default('N/A') | string) + "," +
+            (item.python_libraries | default('N/A') | string) + "," +
+            (item.other_components | default('N/A') | string) + "," +
+            (item.inheritance | default('N/A') | string)
           }}
         state: present
         create: yes
-      loop: "{{ execution_environments_data }}"
+      loop: "{{ execution_environments_with_details }}"
 
     - name: Display content of the execution environments report CSV file
       ansible.builtin.shell: "cat {{ execution_env_csv_file_path }}"
