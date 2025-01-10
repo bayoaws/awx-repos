@@ -119,3 +119,30 @@
     - name: Show combined CSV file content
       ansible.builtin.debug:
         msg: "{{ combined_csv_file_content.stdout }}"
+
+    - name: Check if the execution environments CSV file exists
+      ansible.builtin.stat:
+        path: "{{ execution_env_csv_file_path }}"
+      register: execution_env_csv_file_stat
+
+    - name: Show execution environments CSV file existence
+      ansible.builtin.debug:
+        msg: "Execution Environments CSV file exists: {{ execution_env_csv_file_stat.stat.exists }}"
+
+    - name: Check if the collections CSV file exists
+      ansible.builtin.stat:
+        path: "{{ collections_csv_file_path }}"
+      register: collections_csv_file_stat
+
+    - name: Show collections CSV file existence
+      ansible.builtin.debug:
+        msg: "Collections CSV file exists: {{ collections_csv_file_stat.stat.exists }}"
+
+    - name: Check if the combined CSV file exists
+      ansible.builtin.stat:
+        path: "{{ combined_csv_file_path }}"
+      register: combined_csv_file_stat
+
+    - name: Show combined CSV file existence
+      ansible.builtin.debug:
+        msg: "Combined CSV file exists: {{ combined_csv_file_stat.stat.exists }}"
