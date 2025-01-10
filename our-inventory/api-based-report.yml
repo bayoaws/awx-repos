@@ -84,4 +84,4 @@
 
     - name: Sending an e-mail with the report
       ansible.builtin.shell: |
-        echo "Ansible AWX report from localhost | mail -s "Ansible-report test" -a {{ execution_env_csv_file_path }} {{ gmail_user }}
+        echo "Ansible AWX report from localhost" | mail -s "Ansible-report test" -a {{ execution_env_csv_file_path }} {{ gmail_user }}
