@@ -6,7 +6,7 @@
     awx_api_token: # Provide your AWX API token here
     execution_env_csv_file_path: "/home/automation/execution_environment_report.csv"
     gmail_user: "adebayobuss@gmail.com"
-    gmail_pass: "Newishola1989@"
+    gmail_pass: # Provide your Gmail App Password here
   tasks:
     - name: Ensure /home/automation directory exists
       ansible.builtin.file:
