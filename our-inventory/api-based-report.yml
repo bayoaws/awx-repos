@@ -83,7 +83,7 @@
         msg: "{{ execution_env_csv_file_content.stdout }}"
 
     - name: Sending an e-mail with the report
-      community.general.mail:
+      mail:
         host: smtp.gmail.com
         port: 587
         username: adebayobuss@gmail.com
