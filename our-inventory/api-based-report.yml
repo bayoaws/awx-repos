@@ -23,6 +23,11 @@
       ansible.builtin.set_fact:
         execution_environments_data: "{{ execution_environments_response.json.results }}"
 
+    - name: Create empty CSV file for execution environments
+      ansible.builtin.file:
+        path: "{{ execution_env_csv_file_path }}"
+        state: touch
+
     - name: Create CSV file header for execution environments
       ansible.builtin.copy:
         content: "Name,Image,Description,Organization,Created,Modified\n"
@@ -49,6 +54,11 @@
       ansible.builtin.command: "ansible-galaxy collection list"
       register: collections_list
 
+    - name: Create empty CSV file for collections
+      ansible.builtin.file:
+        path: "{{ collections_csv_file_path }}"
+        state: touch
+
     - name: Create CSV file header for collections
       ansible.builtin.copy:
         content: "Namespace,Name,Version,Path\n"
@@ -72,6 +82,11 @@
         state: present
         create: yes
       loop: "{{ collections_data }}"
+
+    - name: Create empty CSV file for combined details
+      ansible.builtin.file:
+        path: "{{ combined_csv_file_path }}"
+        state: touch
 
     - name: Create CSV file header for combined details
       ansible.builtin.copy:
