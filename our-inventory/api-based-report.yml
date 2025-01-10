@@ -4,7 +4,9 @@
   vars:
     awx_api_url: "http://192.168.4.100"
     awx_api_token: # Provide your AWX API token here
-    csv_file_path: "/tmp/execution_environments_with_collections.csv"
+    execution_env_csv_file_path: "/tmp/execution_environments.csv"
+    collections_csv_file_path: "/tmp/collections.csv"
+    combined_csv_file_path: "/tmp/execution_environments_with_collections.csv"
   tasks:
     - name: Fetch execution environments from AWX
       ansible.builtin.uri:
@@ -21,37 +23,93 @@
       ansible.builtin.set_fact:
         execution_environments_data: "{{ execution_environments_response.json.results }}"
 
-    - name: List installed collections
-      ansible.builtin.command: "ansible-galaxy collection list"
-      register: collections_list
-
-    - name: Create CSV file header
+    - name: Create CSV file header for execution environments
       ansible.builtin.copy:
-        content: "Name,Image,Description,Organization,Created,Modified,Collections\n"
-        dest: "{{ csv_file_path }}"
+        content: "Name,Image,Description,Organization,Created,Modified\n"
+        dest: "{{ execution_env_csv_file_path }}"
         force: yes
 
-    - name: Append execution environment and collection details to CSV
+    - name: Append execution environment details to CSV
       ansible.builtin.lineinfile:
-        path: "{{ csv_file_path }}"
+        path: "{{ execution_env_csv_file_path }}"
         line: >
           {{
-            (item.name | default('N/A') | string) + "," + 
-            (item.image | default('N/A') | string) + "," + 
+            (item.name | default('N/A') | string) + "," +
+            (item.image | default('N/A') | string) + "," +
             (item.description | default('N/A') | string) + "," +
-            (item.organization | default('N/A') | string) + "," + 
-            (item.created | default('N/A') | string) + "," + 
-            (item.modified | default('N/A') | string) + "," +
-            (collections_list.stdout_lines[2:] | join('; ') | string)
+            (item.organization | default('N/A') | string) + "," +
+            (item.created | default('N/A') | string) + "," +
+            (item.modified | default('N/A') | string)
           }}
         state: present
         create: yes
       loop: "{{ execution_environments_data }}"
 
-    - name: Display content of the CSV file
-      ansible.builtin.shell: "cat {{ csv_file_path }}"
-      register: csv_file_content
+    - name: List installed collections
+      ansible.builtin.command: "ansible-galaxy collection list"
+      register: collections_list
 
-    - name: Show CSV file content
+    - name: Parse installed collections details
+      ansible.builtin.set_fact:
+        collections_data: "{{ collections_list.stdout_lines[2:] | map('split', ' ') | map('extract', [0, 1, 2, 3]) | map('join', ',') }}"
+
+    - name: Create CSV file header for collections
+      ansible.builtin.copy:
+        content: "Namespace,Name,Version,Path\n"
+        dest: "{{ collections_csv_file_path }}"
+        force: yes
+
+    - name: Append collection details to CSV
+      ansible.builtin.lineinfile:
+        path: "{{ collections_csv_file_path }}"
+        line: "{{ item }}"
+        state: present
+        create: yes
+      loop: "{{ collections_data }}"
+
+    - name: Create CSV file header for combined details
+      ansible.builtin.copy:
+        content: "Name,Image,Description,Organization,Created,Modified,Collections\n"
+        dest: "{{ combined_csv_file_path }}"
+        force: yes
+
+    - name: Append combined execution environment and collection details to CSV
+      ansible.builtin.lineinfile:
+        path: "{{ combined_csv_file_path }}"
+        line: >
+          {{
+            (item.name | default('N/A') | string) + "," +
+            (item.image | default('N/A') | string) + "," +
+            (item.description | default('N/A') | string) + "," +
+            (item.organization | default('N/A') | string) + "," +
+            (item.created | default('N/A') | string) + "," +
+            (item.modified | default('N/A') | string) + "," +
+            (collections_data | join('; '))
+          }}
+        state: present
+        create: yes
+      loop: "{{ execution_environments_data }}"
+
+    - name: Display content of the execution environments CSV file
+      ansible.builtin.shell: "cat {{ execution_env_csv_file_path }}"
+      register: execution_env_csv_file_content
+
+    - name: Show execution environments CSV file content
       ansible.builtin.debug:
-        msg: "{{ csv_file_content.stdout }}"
+        msg: "{{ execution_env_csv_file_content.stdout }}"
+
+    - name: Display content of the collections CSV file
+      ansible.builtin.shell: "cat {{ collections_csv_file_path }}"
+      register: collections_csv_file_content
+
+    - name: Show collections CSV file content
+      ansible.builtin.debug:
+        msg: "{{ collections_csv_file_content.stdout }}"
+
+    - name: Display content of the combined CSV file
+      ansible.builtin.shell: "cat {{ combined_csv_file_path }}"
+      register: combined_csv_file_content
+
+    - name: Show combined CSV file content
+      ansible.builtin.debug:
+        msg: "{{ combined_csv_file_content.stdout }}"
