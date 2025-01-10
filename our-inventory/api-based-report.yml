@@ -37,16 +37,13 @@
       register: collections_list
 
     - name: List installed Python libraries
-      ansible.builtin.pip:
-        name: ""
-        state: latest
-        extra_args: "--user --dry-run"
+      ansible.builtin.command: "pip list"
       register: python_libs_list
 
     - name: Combine collections and Python libraries into a dict
       ansible.builtin.set_fact:
         collections_data: "{{ collections_list.stdout_lines | join('; ') }}"
-        python_libs_data: "{{ python_libs_list.results | map(attribute='name') | join('; ') }}"
+        python_libs_data: "{{ python_libs_list.stdout_lines[2:] | join('; ') }}"
 
     - name: Append execution environment details to CSV
       ansible.builtin.lineinfile:
