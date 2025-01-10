@@ -22,16 +22,8 @@
         execution_environments_data: "{{ execution_environments_response.json.results }}"
 
     - name: List installed collections
-      ansible.builtin.shell: "ansible-galaxy collection list"
+      ansible.builtin.command: "ansible-galaxy collection list"
       register: collections_list
-
-    - name: Parse installed collections details
-      ansible.builtin.set_fact:
-        collections_data: >
-          {{
-            collections_list.stdout_lines[2:] | map('split', ' ') | map('extract', [0, 1, 2, 3]) |
-            map('join', ',')
-          }}
 
     - name: Create CSV file header
       ansible.builtin.copy:
@@ -46,7 +38,7 @@
           {{
             item.name + "," + item.image + "," + (item.description | default('N/A')) + "," +
             (item.organization | default('N/A')) + "," + item.created + "," + item.modified + "," +
-            (collections_data | join('; '))
+            (collections_list.stdout_lines[2:] | join('; '))
           }}
         state: present
         create: yes
