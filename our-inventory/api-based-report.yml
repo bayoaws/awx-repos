@@ -55,13 +55,23 @@
         dest: "{{ collections_csv_file_path }}"
         force: yes
 
+    - name: Filter and parse collections details
+      ansible.builtin.set_fact:
+        collections_data: >-
+          {{
+            collections_list.stdout_lines | map('split', ' ') | 
+            selectattr('0', 'match', '^[a-zA-Z0-9]+$') | 
+            selectattr('2', 'match', '^[0-9]+.[0-9]+.[0-9]+$') |
+            map('join', ',')
+          }}
+
     - name: Append collection details to CSV
       ansible.builtin.lineinfile:
         path: "{{ collections_csv_file_path }}"
         line: "{{ item }}"
         state: present
         create: yes
-      loop: "{{ collections_list.stdout_lines[2:] | map('split', ' ') | selectattr('length', 'eq', 4) | map('join', ',') }}"
+      loop: "{{ collections_data }}"
 
     - name: Create CSV file header for combined details
       ansible.builtin.copy:
@@ -80,7 +90,7 @@
             (item.organization | default('N/A') | string) + "," +
             (item.created | default('N/A') | string) + "," +
             (item.modified | default('N/A') | string) + "," +
-            (collections_list.stdout_lines[2:] | map('split', ' ') | selectattr('length', 'eq', 4) | map('join', '; '))
+            (collections_data | join('; '))
           }}
         state: present
         create: yes
