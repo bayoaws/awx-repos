@@ -6,6 +6,12 @@
     awx_api_token: # Provide your AWX API token here
     execution_env_csv_file_path: "/home/automation/execution_environment_report.csv"
   tasks:
+    - name: Ensure /home/automation directory exists
+      ansible.builtin.file:
+        path: /home/automation
+        state: directory
+        mode: '0755'
+
     - name: Fetch execution environments from AWX
       ansible.builtin.uri:
         url: "{{ awx_api_url }}/api/v2/execution_environments/"
