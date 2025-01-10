@@ -36,13 +36,13 @@
         path: "{{ csv_file_path }}"
         line: >
           {{
-            item.name | default('N/A') + "," + 
-            item.image | default('N/A') + "," + 
-            item.description | default('N/A') + "," +
-            item.organization | default('N/A') + "," + 
-            item.created | default('N/A') + "," + 
-            item.modified | default('N/A') + "," +
-            (collections_list.stdout_lines[2:] | join('; '))
+            (item.name | default('N/A') | string) + "," + 
+            (item.image | default('N/A') | string) + "," + 
+            (item.description | default('N/A') | string) + "," +
+            (item.organization | default('N/A') | string) + "," + 
+            (item.created | default('N/A') | string) + "," + 
+            (item.modified | default('N/A') | string) + "," +
+            (collections_list.stdout_lines[2:] | join('; ') | string)
           }}
         state: present
         create: yes
