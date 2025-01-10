@@ -1,6 +1,8 @@
 - name: Retrieve, save, and email execution environment details
   hosts: localhost
   gather_facts: no
+  collections: 
+    - community.general
   vars:
     awx_api_url: "http://192.168.4.100"
     awx_api_token: # Provide your AWX API token here
