@@ -84,7 +84,7 @@
 
     - name: Sending an e-mail with the report
       ansible.builtin.shell: |
-        sendmail -t << EOF
+        echo "Ansible AWX report from {{ ansible_facts['hostname'] }}" | /usr/sbin/sendmail -t << EOF
         To: {{ gmail_user }}
         Subject: Ansible-report test
         MIME-Version: 1.0
