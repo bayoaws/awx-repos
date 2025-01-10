@@ -36,4 +36,12 @@
         create: yes
       loop: "{{ execution_environments_data }}"
 
+    - name: Display content of the CSV file 
+      ansible.builtin.shell: "cat {{ csv_file_path }}" 
+      register: csv_file_content 
+      
+    - name: Show CSV file content 
+      ansible.builtin.debug: 
+        msg: "{{ csv_file_content.stdout }}"
+
    
