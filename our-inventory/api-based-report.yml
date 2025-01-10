@@ -4,7 +4,7 @@
   vars:
     awx_api_url: "http://192.168.4.100"
     awx_api_token: # Provide your AWX API token here
-    execution_env_csv_file_path: "/tmp/execution_environments_report.csv"
+    execution_env_csv_file_path: "/home/automation/execution_environment_report.csv"
   tasks:
     - name: Fetch execution environments from AWX
       ansible.builtin.uri:
