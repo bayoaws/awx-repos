@@ -82,24 +82,73 @@
       ansible.builtin.debug:
         msg: "{{ execution_env_csv_file_content.stdout }}"
 
-    - name: Sending an e-mail with the report
-      ansible.builtin.shell: |
-        echo "Ansible AWX report from {{ ansible_facts['hostname'] }}" | /usr/sbin/sendmail -t << EOF
-        To: {{ gmail_user }}
-        Subject: Ansible-report test
-        MIME-Version: 1.0
-        Content-Type: multipart/mixed; boundary="simple boundary"
+    - name: Send email with the report using Python
+      ansible.builtin.script: send_email.py
+      args:
+        executable: python3
+      vars:
+        execution_env_csv_file_path: "{{ execution_env_csv_file_path }}"
+        gmail_user: "{{ gmail_user }}"
+        gmail_pass: "{{ gmail_pass }}"
+        subject: "Ansible-report test"
+        body: "Ansible AWX report from {{ ansible_facts['hostname'] }}"
 
-        --simple boundary
-        Content-Type: text/plain
+- name: Create send_email.py script
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Create Python script to send email
+      ansible.builtin.copy:
+        dest: /home/automation/send_email.py
+        content: |
+          import smtplib
+          from email.mime.multipart import MIMEMultipart
+          from email.mime.text import MIMEText
+          from email.mime.base import MIMEBase
+          from email import encoders
+          import os
 
-        Ansible AWX report from {{ ansible_facts['hostname'] }}
+          def send_email(user, password, recipient, subject, body, attachment_path):
+              # Set up the MIME
+              message = MIMEMultipart()
+              message['From'] = user
+              message['To'] = recipient
+              message['Subject'] = subject
 
-        --simple boundary
-        Content-Disposition: attachment; filename="execution_environment_report.csv"
-        Content-Type: text/csv
-        Content-Transfer-Encoding: base64
+              # Attach the body with the msg instance
+              message.attach(MIMEText(body, 'plain'))
 
-        $(base64 {{ execution_env_csv_file_path }})
-        --simple boundary--
-        EOF
+              # Open the file to be sent
+              attachment = open(attachment_path, "rb")
+
+              # Instance of MIMEBase and named as p
+              part = MIMEBase('application', 'octet-stream')
+
+              # To change the payload into encoded form
+              part.set_payload((attachment).read())
+
+              # Encode into base64
+              encoders.encode_base64(part)
+
+              part.add_header('Content-Disposition', "attachment; filename= %s" % os.path.basename(attachment_path))
+
+              # Attach the instance 'part' to instance 'message'
+              message.attach(part)
+
+              # Create SMTP session for sending the mail
+              server = smtplib.SMTP('smtp.gmail.com', 587)
+              server.starttls()
+              server.login(user, password)
+              text = message.as_string()
+              server.sendmail(user, recipient, text)
+              server.quit()
+
+          # Variables
+          gmail_user = os.environ['gmail_user']
+          gmail_pass = os.environ['gmail_pass']
+          execution_env_csv_file_path = os.environ['execution_env_csv_file_path']
+          subject = os.environ['subject']
+          body = os.environ['body']
+
+          # Send email
+          send_email(gmail_user, gmail_pass, gmail_user, subject, body, execution_env_csv_file_path)
