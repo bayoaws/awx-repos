@@ -81,19 +81,6 @@
     - name: Show execution environments report CSV file content
       ansible.builtin.debug:
         msg: "{{ execution_env_csv_file_content.stdout }}"
-
-    - name: Sending an e-mail with the report
-      community.general.mail:
-        host: smtp.gmail.com
-        port: 587
-        username: adebayobuss@gmail.com
-        password: Newishola1989@
-        to: bayolinux@gmail.com
-        subject: "Ansible-report test"
-        body: "Ansible AWX report from localhost"
-        attach:
-          - "{{ execution_env_csv_file_path }}"
-      delegate_to: localhost
       
     - name: Sending an e-mail with the report
       ansible.builtin.shell: |
