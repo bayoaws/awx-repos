@@ -34,7 +34,7 @@
 
     - name: Fetch details for each execution environment
       ansible.builtin.uri:
-        url: "{{ item.url }}"
+        url: "{{ awx_api_url }}{{ item.url }}"
         method: GET
         headers:
           Authorization: "Bearer {{ awx_api_token }}"
