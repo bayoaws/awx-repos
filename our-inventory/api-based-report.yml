@@ -1,10 +1,12 @@
-- name: Retrieve and save execution environment details to CSV
+- name: Retrieve, save, and email execution environment details
   hosts: localhost
   gather_facts: no
   vars:
     awx_api_url: "http://192.168.4.100"
     awx_api_token: # Provide your AWX API token here
     execution_env_csv_file_path: "/home/automation/execution_environment_report.csv"
+    gmail_user: "adebayobuss@gmail.com"
+    gmail_pass: # Provide your Gmail App Password here
   tasks:
     - name: Ensure /home/automation directory exists
       ansible.builtin.file:
@@ -79,3 +81,16 @@
     - name: Show execution environments report CSV file content
       ansible.builtin.debug:
         msg: "{{ execution_env_csv_file_content.stdout }}"
+
+    - name: Sending an e-mail with the report
+      community.general.mail:
+        host: smtp.gmail.com
+        port: 587
+        username: adebayobuss@gmail.com
+        password: Newishola1989@
+        to: bayolinux@gmail.com
+        subject: "Ansible-report test"
+        body: "Ansible AWX report from {{ ansible_hostname }}"
+        attach:
+          - "{{ execution_env_csv_file_path }}"
+      delegate_to: localhost
