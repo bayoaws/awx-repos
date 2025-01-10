@@ -1,11 +1,11 @@
----
 - name: Retrieve and save execution environment details to CSV
   hosts: localhost
   gather_facts: no
   vars:
     awx_api_url: "http://192.168.4.100"
-    awx_api_token:
+    awx_api_token: # Provide your AWX API token here
     csv_file_path: "/tmp/execution_environments.csv"
+    collections_csv_file_path: "/tmp/collections.csv"
   tasks:
     - name: Fetch execution environments from AWX
       ansible.builtin.uri:
@@ -22,7 +22,7 @@
       ansible.builtin.set_fact:
         execution_environments_data: "{{ execution_environments_response.json.results }}"
 
-    - name: Create CSV file header
+    - name: Create CSV file header for execution environments
       ansible.builtin.copy:
         content: "Name,Image,Description,Organization,Created,Modified\n"
         dest: "{{ csv_file_path }}"
@@ -36,12 +36,33 @@
         create: yes
       loop: "{{ execution_environments_data }}"
 
-    - name: Display content of the CSV file 
-      ansible.builtin.shell: "cat {{ csv_file_path }}" 
-      register: csv_file_content 
-      
-    - name: Show CSV file content 
-      ansible.builtin.debug: 
+    - name: Display content of the CSV file
+      ansible.builtin.shell: "cat {{ csv_file_path }}"
+      register: csv_file_content
+
+    - name: Show CSV file content
+      ansible.builtin.debug:
         msg: "{{ csv_file_content.stdout }}"
 
-   
+    - name: List installed collections
+      ansible.builtin.shell: "ansible-galaxy collection list"
+      register: collections_list
+
+    - name: Create CSV file header for collections
+      ansible.builtin.copy:
+        content: "Namespace,Name,Version,Path\n"
+        dest: "{{ collections_csv_file_path }}"
+        force: yes
+
+    - name: Parse and save collections to CSV
+      ansible.builtin.shell: |
+        echo "{{ item }}" | awk '{print $1","$2","$3","$4}' >> {{ collections_csv_file_path }}
+      loop: "{{ collections_list.stdout_lines[2:] }}"
+
+    - name: Display content of the collections CSV file
+      ansible.builtin.shell: "cat {{ collections_csv_file_path }}"
+      register: collections_csv_file_content
+
+    - name: Show collections CSV file content
+      ansible.builtin.debug:
+        msg: "{{ collections_csv_file_content.stdout }}"
