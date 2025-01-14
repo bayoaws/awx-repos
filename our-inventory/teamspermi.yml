@@ -37,9 +37,9 @@
       loop_control:
         label: "{{ item.name }}"
 
-    - name: Parse teams details
+    - name: Combine all teams data
       ansible.builtin.set_fact:
-        teams_data: "{{ teams_response.json.results }}"
+        all_teams_data: "{{ all_teams_data | default([]) + teams_response.json.results }}"
 
     - name: Fetch the ID of the Ansible Utility Processes organization
       ansible.builtin.uri:
@@ -71,7 +71,7 @@
             "roles": ["{{ permissions | join('", "')}}"]
           }
         status_code: [200, 201, 204]
-      loop: "{{ teams_data }}"
+      loop: "{{ all_teams_data }}"
       loop_control:
         label: "{{ item.name }}"
 
