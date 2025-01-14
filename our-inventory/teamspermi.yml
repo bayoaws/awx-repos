@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     awx_url: "https://192.168.4.100/api/v2"
-    awx_token: 
+    awx_token: "your_api_token_here"  # Please replace with your actual token
     org_name: "Ansible Utility Processes"
     permissions:
       - execute
@@ -19,18 +19,65 @@
         return_content: yes
       register: organizations
       failed_when: organizations.status != 200
-      # Ensure that the API call was successful
+      # Ensure the API call is successful and returns a 200 status code
 
     - name: Debug: Check organizations response
       debug:
         var: organizations
-      when: organizations is defined
+      when: organizations is defined and organizations.json is defined and organizations.json.results is defined and organizations.json.results | length > 0
+      # This ensures the variable exists and has data before trying to print it
 
     - name: Find the ID of the Ansible Utility Processes organization
       set_fact:
         utility_org_id: "{{ organizations.json.results | selectattr('name', 'equalto', org_name) | map(attribute='id') | first }}"
       when: organizations.json.results | length > 0
+      # Only proceed if we have valid organization data
 
     - name: Debug: Check the organization ID
       debug:
-        msg: "Utility Organization ID: {{ utility_org_id }}
+        msg: "Utility Organization ID: {{ utility_org_id }}"
+      when: utility_org_id is defined
+      # Only proceed if the utility_org_id is defined
+
+    - name: Get list of teams for the organization
+      uri:
+        url: "{{ awx_url }}/organizations/{{ utility_org_id }}/teams/"
+        method: GET
+        headers:
+          Authorization: "Bearer {{ awx_token }}"
+          Accept: "application/json"
+        return_content: yes
+        validate_certs: no
+      register: teams
+      when: utility_org_id is defined
+      failed_when: teams.status != 200
+      # Ensure the API call is successful for teams as well
+
+    - name: Debug: Check teams response
+      debug:
+        var: teams
+      when: teams is defined and teams.json is defined and teams.json.results is defined
+      # Ensure that teams data is present before printing it
+
+    - name: Assign permissions to teams
+      uri:
+        url: "{{ awx_url }}/teams/{{ item.id }}/permissions/"
+        method: POST
+        headers:
+          Authorization: "Bearer {{ awx_token }}"
+        body:
+          permissions:
+            - name: "execute"
+            - name: "read"
+        body_format: json
+      loop: "{{ teams.json.results }}"
+      loop_control:
+        label: "{{ item.name }}"
+      register: permissions_assigned
+      when: teams.json.results | length > 0
+
+    - name: Debug: Show the assigned permissions for each team
+      debug:
+        msg: "Assigned permissions for team: {{ item.name }}"
+      loop: "{{ permissions_assigned.results }}"
+      when: permissions_assigned is defined
