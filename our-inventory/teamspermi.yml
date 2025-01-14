@@ -1,73 +1,74 @@
 ---
-- name: Assign Permissions to AWX Teams for Ansible Utility Processes
-  hosts: localhost
-  gather_facts: no
-  vars:
-    awx_url: "https://192.168.4.100/api/v2"
-    awx_token: 
-    org_name: "Ansible Utility Processes"
-    permissions:
-      - execute
-      - read
+ - name: Assign Permissions to AWX Teams for Ansible Utility Processes
+   hosts: localhost
+   gather_facts: no
+   vars:
+     awx_url: "https://192.168.4.100/api/v2"
+     awx_token: 
+     org_name: "Ansible Utility Processes"
+     permissions:
+       - execute
+       - read
+   tasks:
+     - name: Get list of organizations
+       uri:
+         url: "{{ awx_url }}/organizations/"
+         method: GET
+         headers:
+           Authorization: "Bearer {{ awx_token }}"
+         return_content: yes
+       register: organizations
 
-  tasks:
-    - name: Get list of organizations
-      uri:
-        url: "{{ awx_url }}/organizations/"
-        method: GET
-        headers:
-          Authorization: "Bearer {{ awx_token }}"
-        return_content: yes
-      register: organizations
+     - name: Debug: Check organizations response
+       debug:
+         var: organizations
+         
+     - name: Find the ID of the Ansible Utility Processes organization
+       set_fact:
+         utility_org_id: "{{ organizations.json.results | selectattr('name', 'equalto', org_name) | map(attribute='id') | first }}"
+       when: organizations.json.results | length > 0
 
-    - name: Debug: Check organizations response
-      debug:
-        var: organizations
+     - name: Debug: Check the organization ID
+       debug:
+         msg: "Utility Organization ID: {{ utility_org_id }}"
+       when: utility_org_id is defined
 
-    - name: Find the ID of the Ansible Utility Processes organization
-      set_fact:
-        utility_org_id: "{{ organizations.json.results | selectattr('name', 'equalto', org_name) | map(attribute='id') | first }}"
-      when: organizations.json.results | length > 0
+     - name: Get list of teams for the organization
+       uri:
+         url: "{{ awx_url }}/organizations/{{ utility_org_id }}/teams/"
+         method: GET
+         headers:
+           Authorization: "Bearer {{ awx_token }}"
+           Accept: "application/json"
+         return_content: yes
+         validate_certs: no
+       register: teams
+       when: utility_org_id is defined
 
-    - name: Debug: Check the organization ID
-      debug:
-        msg: "Utility Organization ID: {{ utility_org_id }}"
-      when: utility_org_id is defined
+     - name: Debug: Check teams response
+       debug:
+         var: teams
+       when: teams is defined
 
-    - name: Get list of teams for the organization
-      uri:
-        url: "{{ awx_url }}/organizations/{{ utility_org_id }}/teams/"
-        method: GET
-        headers:
-          Authorization: "Bearer {{ awx_token }}"
-        return_content: yes
-      register: teams
-      when: utility_org_id is defined
+     - name: Assign permissions to teams
+       uri:
+         url: "{{ awx_url }}/teams/{{ item.id }}/permissions/"
+         method: POST
+         headers:
+           Authorization: "Bearer {{ awx_token }}"
+         body:
+           permissions:
+             - name: "execute"
+             - name: "read"
+         body_format: json
+       loop: "{{ teams.json.results }}"
+       loop_control:
+         label: "{{ item.name }}"
+       register: permissions_assigned
+       when: teams.json.results | length > 0
 
-    - name: Debug: Check teams response
-      debug:
-        var: teams
-      when: teams is defined
-
-    - name: Assign permissions to teams
-      uri:
-        url: "{{ awx_url }}/teams/{{ item.id }}/permissions/"
-        method: POST
-        headers:
-          Authorization: "Bearer {{ awx_token }}"
-        body:
-          permissions:
-            - name: "execute"
-            - name: "read"
-        body_format: json
-      loop: "{{ teams.json.results }}"
-      loop_control:
-        label: "{{ item.name }}"
-      register: permissions_assigned
-      when: teams.json.results | length > 0
-
-    - name: Debug: Show the assigned permissions for each team
-      debug:
-        msg: "Assigned permissions for team: {{ item.name }}"
-      loop: "{{ permissions_assigned.results }}"
-      when: permissions_assigned is defined
+     - name: Debug: Show the assigned permissions for each team
+       debug:
+         msg: "Assigned permissions for team: {{ item.name }}"
+       loop: "{{ permissions_assigned.results }}"
+       when: permissions_assigned is defined
