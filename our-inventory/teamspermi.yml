@@ -24,8 +24,14 @@
     - name: Debug: Check organizations response
       debug:
         var: organizations
-      when: organizations is defined and organizations.json is defined and organizations.json.results is defined and organizations.json.results | length > 0
+      when: organizations is defined and organizations.content | length > 0
       # This ensures the variable exists and has data before trying to print it
+
+    - name: Check if organizations response is valid JSON
+      debug:
+        msg: "Organizations response is empty or malformed!"
+      when: organizations.content | length == 0 or organizations.content | regex_search("^[{[]") is not defined
+      # Check if the response is either empty or not in valid JSON format
 
     - name: Find the ID of the Ansible Utility Processes organization
       set_fact:
@@ -56,8 +62,14 @@
     - name: Debug: Check teams response
       debug:
         var: teams
-      when: teams is defined and teams.json is defined and teams.json.results is defined
+      when: teams is defined and teams.content | length > 0
       # Ensure that teams data is present before printing it
+
+    - name: Check if teams response is valid JSON
+      debug:
+        msg: "Teams response is empty or malformed!"
+      when: teams.content | length == 0 or teams.content | regex_search("^[{[]") is not defined
+      # Check if the response is either empty or not in valid JSON format
 
     - name: Assign permissions to teams
       uri:
