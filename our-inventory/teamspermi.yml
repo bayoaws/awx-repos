@@ -20,9 +20,19 @@
         return_content: yes
       register: organizations
 
+    - name: Debug: Check organizations response
+      debug:
+        var: organizations
+
     - name: Find the ID of the Ansible Utility Processes organization
       set_fact:
         utility_org_id: "{{ organizations.json.results | selectattr('name', 'equalto', org_name) | map(attribute='id') | first }}"
+      when: organizations.json.results | length > 0
+
+    - name: Debug: Check the organization ID
+      debug:
+        msg: "Utility Organization ID: {{ utility_org_id }}"
+      when: utility_org_id is defined
 
     - name: Get list of teams for the organization
       uri:
@@ -32,6 +42,12 @@
           Authorization: "Bearer {{ awx_token }}"
         return_content: yes
       register: teams
+      when: utility_org_id is defined
+
+    - name: Debug: Check teams response
+      debug:
+        var: teams
+      when: teams is defined
 
     - name: Assign permissions to teams
       uri:
@@ -48,8 +64,10 @@
       loop_control:
         label: "{{ item.name }}"
       register: permissions_assigned
+      when: teams.json.results | length > 0
 
     - name: Debug: Show the assigned permissions for each team
       debug:
         msg: "Assigned permissions for team: {{ item.name }}"
       loop: "{{ permissions_assigned.results }}"
+      when: permissions_assigned is defined
