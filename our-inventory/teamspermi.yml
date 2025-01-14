@@ -1,80 +1,55 @@
 ---
-- name: Ensure all teams have access to Ansible Utility Processes organization
+- name: Assign Permissions to AWX Teams for Ansible Utility Processes
   hosts: localhost
   gather_facts: no
   vars:
-    awx_api_url: "http://192.168.4.100"
-    awx_api_token: # Provide your AWX API token here
-    target_org: "Ansible Utility Processes"
-    permissions: ["execute", "read"]
+    awx_url: "https:/192.168.4.100/api/v2"
+    awx_token: 
+    org_name: "Ansible Utility Processes"
+    permissions:
+      - execute
+      - read
+
   tasks:
-    - name: Fetch all organizations from AWX
-      ansible.builtin.uri:
-        url: "{{ awx_api_url }}/api/v2/organizations/"
+    - name: Get list of organizations
+      uri:
+        url: "{{ awx_url }}/organizations/"
         method: GET
         headers:
-          Authorization: "Bearer {{ awx_api_token }}"
-          Accept: "application/json"
+          Authorization: "Bearer {{ awx_token }}"
         return_content: yes
-        validate_certs: no
-      register: organizations_response
+      register: organizations
 
-    - name: Parse organization details
-      ansible.builtin.set_fact:
-        organizations_data: "{{ organizations_response.json.results }}"
+    - name: Find the ID of the Ansible Utility Processes organization
+      set_fact:
+        utility_org_id: "{{ organizations.json.results | selectattr('name', 'equalto', org_name) | map(attribute='id') | first }}"
 
-    - name: Fetch all teams for each organization
-      ansible.builtin.uri:
-        url: "{{ awx_api_url }}/api/v2/teams/?organization={{ item.id }}"
+    - name: Get list of teams for the organization
+      uri:
+        url: "{{ awx_url }}/organizations/{{ utility_org_id }}/teams/"
         method: GET
         headers:
-          Authorization: "Bearer {{ awx_api_token }}"
-          Accept: "application/json"
+          Authorization: "Bearer {{ awx_token }}"
         return_content: yes
-        validate_certs: no
-      register: teams_response
-      loop: "{{ organizations_data }}"
-      loop_control:
-        label: "{{ item.name }}"
+      register: teams
 
-    - name: Combine all teams data
-      ansible.builtin.set_fact:
-        all_teams_data: "{{ all_teams_data | default([]) + teams_response.json.results }}"
-
-    - name: Fetch the ID of the Ansible Utility Processes organization
-      ansible.builtin.uri:
-        url: "{{ awx_api_url }}/api/v2/organizations/?name={{ target_org }}"
-        method: GET
-        headers:
-          Authorization: "Bearer {{ awx_api_token }}"
-          Accept: "application/json"
-        return_content: yes
-        validate_certs: no
-      register: target_org_response
-
-    - name: Set target organization ID
-      ansible.builtin.set_fact:
-        target_org_id: "{{ target_org_response.json.results[0].id }}"
-
-    - name: Grant Execute and Read permissions to each team
-      ansible.builtin.uri:
-        url: "{{ awx_api_url }}/api/v2/teams/{{ item.id }}/roles/"
+    - name: Assign permissions to teams
+      uri:
+        url: "{{ awx_url }}/teams/{{ item.id }}/permissions/"
         method: POST
         headers:
-          Authorization: "Bearer {{ awx_api_token }}"
-          Content-Type: "application/json"
+          Authorization: "Bearer {{ awx_token }}"
+        body:
+          permissions:
+            - name: "execute"
+            - name: "read"
         body_format: json
-        body: >
-          {
-            "id": {{ target_org_id }},
-            "type": "organization",
-            "roles": ["{{ permissions | join('", "')}}"]
-          }
-        status_code: [200, 201, 204]
-      loop: "{{ all_teams_data }}"
+      loop: "{{ teams.json.results }}"
       loop_control:
         label: "{{ item.name }}"
+      register: permissions_assigned
 
-    - name: Display success message
-      ansible.builtin.debug:
-        msg: "All teams have been granted Execute and Read permissions to the Ansible Utility Processes organization"
+    - name: Debug: Show the assigned permissions for each team
+      debug:
+        msg: "Assigned permissions for team: {{ item.name }}"
+      loop: "{{ permissions_assigned.results }}"
