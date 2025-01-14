@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     awx_url: "https://192.168.4.100/api/v2"
-    awx_token: "your_api_token_here"  # Please replace with your actual token
+    awx_token: 
     org_name: "Ansible Utility Processes"
     permissions:
       - execute
