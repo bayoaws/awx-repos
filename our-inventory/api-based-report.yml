@@ -1,3 +1,38 @@
+This Ansible playbook connects to an AWX instance to fetch execution environment details and lists installed Ansible Galaxy collections. The data is saved into separate CSV files for further use.
+
+Features
+Fetch Execution Environment Details: Retrieves data such as name, image, description, organization, creation, and modification dates.
+Save to CSV: Saves execution environment data to a CSV file.
+List Installed Collections: Captures a list of installed Ansible Galaxy collections and writes them to a CSV file.
+Extensible Design: Can be customized to include more details or additional tasks.
+Requirements
+Software
+Ansible: Installed on the control node.
+AWX API: Accessible from the control node.
+Python: Required for running Ansible.
+Environment
+AWX API Token: A valid API token with read access to execution environments.
+Variables
+Variable Name	Description	Example
+awx_api_url	Base URL for the AWX API.	http://192.168.4.100
+awx_api_token	Authentication token for the AWX API.	YourAPITokenHere
+csv_file_path	File path for saving execution environment details.	/tmp/execution_environments.csv
+collections_csv_file_path	File path for saving collection details.	/tmp/collections.csv
+Playbook Tasks
+1. Fetch Execution Environments
+Uses the AWX API to retrieve a list of execution environments.
+Stores the results in a variable for processing.
+2. Parse and Save Execution Environment Details
+Extracts key fields: name, image, description, organization, created, and modified dates.
+Saves the data to a CSV file with the specified headers.
+3. List and Save Installed Collections
+Runs the ansible-galaxy collection list command.
+Parses the output and appends it to a CSV file.
+
+
+
+
+
 - name: Retrieve and save execution environment details to CSV
   hosts: localhost
   gather_facts: no
