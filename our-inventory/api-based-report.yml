@@ -29,6 +29,32 @@ Saves the data to a CSV file with the specified headers.
 Runs the ansible-galaxy collection list command.
 Parses the output and appends it to a CSV file.
 
+CSV File Formats
+Execution Environments
+Name	Image	Description	Organization	Created	Modified
+ExampleEnv	example/image:1.0	Sample Env	Default Org	2025-01-20	2025-01-21
+Installed Collections
+Collection Name	Version	Install Path	Namespace
+community.general	5.4.0	/path/to/collections	community
+Troubleshooting
+Common Issues
+No Data Retrieved:
+
+Verify that awx_api_url is correct.
+Ensure the API token has sufficient permissions.
+Connection Errors:
+
+Confirm that the AWX API is accessible from the control node.
+Empty CSV Files:
+
+Ensure that execution environments exist in AWX.
+Verify the output of ansible-galaxy collection list.
+Extending the Playbook
+Add more fields from the AWX API response to the execution environments CSV.
+Modify the collection parsing logic to include additional details.
+Implement additional tasks, such as filtering environments by organization.
+
+
 
 
 
