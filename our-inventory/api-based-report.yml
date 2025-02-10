@@ -1,3 +1,196 @@
+The playbook performs several tasks, including fetching execution environments from AWX, listing installed Ansible collections, and sending a report via email.
+
+Playbook Overview
+This playbook is designed to:
+
+Fetch execution environments from an AWX (Ansible Tower) instance.
+
+Parse and save the execution environment details to a CSV file.
+
+List installed Ansible collections and save them to another CSV file.
+
+Send an email with the generated CSV files as attachments.
+
+Tasks Breakdown
+1. Fetch Execution Environments from AWX
+Task Name: Fetch execution environments from AWX
+
+Module: ansible.builtin.uri
+
+Purpose: Makes a GET request to the AWX API to retrieve execution environments.
+
+Parameters:
+
+url: The API endpoint for execution environments ({{ awx_api_url }}/api/v2/execution_environments/).
+
+method: HTTP method (GET).
+
+headers: Includes the Authorization token and Accept header for JSON response.
+
+return_content: Ensures the response content is returned.
+
+validate_certs: Disables SSL certificate validation (set to no).
+
+Output: The response is registered in execution_environments_response.
+
+2. Parse Execution Environment Details
+Task Name: Parse execution environment details
+
+Module: ansible.builtin.set_fact
+
+Purpose: Extracts the results field from the JSON response and stores it in execution_environments_data.
+
+Parameters:
+
+execution_environments_data: Set to {{ execution_environments_response.json.results }}.
+
+3. Create CSV File Header for Execution Environments
+Task Name: Create CSV file header for execution environments
+
+Module: ansible.builtin.copy
+
+Purpose: Creates a CSV file with a header row for execution environment details.
+
+Parameters:
+
+content: The header row (Name,Image,Description,Organization,Created,Modified).
+
+dest: Path to the CSV file ({{ csv_file_path }}).
+
+force: Overwrites the file if it already exists.
+
+4. Append Execution Environment Details to CSV
+Task Name: Append execution environment details to CSV
+
+Module: ansible.builtin.lineinfile
+
+Purpose: Appends each execution environment's details to the CSV file.
+
+Parameters:
+
+path: Path to the CSV file ({{ csv_file_path }}).
+
+line: Comma-separated values for each execution environment (name, image, description, organization, created, modified).
+
+state: Ensures the line is present in the file.
+
+create: Creates the file if it doesn’t exist.
+
+loop: Iterates over execution_environments_data.
+
+5. List Installed Collections
+Task Name: List installed collections
+
+Module: ansible.builtin.shell
+
+Purpose: Runs the ansible-galaxy collection list command to list installed Ansible collections.
+
+Parameters:
+
+Command: ansible-galaxy collection list.
+
+Output: The command output is registered in collections_list.
+
+6. Parse and Save Collections to CSV
+Task Name: Parse and save collections to CSV
+
+Module: ansible.builtin.shell
+
+Purpose: Parses the output of ansible-galaxy collection list and saves it to a CSV file.
+
+Parameters:
+
+Command: Uses awk to format each line and append it to the CSV file.
+
+loop: Iterates over collections_list.stdout_lines[2:] (skips the first two header lines).
+
+7. Send Report Email
+Task Name: Send report email
+
+Module: community.general.mail
+
+Purpose: Sends an email with the generated CSV files as attachments.
+
+Parameters:
+
+host: SMTP server host (not provided in the playbook).
+
+port: SMTP server port (not provided in the playbook).
+
+to: Email recipient (not provided in the playbook).
+
+from: Email sender (not provided in the playbook).
+
+subject: Email subject (not provided in the playbook).
+
+body: Email body (not provided in the playbook).
+
+attach: List of file attachments ({{ csv_file_path }} and {{ collections_csv_file_path }}).
+
+Variables
+The playbook uses the following variables, defined in vars/main.yml:
+
+awx_api_url: The base URL for the AWX API (e.g., http://<awx-server>).
+
+awx_api_token: The API token for authenticating with AWX.
+
+csv_file_path: Path to the CSV file for execution environments (default: /tmp/execution_environments.csv).
+
+collections_csv_file_path: Path to the CSV file for installed collections (default: /tmp/collections.csv).
+
+Usage Instructions
+Set Variables:
+
+Update vars/main.yml with the appropriate values for:
+
+awx_api_url
+
+awx_api_token
+
+Email-related parameters (host, port, to, from, subject, body).
+
+Run the Playbook:
+
+Execute the playbook using the ansible-playbook command:
+
+ansible-playbook -i inventory api_based_execution.yml
+
+Check Output:
+The CSV files will be created at the specified paths (/tmp/execution_environments.csv and /tmp/collections.csv).
+
+An email with the CSV files as attachments will be sent (if email parameters are configured).
+
+Notes
+Ensure the community.general.mail module is installed to send emails.
+
+The validate_certs: no option should be used with caution in production environments. Consider using valid certificates instead.
+
+The ansible-galaxy collection list command output format may vary depending on the Ansible version. Adjust the parsing logic in Task 6 if necessary.
+
+This documentation provides a clear understanding of the playbook's functionality and how to use it effectively
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This Ansible playbook connects to an AWX instance to fetch execution environment details and lists installed Ansible Galaxy collections. The data is saved into separate CSV files for further use.
 
 Features
