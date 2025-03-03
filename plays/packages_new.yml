@@ -7,7 +7,5 @@
       yum:
         name: 
           - httpd
-          - dhcp-server
-          - '@Development tools'
           - '*'
         state: latest 
