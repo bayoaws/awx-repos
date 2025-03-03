@@ -1,23 +1,14 @@
 ---
-- name: Install mariadb and php packages
+- name: Install httpd, mariadb, dhcpd, @Development tools and update the systems
   hosts: test, webservers
   become: true
   tasks:
     - name: Install packages
       yum:
         name: 
+          - httpd
           - mariadb
-          - php
-        state: latest
-
-- name: Install Development Tools packages
-  hosts: test
-  become: true
-  tasks:
-    - name: Install Dev Tool
-      yum:
-        name: "{{ item }}" 
+          - dhcpd
+          - '@Development tools'
+          - '*'
         state: latest 
-      loop:
-        - '@Development tools'
-        - '*'   
