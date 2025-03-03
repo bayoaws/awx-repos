@@ -8,7 +8,7 @@
         name: 
           - httpd
           - mariadb
-          - dhcpd
+          - dhcpd-server
           - '@Development tools'
           - '*'
         state: latest 
