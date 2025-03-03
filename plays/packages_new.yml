@@ -1,6 +1,6 @@
 ---
 - name: Install httpd, mariadb, dhcpd, @Development tools and update the systems
-  hosts: test, webservers
+  hosts: dev
   become: true
   tasks:
     - name: Install packages
