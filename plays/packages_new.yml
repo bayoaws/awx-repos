@@ -7,7 +7,7 @@
       yum:
         name: 
           - httpd
-          - mariadb
+          - mariadb*
           - dhcp-server
           - '@Development tools'
           - '*'
