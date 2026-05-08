@@ -1,0 +1,20 @@
+---
+proxmox_host:         "192.168.4.50"
+proxmox_port:         "8006"
+proxmox_node:         "technexus"
+proxmox_user:         "ansible_aap@pve"
+proxmox_token_id:     "ansible-token"
+proxmox_token_secret: ""
+snapshot_name:        "snap_{{ lookup('pipe', 'date +%Y%m%d_%H%M') }}"
+snapshot_description: "Created by Ansible AAP"
+snapshot_include_ram: false
+snapshot_state:       "present"
+snapshot_vmids:
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109

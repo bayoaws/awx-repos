@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  role_name: proxmox_vm_create
+  author: ansible_aap
+  description: "Proxmox VM automation - proxmox_vm_create"
+  license: MIT
+  min_ansible_version: "2.13"
+dependencies: []

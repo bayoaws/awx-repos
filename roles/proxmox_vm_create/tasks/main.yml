@@ -1,0 +1,108 @@
+---
+# ==============================================================================
+# Role: proxmox_vm_create
+# Tasks: Create a new VM in Proxmox from ISO
+# ==============================================================================
+
+- name: "Validate required variables"
+  ansible.builtin.assert:
+    that:
+      - vm_id | string | length > 0
+      - vm_name | string | length > 0
+      - proxmox_token_secret | string | length > 0
+    fail_msg: "vm_id, vm_name and proxmox_token_secret are required"
+    success_msg: "Input validation passed"
+
+- name: "Verify Proxmox API is reachable"
+  ansible.builtin.uri:
+    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes"
+    method: GET
+    headers:
+      Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
+    validate_certs: false
+    status_code: 200
+  register: api_check
+  failed_when: api_check.status != 200
+
+- name: "Check if VM ID already exists"
+  ansible.builtin.uri:
+    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id }}/status/current"
+    method: GET
+    headers:
+      Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
+    validate_certs: false
+    status_code: [200, 500]
+  register: vm_exists_check
+  failed_when: false
+
+- name: "Abort if VM ID already exists"
+  ansible.builtin.fail:
+    msg: "VM with ID {{ vm_id }} already exists on {{ proxmox_node }}. Choose a different VMID."
+  when: vm_exists_check.status == 200
+
+- name: "Create VM in Proxmox"
+  community.proxmox.proxmox_kvm:
+    api_host:         "{{ proxmox_host }}"
+    api_port:         "{{ proxmox_port }}"
+    api_user:         "{{ proxmox_user }}"
+    api_token_id:     "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    validate_certs:   false
+    node:             "{{ proxmox_node }}"
+    vmid:             "{{ vm_id }}"
+    name:             "{{ vm_name }}"
+    description:      "{{ vm_description }}"
+    tags:             "{{ vm_tags }}"
+    memory:           "{{ vm_memory }}"
+    cores:            "{{ vm_cpu }}"
+    sockets:          "{{ vm_sockets }}"
+    cpu:              "{{ vm_cpu_type }}"
+    ostype:           "{{ vm_os_type }}"
+    machine:          "{{ vm_machine }}"
+    scsi:
+      scsi0: "{{ vm_disk_storage }}:{{ vm_disk_size }},format=raw"
+    scsihw:           virtio-scsi-pci
+    bootdisk:         scsi0
+    boot:             "{{ vm_boot_order }}"
+    ide:
+      ide2: "{{ vm_iso }},media=cdrom"
+    net:
+      net0: >-
+        {{ vm_net_model }},bridge={{ vm_net_bridge }}
+        {%- if vm_vlan | string | length > 0 %},tag={{ vm_vlan }}{% endif %}
+    agent:            "{{ vm_agent }}"
+    onboot:           "{{ vm_onboot }}"
+    state:            present
+  register: vm_create_result
+
+- name: "Start VM after creation"
+  community.proxmox.proxmox_kvm:
+    api_host:         "{{ proxmox_host }}"
+    api_port:         "{{ proxmox_port }}"
+    api_user:         "{{ proxmox_user }}"
+    api_token_id:     "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    validate_certs:   false
+    node:             "{{ proxmox_node }}"
+    vmid:             "{{ vm_id }}"
+    state:            started
+  when: vm_start_after_create | bool
+
+- name: "Display VM creation summary"
+  ansible.builtin.debug:
+    msg:
+      - "════════════════════════════════════════════"
+      - " VM CREATED SUCCESSFULLY"
+      - "════════════════════════════════════════════"
+      - " Name     : {{ vm_name }}"
+      - " VMID     : {{ vm_id }}"
+      - " Node     : {{ proxmox_node }}"
+      - " CPU      : {{ vm_cpu }} cores ({{ vm_cpu_type }})"
+      - " Memory   : {{ vm_memory }} MB"
+      - " Disk     : {{ vm_disk_size }} GB ({{ vm_disk_storage }})"
+      - " ISO      : {{ vm_iso }}"
+      - " Network  : {{ vm_net_bridge }}"
+      - " Started  : {{ vm_start_after_create }}"
+      - "════════════════════════════════════════════"
+      - " Next: Run proxmox_vm_configure role after OS install"
+      - "════════════════════════════════════════════"

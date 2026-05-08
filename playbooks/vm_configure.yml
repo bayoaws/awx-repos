@@ -1,0 +1,9 @@
+---
+- name: Configure VM after OS install
+  hosts: "{{ target_host | mandatory }}"
+  gather_facts: true
+  become: true
+  vars_files:
+    - ../group_vars/all.yml
+  roles:
+    - role: proxmox_vm_configure

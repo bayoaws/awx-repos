@@ -1,0 +1,96 @@
+---
+- name: Manage Proxmox VMs (snapshot/start/stop/reboot)
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - ../group_vars/all.yml
+
+  vars:
+    vm_action:     "{{ vm_action | default('snapshot') }}"
+    snapshot_name: "{{ snapshot_name | default('snap_' + lookup('pipe','date +%Y%m%d_%H%M')) }}"
+    snapshot_desc: "{{ snapshot_desc | default('Created by Ansible AAP') }}"
+    include_ram:   "{{ include_ram | default(false) }}"
+    vmids:
+      - 102
+      - 103
+      - 104
+      - 105
+      - 106
+      - 107
+      - 108
+      - 109
+
+  tasks:
+    - name: Snapshot VMs
+      community.proxmox.proxmox_snap:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        vmid:             "{{ item }}"
+        snapname:         "{{ snapshot_name }}"
+        description:      "{{ snapshot_desc }}"
+        vmstate:          "{{ include_ram }}"
+        state:            present
+      loop: "{{ vmids }}"
+      when: vm_action == "snapshot"
+
+    - name: Start VMs
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ item }}"
+        state:            started
+      loop: "{{ vmids }}"
+      when: vm_action == "start"
+
+    - name: Stop VMs
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ item }}"
+        state:            stopped
+        force_stop:       true
+      loop: "{{ vmids }}"
+      when: vm_action == "stop"
+
+    - name: Reboot VMs
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ item }}"
+        state:            restarted
+      loop: "{{ vmids }}"
+      when: vm_action == "reboot"
+
+    - name: Delete snapshot
+      community.proxmox.proxmox_snap:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        vmid:             "{{ item }}"
+        snapname:         "{{ snapshot_name }}"
+        state:            absent
+      loop: "{{ vmids }}"
+      when: vm_action == "delete_snapshot"

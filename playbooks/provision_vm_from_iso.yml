@@ -1,0 +1,66 @@
+---
+- name: Provision VM from ISO in Proxmox
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - ../group_vars/all.yml
+
+  tasks:
+    - name: Verify Proxmox API reachable
+      ansible.builtin.uri:
+        url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes"
+        method: GET
+        headers:
+          Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
+        validate_certs: false
+        status_code: 200
+
+    - name: Create VM
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ vm_id | mandatory }}"
+        name:             "{{ vm_name | mandatory }}"
+        memory:           "{{ vm_memory | default(4096) }}"
+        cores:            "{{ vm_cpu | default(2) }}"
+        sockets:          1
+        cpu:              host
+        ostype:           l26
+        machine:          q35
+        scsi:
+          scsi0: "{{ vm_disk_storage | default('local-zfs') }}:{{ vm_disk_size | default(50) }},format=raw"
+        scsihw:           virtio-scsi-pci
+        bootdisk:         scsi0
+        boot:             "order=scsi0;ide2;net0"
+        ide:
+          ide2: "{{ vm_iso_path | default('local:iso/Rocky-9.5-x86_64-dvd.iso') }},media=cdrom"
+        net:
+          net0: "virtio,bridge={{ vm_net_bridge | default('vmbr0') }}"
+        tags:             "{{ vm_tag_list | default('lab,rocky9') }}"
+        agent:            1
+        onboot:           true
+        state:            present
+
+    - name: Start VM
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ vm_id }}"
+        state:            started
+
+    - name: Summary
+      ansible.builtin.debug:
+        msg:
+          - "✔ VM {{ vm_name }} (VMID {{ vm_id }}) created and started"
+          - "  Next: Complete OS install via Proxmox console"

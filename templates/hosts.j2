@@ -1,0 +1,10 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+# Self
+{{ vm_ip }}  {{ vm_fqdn }}  {{ vm_name }}
+
+# TechNexus Lab
+{% for host in lab_hosts %}
+{{ host.ip }}  {{ host.fqdn }}  {{ host.short }}
+{% endfor %}

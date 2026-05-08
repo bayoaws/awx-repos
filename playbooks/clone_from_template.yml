@@ -1,0 +1,72 @@
+---
+- name: Clone VM from Proxmox template
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - ../group_vars/all.yml
+
+  vars:
+    proxmox_token_secret: "{{ lookup('env', 'PROXMOX_TOKEN') }}"
+    template_vmid: "{{ template_vmid | mandatory }}"
+    new_vmid:      "{{ new_vmid | mandatory }}"
+    new_name:      "{{ new_name | mandatory }}"
+    vm_memory_mb:  "{{ vm_memory_mb | default(default_memory_mb) }}"
+    vm_cores:      "{{ vm_cores | default(default_cores) }}"
+    vm_storage:    "{{ vm_storage | default(default_storage) }}"
+    vm_ip:         "{{ vm_ip | mandatory }}"
+
+  tasks:
+    - name: Clone template
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        clone:            "{{ template_vmid }}"
+        vmid:             "{{ new_vmid }}"
+        name:             "{{ new_name }}"
+        full:             true
+        storage:          "{{ vm_storage }}"
+        state:            present
+
+    - name: Update VM specs
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ new_vmid }}"
+        memory:           "{{ vm_memory_mb }}"
+        cores:            "{{ vm_cores }}"
+        update:           true
+        state:            present
+
+    - name: Start VM
+      community.proxmox.proxmox_kvm:
+        api_host:         "{{ proxmox_host }}"
+        api_port:         "{{ proxmox_port }}"
+        api_user:         "{{ proxmox_user }}"
+        api_token_id:     "{{ proxmox_token_id }}"
+        api_token_secret: "{{ proxmox_token_secret }}"
+        validate_certs:   false
+        node:             "{{ proxmox_node }}"
+        vmid:             "{{ new_vmid }}"
+        state:            started
+
+    - name: Wait for SSH
+      ansible.builtin.wait_for:
+        host:    "{{ vm_ip }}"
+        port:    22
+        timeout: 120
+        state:   started
+
+    - name: Clone complete
+      ansible.builtin.debug:
+        msg: "VM {{ new_name }} ({{ new_vmid }}) ready at {{ vm_ip }} — run post_provision_configure.yml next"

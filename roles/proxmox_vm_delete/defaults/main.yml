@@ -1,0 +1,10 @@
+---
+proxmox_host:         "192.168.4.50"
+proxmox_port:         "8006"
+proxmox_node:         "technexus"
+proxmox_user:         "ansible_aap@pve"
+proxmox_token_id:     "ansible-token"
+proxmox_token_secret: ""
+vm_id:                ""
+vm_name_confirm:      ""
+vm_purge_disks:       true

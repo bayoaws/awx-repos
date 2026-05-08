@@ -1,0 +1,18 @@
+---
+proxmox_host:         "192.168.4.50"
+proxmox_port:         "8006"
+proxmox_node:         "technexus"
+proxmox_user:         "ansible_aap@pve"
+proxmox_token_id:     "ansible-token"
+proxmox_token_secret: ""
+vm_power_state:       "started"
+vm_force_stop:        false
+power_vmids:
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109

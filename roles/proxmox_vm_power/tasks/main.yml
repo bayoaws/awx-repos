@@ -1,0 +1,41 @@
+---
+# ==============================================================================
+# Role: proxmox_vm_power
+# Tasks: Start, stop, or reboot VMs
+# ==============================================================================
+
+- name: "Validate required variables"
+  ansible.builtin.assert:
+    that:
+      - vm_power_state in ['started', 'stopped', 'restarted']
+      - proxmox_token_secret | string | length > 0
+      - power_vmids | length > 0
+    fail_msg: "vm_power_state must be started/stopped/restarted. proxmox_token_secret and power_vmids required."
+
+- name: "Apply power state to VMs"
+  community.proxmox.proxmox_kvm:
+    api_host:         "{{ proxmox_host }}"
+    api_port:         "{{ proxmox_port }}"
+    api_user:         "{{ proxmox_user }}"
+    api_token_id:     "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    validate_certs:   false
+    node:             "{{ proxmox_node }}"
+    vmid:             "{{ item }}"
+    state:            "{{ vm_power_state }}"
+    force_stop:       "{{ vm_force_stop }}"
+  loop: "{{ power_vmids }}"
+  loop_control:
+    label: "VMID {{ item }} → {{ vm_power_state }}"
+  register: power_result
+
+- name: "Display power management summary"
+  ansible.builtin.debug:
+    msg:
+      - "════════════════════════════════════════════"
+      - " POWER MANAGEMENT COMPLETE"
+      - "════════════════════════════════════════════"
+      - " Action   : {{ vm_power_state }}"
+      - " VMIDs    : {{ power_vmids | join(', ') }}"
+      - " Forced   : {{ vm_force_stop }}"
+      - "════════════════════════════════════════════"

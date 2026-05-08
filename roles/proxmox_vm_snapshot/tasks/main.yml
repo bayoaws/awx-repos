@@ -1,0 +1,61 @@
+---
+# ==============================================================================
+# Role: proxmox_vm_snapshot
+# Tasks: Create or delete snapshots on one or all lab VMs
+# ==============================================================================
+
+- name: "Validate required variables"
+  ansible.builtin.assert:
+    that:
+      - snapshot_name | string | length > 0
+      - proxmox_token_secret | string | length > 0
+      - snapshot_vmids | length > 0
+    fail_msg: "snapshot_name, proxmox_token_secret and snapshot_vmids are required"
+
+- name: "Create snapshot on VMs"
+  community.proxmox.proxmox_snap:
+    api_host:         "{{ proxmox_host }}"
+    api_port:         "{{ proxmox_port }}"
+    api_user:         "{{ proxmox_user }}"
+    api_token_id:     "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    validate_certs:   false
+    vmid:             "{{ item }}"
+    snapname:         "{{ snapshot_name }}"
+    description:      "{{ snapshot_description }}"
+    vmstate:          "{{ snapshot_include_ram }}"
+    state:            present
+  loop: "{{ snapshot_vmids }}"
+  loop_control:
+    label: "VMID {{ item }}"
+  when: snapshot_state == "present"
+  register: snap_create_result
+
+- name: "Delete snapshot from VMs"
+  community.proxmox.proxmox_snap:
+    api_host:         "{{ proxmox_host }}"
+    api_port:         "{{ proxmox_port }}"
+    api_user:         "{{ proxmox_user }}"
+    api_token_id:     "{{ proxmox_token_id }}"
+    api_token_secret: "{{ proxmox_token_secret }}"
+    validate_certs:   false
+    vmid:             "{{ item }}"
+    snapname:         "{{ snapshot_name }}"
+    state:            absent
+  loop: "{{ snapshot_vmids }}"
+  loop_control:
+    label: "VMID {{ item }}"
+  when: snapshot_state == "absent"
+  register: snap_delete_result
+
+- name: "Display snapshot summary"
+  ansible.builtin.debug:
+    msg:
+      - "════════════════════════════════════════════"
+      - " SNAPSHOT {{ snapshot_state | upper }} COMPLETE"
+      - "════════════════════════════════════════════"
+      - " Name     : {{ snapshot_name }}"
+      - " VMIDs    : {{ snapshot_vmids | join(', ') }}"
+      - " RAM      : {{ snapshot_include_ram }}"
+      - " Action   : {{ snapshot_state }}"
+      - "════════════════════════════════════════════"

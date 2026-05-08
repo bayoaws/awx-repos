@@ -1,0 +1,162 @@
+---
+# ==============================================================================
+# Role: proxmox_vm_configure
+# Tasks: Post-provision OS configuration for a freshly installed VM
+# ==============================================================================
+
+- name: "Validate required variables"
+  ansible.builtin.assert:
+    that:
+      - vm_fqdn | string | length > 0
+      - vm_name | string | length > 0
+      - vm_ip   | string | length > 0
+    fail_msg: "vm_fqdn, vm_name and vm_ip are required"
+    success_msg: "Input validation passed"
+
+# ── HOSTNAME ──────────────────────────────────────────────────────────────
+- name: "Set system hostname"
+  ansible.builtin.hostname:
+    name: "{{ vm_fqdn }}"
+
+- name: "Write /etc/hostname"
+  ansible.builtin.copy:
+    content: "{{ vm_fqdn }}\n"
+    dest: /etc/hostname
+    mode: '0644'
+
+# ── /etc/hosts ────────────────────────────────────────────────────────────
+- name: "Remove 127.0.1.1 entry if present"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1'
+    state: absent
+
+- name: "Set self entry in /etc/hosts"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: "{{ vm_ip }}  {{ vm_fqdn }}  {{ vm_name }}"
+    state: present
+
+- name: "Add all lab nodes to /etc/hosts"
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    regexp: "^{{ item.ip }}"
+    line: "{{ item.ip }}  {{ item.fqdn }}  {{ item.short }}"
+    state: present
+  loop: "{{ lab_hosts }}"
+  loop_control:
+    label: "{{ item.short }}"
+
+# ── STATIC IP (nmcli) ─────────────────────────────────────────────────────
+- name: "Get active network connection name"
+  ansible.builtin.command: nmcli -t -f NAME connection show --active
+  register: active_conn
+  changed_when: false
+
+- name: "Configure static IP address"
+  community.general.nmcli:
+    conn_name: "{{ active_conn.stdout_lines[0] }}"
+    type: ethernet
+    ip4: "{{ vm_ip }}/{{ vm_netmask }}"
+    gw4: "{{ vm_gateway }}"
+    dns4:
+      - "{{ vm_dns1 }}"
+      - "{{ vm_dns2 }}"
+    state: present
+    autoconnect: true
+  notify: Restart NetworkManager
+
+# ── BASE PACKAGES ─────────────────────────────────────────────────────────
+- name: "Install base packages"
+  ansible.builtin.dnf:
+    name: "{{ base_packages }}"
+    state: present
+    update_cache: true
+
+- name: "Enable and start QEMU guest agent"
+  ansible.builtin.systemd:
+    name: qemu-guest-agent
+    state: started
+    enabled: true
+
+# ── ANSIBLE SERVICE ACCOUNT ───────────────────────────────────────────────
+- name: "Ensure ansible_aap user exists"
+  ansible.builtin.user:
+    name: "{{ ansible_service_user }}"
+    shell: /bin/bash
+    create_home: true
+    comment: "Ansible Service Account"
+    state: present
+
+- name: "Create .ssh directory for ansible_aap"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_service_user }}/.ssh"
+    state: directory
+    owner: "{{ ansible_service_user }}"
+    group: "{{ ansible_service_user }}"
+    mode: '0700'
+
+- name: "Inject ctrl public key into authorized_keys"
+  ansible.builtin.lineinfile:
+    path: "/home/{{ ansible_service_user }}/.ssh/authorized_keys"
+    line: "{{ lookup('file', ansible_pub_key_path) }}"
+    create: true
+    owner: "{{ ansible_service_user }}"
+    group: "{{ ansible_service_user }}"
+    mode: '0600'
+
+- name: "Configure passwordless sudo for ansible_aap"
+  ansible.builtin.copy:
+    dest: "/etc/sudoers.d/{{ ansible_service_user }}"
+    content: "{{ ansible_service_user }} ALL=(ALL) NOPASSWD: ALL\n"
+    mode: '0440'
+    validate: 'visudo -cf %s'
+
+# ── SSH HARDENING ─────────────────────────────────────────────────────────
+- name: "Deploy sshd Ansible drop-in config"
+  ansible.builtin.copy:
+    dest: /etc/ssh/sshd_config.d/99-ansible.conf
+    content: |
+      PubkeyAuthentication yes
+      AuthorizedKeysFile .ssh/authorized_keys
+      PasswordAuthentication yes
+      UseDNS no
+      GSSAPIAuthentication no
+    mode: '0600'
+  notify: Reload sshd
+
+# ── FIREWALL ──────────────────────────────────────────────────────────────
+- name: "Ensure firewalld is running"
+  ansible.builtin.systemd:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: "Allow SSH through firewall"
+  ansible.posix.firewalld:
+    service: ssh
+    permanent: true
+    state: enabled
+    immediate: true
+
+# ── SELINUX ───────────────────────────────────────────────────────────────
+- name: "Set SELinux state"
+  ansible.posix.selinux:
+    policy: targeted
+    state: "{{ selinux_state }}"
+
+# ── SUMMARY ───────────────────────────────────────────────────────────────
+- name: "Display configuration summary"
+  ansible.builtin.debug:
+    msg:
+      - "════════════════════════════════════════════"
+      - " VM CONFIGURED SUCCESSFULLY"
+      - "════════════════════════════════════════════"
+      - " FQDN     : {{ vm_fqdn }}"
+      - " IP       : {{ vm_ip }}/{{ vm_netmask }}"
+      - " Gateway  : {{ vm_gateway }}"
+      - " DNS      : {{ vm_dns1 }}, {{ vm_dns2 }}"
+      - " User     : {{ ansible_service_user }} (key-auth + sudo)"
+      - " SELinux  : {{ selinux_state }}"
+      - " Agent    : qemu-guest-agent enabled"
+      - "════════════════════════════════════════════"

@@ -1,0 +1,43 @@
+---
+# ==============================================================================
+# Role: proxmox_vm_create
+# Defaults — all variables can be overridden via extra_vars or AAP Survey
+# ==============================================================================
+
+# ── Proxmox Connection (set in group_vars or AAP Credential) ───────────────
+proxmox_host:         "192.168.4.50"
+proxmox_port:         "8006"
+proxmox_node:         "technexus"
+proxmox_user:         "ansible_aap@pve"
+proxmox_token_id:     "ansible-token"
+proxmox_token_secret: ""          # Set via AAP Credential — never hardcode
+
+# ── VM Identity ────────────────────────────────────────────────────────────
+vm_id:          ""                 # Mandatory — set via Survey
+vm_name:        ""                 # Mandatory — set via Survey
+vm_description: "Provisioned by Ansible AAP"
+vm_tags:        "lab"
+
+# ── Hardware ───────────────────────────────────────────────────────────────
+vm_cpu:         2
+vm_memory:      4096               # MB
+vm_disk_size:   50                 # GB
+vm_disk_storage: "local-zfs"
+vm_sockets:     1
+vm_cpu_type:    "host"
+vm_machine:     "q35"
+vm_os_type:     "l26"              # l26=Linux, win10=Windows
+
+# ── Network ────────────────────────────────────────────────────────────────
+vm_net_bridge:  "vmbr0"
+vm_net_model:   "virtio"
+vm_vlan:        ""                 # Leave empty for no VLAN tag
+
+# ── Boot ───────────────────────────────────────────────────────────────────
+vm_iso:         "local:iso/Rocky-9.5-x86_64-dvd.iso"
+vm_boot_order:  "order=scsi0;ide2;net0"
+vm_agent:       1                  # QEMU guest agent
+vm_onboot:      true               # Start on Proxmox boot
+
+# ── State ──────────────────────────────────────────────────────────────────
+vm_start_after_create: true        # Start VM immediately after creation

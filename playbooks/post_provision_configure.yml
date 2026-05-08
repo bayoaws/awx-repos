@@ -1,0 +1,128 @@
+---
+- name: Post-provision VM configuration
+  hosts: "{{ target_host | mandatory }}"
+  gather_facts: true
+  become: true
+
+  vars:
+    vm_fqdn:    "{{ vm_fqdn | mandatory }}"
+    vm_name:    "{{ vm_name | mandatory }}"
+    vm_ip:      "{{ vm_ip | mandatory }}"
+    vm_netmask: "{{ vm_netmask | default(lab_netmask) }}"
+    vm_gateway: "{{ vm_gateway | default(lab_gateway) }}"
+    vm_dns:     "{{ vm_dns | default(lab_dns) }}"
+    ctrl_pub_key: "{{ lookup('file', ansible_pub_key_path) }}"
+
+  tasks:
+    - name: Set hostname
+      ansible.builtin.hostname:
+        name: "{{ vm_fqdn }}"
+
+    - name: Update /etc/hostname
+      ansible.builtin.copy:
+        content: "{{ vm_fqdn }}\n"
+        dest: /etc/hostname
+        mode: '0644'
+
+    - name: Build /etc/hosts with all lab entries
+      ansible.builtin.template:
+        src: templates/hosts.j2
+        dest: /etc/hosts
+        mode: '0644'
+
+    - name: Configure static IP via nmcli
+      community.general.nmcli:
+        conn_name: "{{ ansible_default_ipv4.alias }}"
+        type: ethernet
+        ip4: "{{ vm_ip }}/{{ vm_netmask }}"
+        gw4: "{{ vm_gateway }}"
+        dns4: ["{{ vm_dns }}", "8.8.8.8"]
+        state: present
+        autoconnect: true
+
+    - name: Install base packages
+      ansible.builtin.dnf:
+        name:
+          - qemu-guest-agent
+          - python3
+          - python3-pip
+          - git
+          - vim
+          - curl
+          - wget
+          - bash-completion
+          - net-tools
+          - bind-utils
+          - tmux
+          - rsync
+          - tar
+        state: present
+        update_cache: true
+
+    - name: Enable QEMU guest agent
+      ansible.builtin.systemd:
+        name: qemu-guest-agent
+        state: started
+        enabled: true
+
+    - name: Ensure ansible_aap user exists
+      ansible.builtin.user:
+        name: "{{ ansible_service_user }}"
+        shell: /bin/bash
+        create_home: true
+        comment: "Ansible Service Account"
+
+    - name: Create .ssh directory
+      ansible.builtin.file:
+        path: "/home/{{ ansible_service_user }}/.ssh"
+        state: directory
+        owner: "{{ ansible_service_user }}"
+        group: "{{ ansible_service_user }}"
+        mode: '0700'
+
+    - name: Add ctrl public key
+      ansible.builtin.lineinfile:
+        path: "/home/{{ ansible_service_user }}/.ssh/authorized_keys"
+        line: "{{ ctrl_pub_key }}"
+        create: true
+        owner: "{{ ansible_service_user }}"
+        group: "{{ ansible_service_user }}"
+        mode: '0600'
+
+    - name: Configure passwordless sudo
+      ansible.builtin.copy:
+        dest: "/etc/sudoers.d/{{ ansible_service_user }}"
+        content: "{{ ansible_service_user }} ALL=(ALL) NOPASSWD: ALL\n"
+        mode: '0440'
+        validate: 'visudo -cf %s'
+
+    - name: Configure sshd for Ansible
+      ansible.builtin.copy:
+        dest: /etc/ssh/sshd_config.d/99-ansible.conf
+        content: |
+          PubkeyAuthentication yes
+          AuthorizedKeysFile .ssh/authorized_keys
+          PasswordAuthentication yes
+          UseDNS no
+          GSSAPIAuthentication no
+        mode: '0600'
+      notify: Reload sshd
+
+    - name: Allow SSH through firewall
+      ansible.posix.firewalld:
+        service: ssh
+        permanent: true
+        state: enabled
+        immediate: true
+
+    - name: Summary
+      ansible.builtin.debug:
+        msg:
+          - "Post-provision complete: {{ vm_fqdn }}"
+          - "IP: {{ vm_ip }} | User: {{ ansible_service_user }}"
+
+  handlers:
+    - name: Reload sshd
+      ansible.builtin.systemd:
+        name: sshd
+        state: reloaded

@@ -1,0 +1,6 @@
+*.zip
+*.retry
+*.log
+collections/ansible_collections/
+.vault_pass
+proxmox-roles.zip

@@ -1,0 +1,41 @@
+---
+# ── Proxmox Connection ─────────────────────────────────────────────────────
+proxmox_host: "192.168.4.50"
+proxmox_port: "8006"
+proxmox_node: "technexus"
+proxmox_user: "ansible_aap@pve"
+proxmox_token_id: "ansible-token"
+# proxmox_token_secret: set via AAP credential or env var — never here
+
+# ── Default VM Settings ────────────────────────────────────────────────────
+default_memory_mb: 4096
+default_cores: 2
+default_disk_gb: 50
+default_storage: "local-lvm"
+default_bridge: "vmbr0"
+default_os_type: "l26"
+
+# ── Network Defaults ───────────────────────────────────────────────────────
+lab_subnet: "192.168.4"
+lab_gateway: "192.168.4.1"
+lab_dns: "192.168.4.102"
+lab_netmask: "24"
+lab_domain: "technexus.com"
+
+# ── Ansible Service Account ────────────────────────────────────────────────
+ansible_service_user: "ansible_aap"
+ansible_pub_key_path: "/home/ansible_aap/.ssh/id_ed25519.pub"
+
+# ── Lab Host Map ───────────────────────────────────────────────────────────
+lab_hosts:
+  - { vmid: 102, ip: "192.168.4.102", fqdn: "ctrl.technexus.com",    short: "ctrl" }
+  - { vmid: 103, ip: "192.168.4.103", fqdn: "exec1.technexus.com",   short: "exec1" }
+  - { vmid: 104, ip: "192.168.4.104", fqdn: "exec2.technexus.com",   short: "exec2" }
+  - { vmid: 105, ip: "192.168.4.105", fqdn: "hub.technexus.com",     short: "hub" }
+  - { vmid: 106, ip: "192.168.4.106", fqdn: "eda.technexus.com",     short: "eda" }
+  - { vmid: 107, ip: "192.168.4.107", fqdn: "gate.technexus.com",    short: "gate" }
+  - { vmid: 108, ip: "192.168.4.108", fqdn: "mnt.technexus.com",     short: "mnt" }
+  - { vmid: 109, ip: "192.168.4.109", fqdn: "jenkins.technexus.com", short: "jenkins" }
+
+# ── Proxmox Token (use vault in production) ────────────────────────────────
+proxmox_token_secret: "37823db2-ac5f-498d-bfda-8379d8347594"
