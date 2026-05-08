@@ -58,31 +58,25 @@
 
 - name: "Set cloud-init network config"
   ansible.builtin.uri:
-    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id }}/config"
-    method: POST
+    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/config"
+    method: PUT
     headers:
       Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
-    body_format: json
-    body:
-      ipconfig0: "ip={{ vm_ip }}/{{ vm_netmask }},gw={{ vm_gateway }}"
-      nameserver: "{{ vm_dns }} {{ vm_dns2 }}"
-      searchdomain: "technexus.com"
-      ciuser: "{{ cloudinit_user }}"
-      sshkeys: "{{ (ansible_pub_key) | urlencode }}"
+      Content-Type: "application/x-www-form-urlencoded"
+    body: "ipconfig0=ip={{ vm_ip }}/{{ vm_netmask }},gw={{ vm_gateway }}&nameserver={{ vm_dns }}&searchdomain=technexus.com&ciuser={{ cloudinit_user }}"
+    body_format: form-urlencoded
     validate_certs: false
     status_code: 200
-  register: cloudinit_config
 
 - name: "Set hostname via cloud-init"
   ansible.builtin.uri:
-    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id }}/config"
-    method: POST
+    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/config"
+    method: PUT
     headers:
       Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
-    body_format: json
-    body:
-      name: "{{ vm_name }}"
-      ciupgrade: 0
+      Content-Type: "application/x-www-form-urlencoded"
+    body: "name={{ vm_name }}&ciupgrade=0"
+    body_format: form-urlencoded
     validate_certs: false
     status_code: 200
 
