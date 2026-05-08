@@ -30,12 +30,11 @@
     vmid:             "{{ template_vmid | int }}"
     newid:            "{{ vm_id | int }}"
     name:             "{{ vm_name }}"
-    clone:            "{{ vm_name }}"
+    clone:            "{{ template_name }}"
     full:             true
     storage:          "{{ vm_disk_storage }}"
     state:            present
-  register: clone_result
-    
+  register: clone_result    
 - name: "Wait 5 seconds for clone to settle"
   ansible.builtin.pause:
     seconds: 5

@@ -40,3 +40,6 @@ ansible_pub_key:      ""         # Injected from ctrl at runtime
 # ── Boot Wait ─────────────────────────────────────────────────────────────
 vm_ssh_wait_timeout:  300        # seconds to wait for SSH
 vm_ssh_wait_delay:    10         # seconds between retries
+
+# ── Template names matching VMIDs ──────────────────────────────────────────
+template_name: "rocky9-tpl"     # 9001=rocky9-tpl | 9000=ubuntu2404-tpl
