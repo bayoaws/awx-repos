@@ -27,15 +27,15 @@
     api_token_secret: "{{ proxmox_token_secret }}"
     validate_certs:   false
     node:             "{{ proxmox_node }}"
-    vmid:             "{{ template_vmid }}"
-    newid:            "{{ vm_id }}"
+    vmid:             "{{ template_vmid | int }}"
+    newid:            "{{ vm_id | int }}"
     name:             "{{ vm_name }}"
     clone:            "{{ vm_name }}"
     full:             true
     storage:          "{{ vm_disk_storage }}"
     state:            present
   register: clone_result
-
+    
 - name: "Wait 5 seconds for clone to settle"
   ansible.builtin.pause:
     seconds: 5
@@ -49,7 +49,7 @@
     api_token_secret: "{{ proxmox_token_secret }}"
     validate_certs:   false
     node:             "{{ proxmox_node }}"
-    vmid:             "{{ vm_id }}"
+    vmid:             "{{ vm_id | int }}"
     memory:           "{{ vm_memory }}"
     cores:            "{{ vm_cpu }}"
     net:
@@ -106,7 +106,7 @@
     api_token_secret: "{{ proxmox_token_secret }}"
     validate_certs:   false
     node:             "{{ proxmox_node }}"
-    vmid:             "{{ vm_id }}"
+    vmid:             "{{ vm_id | int }}"
     state:            started
 
 - name: "Wait for SSH to become available (cloud-init booting)"
