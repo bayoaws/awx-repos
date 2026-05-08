@@ -1,13 +1,20 @@
 ---
-# ==============================================================================
-# vm_create.yml — Create a new VM in Proxmox from ISO
-# Called by AAP Job Template: "Proxmox - Create VM"
-# ==============================================================================
 - name: Create VM in Proxmox
   hosts: localhost
   connection: local
   gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   vars_files:
     - ../group_vars/all.yml
+
+  pre_tasks:
+    - name: Ensure proxmoxer is installed in EE
+      ansible.builtin.pip:
+        name:
+          - proxmoxer
+          - requests
+        state: present
+
   roles:
     - role: proxmox_vm_create
