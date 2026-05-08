@@ -27,9 +27,10 @@
     api_token_secret: "{{ proxmox_token_secret }}"
     validate_certs:   false
     node:             "{{ proxmox_node }}"
-    clone:            "{{ template_vmid }}"
-    vmid:             "{{ vm_id }}"
+    vmid:             "{{ template_vmid }}"
+    newid:            "{{ vm_id }}"
     name:             "{{ vm_name }}"
+    clone:            "{{ vm_name }}"
     full:             true
     storage:          "{{ vm_disk_storage }}"
     state:            present
