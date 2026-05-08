@@ -39,3 +39,10 @@ lab_hosts:
 
 # ── Proxmox Token (use vault in production) ────────────────────────────────
 proxmox_token_secret: "37823db2-ac5f-498d-bfda-8379d8347594"
+
+# ── ansible_aap public key (injected into cloned VMs) ─────────────────────
+ansible_aap_pub_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIExXFWmbiDRKsK3slmsM1EIQdUGFdbitW7Odc4fuGf86 ansible_aap@ctrl.technexus.com"
+
+# ── Sensitive vars — loaded from vault.yml ─────────────────────────────────
+# proxmox_token_secret is vaulted — never stored in plaintext
+proxmox_token_secret: "{{ vault_proxmox_token_secret }}"

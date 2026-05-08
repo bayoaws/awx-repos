@@ -14,9 +14,9 @@
     fail_msg: "vm_id, vm_name, vm_ip and proxmox_token_secret are required"
     success_msg: "Input validation passed"
 
-- name: "Read ansible_aap public key from ctrl"
+- name: "Set ansible_aap public key"
   ansible.builtin.set_fact:
-    ansible_pub_key: "{{ lookup('file', '/home/ansible_aap/.ssh/id_ed25519.pub') }}"
+    ansible_pub_key: "{{ ansible_aap_pub_key }}"
 
 - name: "Clone template to new VM"
   community.proxmox.proxmox_kvm:

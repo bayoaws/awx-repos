@@ -4,3 +4,8 @@
 collections/ansible_collections/
 .vault_pass
 proxmox-roles.zip
+# Never commit these
+~/.vault_pass
+.vault_pass
+*.vault_pass
+group_vars/vault.yml    # Commit only if encrypted
