@@ -1,0 +1,41 @@
+---
+# ==============================================================================
+# vm_full_provision.yml — Fully automated VM provisioning
+# Chains: clone → wait_for_ssh → configure
+# No manual steps required — VM is fully built and ready in ~4 minutes
+#
+# AAP Job Template: "Proxmox - Full VM Provision"
+# ==============================================================================
+
+# ── PHASE 1: Clone template and inject cloud-init config ───────────────────
+- name: "Phase 1 — Clone template and boot VM"
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  vars_files:
+    - ../group_vars/all.yml
+  pre_tasks:
+    - name: Ensure proxmoxer is installed
+      ansible.builtin.pip:
+        name:
+          - proxmoxer
+          - requests
+        state: present
+  roles:
+    - role: proxmox_vm_clone
+
+# ── PHASE 2: Configure the new VM ─────────────────────────────────────────
+- name: "Phase 2 — Configure VM OS"
+  hosts: "{{ vm_ip }}"
+  gather_facts: true
+  become: true
+  vars:
+    ansible_user: "admin"
+    ansible_ssh_private_key_file: /home/ansible_aap/.ssh/id_ed25519
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+  vars_files:
+    - ../group_vars/all.yml
+  roles:
+    - role: proxmox_vm_configure

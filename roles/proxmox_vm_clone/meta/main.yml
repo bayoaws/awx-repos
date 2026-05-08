@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  role_name: proxmox_vm_clone
+  author: ansible_aap
+  description: "Clone Proxmox cloud-init template and inject network/user config"
+  license: MIT
+  min_ansible_version: "2.13"
+dependencies: []

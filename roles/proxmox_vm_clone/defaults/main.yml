@@ -1,0 +1,42 @@
+---
+# ==============================================================================
+# Role: proxmox_vm_clone
+# Defaults — clone from cloud-init template
+# ==============================================================================
+
+# ── Proxmox Connection ─────────────────────────────────────────────────────
+proxmox_host:         "192.168.4.50"
+proxmox_port:         "8006"
+proxmox_node:         "technexus"
+proxmox_user:         "ansible_aap@pve"
+proxmox_token_id:     "ansible-token"
+proxmox_token_secret: ""
+
+# ── Template Selection ─────────────────────────────────────────────────────
+# 9001 = Rocky 9 | 9000 = Ubuntu 24.04
+template_vmid:        "9001"
+
+# ── New VM Settings ────────────────────────────────────────────────────────
+vm_id:                ""         # Mandatory — set via Survey
+vm_name:              ""         # Mandatory — set via Survey
+vm_fqdn:              ""         # e.g. testserver01.technexus.com
+vm_memory:            4096       # MB
+vm_cpu:               2
+vm_disk_size:         "32G"      # Must be >= template disk size
+vm_disk_storage:      "local-zfs"
+vm_net_bridge:        "vmbr0"    # Override template's vmbr1
+
+# ── Network (injected via cloud-init) ─────────────────────────────────────
+vm_ip:                ""         # Mandatory — e.g. 192.168.4.130
+vm_netmask:           "24"
+vm_gateway:           "192.168.4.1"
+vm_dns:               "192.168.4.102"
+vm_dns2:              "8.8.8.8"
+
+# ── Cloud-init User ───────────────────────────────────────────────────────
+cloudinit_user:       "admin"
+ansible_pub_key:      ""         # Injected from ctrl at runtime
+
+# ── Boot Wait ─────────────────────────────────────────────────────────────
+vm_ssh_wait_timeout:  300        # seconds to wait for SSH
+vm_ssh_wait_delay:    10         # seconds between retries
