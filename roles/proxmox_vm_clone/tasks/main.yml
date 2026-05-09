@@ -56,38 +56,27 @@
     update:           true
     state:            present
 
-- name: "Set cloud-init network config"
-  ansible.builtin.uri:
-    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/config"
-    method: PUT
-    headers:
-      Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
-      Content-Type: "application/x-www-form-urlencoded"
-    body: "ipconfig0=ip={{ vm_ip }}/{{ vm_netmask }},gw={{ vm_gateway }}&nameserver={{ vm_dns }}&searchdomain=technexus.com&ciuser={{ cloudinit_user }}"
-    body_format: form-urlencoded
-    validate_certs: false
-    status_code: 200
-
-- name: "Set hostname via cloud-init"
-  ansible.builtin.uri:
-    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/config"
-    method: PUT
-    headers:
-      Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
-      Content-Type: "application/x-www-form-urlencoded"
-    body: "name={{ vm_name }}&ciupgrade=0"
-    body_format: form-urlencoded
-    validate_certs: false
-    status_code: 200
+- name: "Set cloud-init config via pvesh on Proxmox host"
+  ansible.builtin.command: >
+    pvesh set /nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/config
+    --ipconfig0 "ip={{ vm_ip }}/{{ vm_netmask }},gw={{ vm_gateway }}"
+    --nameserver "{{ vm_dns }}"
+    --searchdomain "technexus.com"
+    --ciuser "{{ cloudinit_user }}"
+    --sshkeys "{{ ansible_pub_key | urlencode }}"
+    --ciupgrade 0
+  delegate_to: "{{ proxmox_host }}"
+  vars:
+    ansible_user: root
+    ansible_ssh_private_key_file: /home/ansible_aap/.ssh/id_ed25519
 
 - name: "Regenerate cloud-init image"
-  ansible.builtin.uri:
-    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id }}/cloudinit/generate"
-    method: PUT
-    headers:
-      Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
-    validate_certs: false
-    status_code: [200, 500]
+  ansible.builtin.command: >
+    pvesh create /nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/cloudinit/generate
+  delegate_to: "{{ proxmox_host }}"
+  vars:
+    ansible_user: root
+    ansible_ssh_private_key_file: /home/ansible_aap/.ssh/id_ed25519
   failed_when: false
 
 - name: "Start VM"
