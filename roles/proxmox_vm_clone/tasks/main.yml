@@ -18,6 +18,7 @@
   ansible.builtin.set_fact:
     ansible_pub_key: "{{ ansible_aap_pub_key }}"
 
+# ── STEP 1: Clone template ─────────────────────────────────────────────────
 - name: "Clone template to new VM"
   community.proxmox.proxmox_kvm:
     api_host:         "{{ proxmox_host }}"
@@ -34,12 +35,13 @@
     full:             true
     storage:          "{{ vm_disk_storage }}"
     state:            present
-  register: clone_result    
+  register: clone_result
 
-- name: "Wait 5 seconds for clone to settle"
+- name: "Wait 10 seconds for clone to settle"
   ansible.builtin.pause:
-    seconds: 5
+    seconds: 10
 
+# ── STEP 2: Update hardware ────────────────────────────────────────────────
 - name: "Update VM hardware specs"
   community.proxmox.proxmox_kvm:
     api_host:         "{{ proxmox_host }}"
@@ -57,6 +59,7 @@
     update:           true
     state:            present
 
+# ── STEP 3: Inject cloud-init config ──────────────────────────────────────
 - name: "Set cloud-init IP config"
   ansible.builtin.uri:
     url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/config"
@@ -85,15 +88,22 @@
     validate_certs: false
     status_code: 200
 
-- name: "Regenerate cloud-init image"
-  ansible.builtin.command: >
-    pvesh create /nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/cloudinit/generate
-  delegate_to: "{{ proxmox_host }}"
-  vars:
-    ansible_user: root
-    ansible_ssh_private_key_file: /home/ansible_aap/.ssh/id_ed25519
+# ── STEP 4: Regenerate cloud-init drive BEFORE starting VM ────────────────
+- name: "Regenerate cloud-init drive"
+  ansible.builtin.uri:
+    url: "https://{{ proxmox_host }}:{{ proxmox_port }}/api2/json/nodes/{{ proxmox_node }}/qemu/{{ vm_id | int }}/cloudinit/generate"
+    method: PUT
+    headers:
+      Authorization: "PVEAPIToken={{ proxmox_user }}!{{ proxmox_token_id }}={{ proxmox_token_secret }}"
+    validate_certs: false
+    status_code: [200, 500]
   failed_when: false
 
+- name: "Wait 5 seconds for cloud-init drive to rebuild"
+  ansible.builtin.pause:
+    seconds: 5
+
+# ── STEP 5: Start VM ───────────────────────────────────────────────────────
 - name: "Start VM"
   community.proxmox.proxmox_kvm:
     api_host:         "{{ proxmox_host }}"
@@ -106,6 +116,7 @@
     vmid:             "{{ vm_id | int }}"
     state:            started
 
+# ── STEP 6: Wait for SSH ───────────────────────────────────────────────────
 - name: "Wait for SSH to become available (cloud-init booting)"
   ansible.builtin.wait_for:
     host:    "{{ vm_ip }}"
@@ -115,6 +126,7 @@
     state:   started
   delegate_to: localhost
 
+# ── STEP 7: Summary ────────────────────────────────────────────────────────
 - name: "VM clone complete — SSH is ready"
   ansible.builtin.debug:
     msg:
